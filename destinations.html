@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Destination Guides — Avadhut Tours</title>
+<meta name="description" content="Explore detailed destination guides for Kashmir, Himachal, Kerala, Rajasthan, Goa, Char Dham and more. Best time to visit, top attractions, travel tips from Avadhut Tours.">
+<link rel="icon" type="image/png" href="/assets/logo/avadhut-emblem.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="components.js"></script>
+<style>
+.dest-guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.dest-guide-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--border-subtle);box-shadow:0 2px 8px rgba(42,27,18,.07);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.dest-guide-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(42,27,18,.14)}
+.dest-guide-img{position:relative;height:200px;overflow:hidden}
+.dest-guide-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.dest-guide-card:hover .dest-guide-img img{transform:scale(1.06)}
+.dest-guide-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,17,10,.7) 0%,transparent 60%)}
+.dest-guide-region{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);color:var(--at-ink);font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em}
+.dest-guide-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
+.dest-guide-name{font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--text-strong);margin-bottom:4px}
+.dest-guide-tagline{font-size:13px;color:var(--text-muted);line-height:1.5;flex:1;margin-bottom:16px}
+.dest-guide-highlights{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.dest-guide-hl{font-size:11.5px;background:var(--at-saffron-50);color:var(--at-saffron-700);border-radius:999px;padding:3px 10px;font-weight:600}
+.dest-guide-cta{font-family:var(--font-display);font-size:13.5px;font-weight:700;color:var(--at-saffron-600);display:flex;align-items:center;gap:6px}
+@media(max-width:900px){.dest-guide-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.dest-guide-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<site-header active="destinations"></site-header>
+<main>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Plan Your Perfect Trip</div>
+    <h1>Destination Guides</h1>
+    <p>In-depth travel guides — best time to visit, top attractions, local tips and package ideas from our experienced team.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Explore by Destination</h2>
+    <p class="section-sub">Click any destination to read the complete guide, then browse matching tour packages.</p>
+    <div class="dest-guide-grid">
+
+      <a href="destinations/kashmir.html" class="dest-guide-card">
+        <div class="dest-guide-img">
+          <img src="assets/destinations/kashmir-dal-lake.jpg" alt="Kashmir" loading="lazy">
+          <div class="dest-guide-scrim"></div>
+          <div class="dest-guide-region">North India</div>
+        </div>
+        <div class="dest-guide-body">
+          <div class="dest-guide-name">Kashmir</div>
+          <div class="dest-guide-tagline">Dal Lake, Gulmarg snowfields, Pahalgam meadows — the crown of India.</div>
+          <div class="dest-guide-highlights">
+            <span class="dest-guide-hl">Srinagar</span>
+            <span class="dest-guide-hl">Gulmarg</span>
+            <span class="dest-guide-hl">Pahalgam</span>
+          </div>
+          <div class="dest-guide-cta">Read Guide →</div>
+        </div>
+      </a>
+
+      <a href="destinations/himachal.html" class="dest-guide-card">
+        <div class="dest-guide-img">
+          <img src="assets/destinations/manali.jpg" alt="Himachal Pradesh" loading="lazy">
+          <div class="dest-guide-scrim"></div>
+          <div class="dest-guide-region">North India</div>
+        </div>
+        <div class="dest-guide-body">
+          <div class="dest-guide-name">Himachal Pradesh</div>
+          <div class="dest-guide-tagline">Shimla's colonial charm, Manali's snow peaks, Spiti's raw beauty.</div>
+          <div class="dest-guide-highlights">
+            <span class="dest-guide-hl">Shimla</span>
+            <span class="dest-guide-hl">Manali</span>
+            <span class="dest-guide-hl">Spiti</span>
+          </div>
+          <div class="dest-guide-cta">Read Guide →</div>
+        </div>
+      </a>
+
+      <a href="destinations/kerala.html" class="dest-guide-card">
+        <div class="dest-guide-img">
+          <img src="assets/destinations/kerala-houseboat.jpg" alt="Kerala" loading="lazy">
+          <div class="dest-guide-scrim"></div>
+          <div class="dest-guide-region">South India</div>
+        </div>
+        <div class="dest-guide-body">
+          <div class="dest-guide-name">Kerala</div>
+          <div class="dest-guide-tagline">Backwater houseboats, Munnar tea estates, Kovalam beaches — God's Own Country.</div>
+          <div class="dest-guide-highlights">
+            <span class="dest-guide-hl">Munnar</span>
+            <span class="dest-guide-hl">Alleppey</span>
+            <span class="dest-guide-hl">Kochi</span>
+          </div>
+          <div class="dest-guide-cta">Read Guide →</div>
+        </div>
+      </a>
+
+      <a href="destinations/rajasthan.html" class="dest-guide-card">
+        <div class="dest-guide-img">
+          <img src="assets/destinations/rajasthan-desert.jpg" alt="Rajasthan" loading="lazy">
+          <div class="dest-guide-scrim"></div>
+          <div class="dest-guide-region">West India</div>
+        </div>
+        <div class="dest-guide-body">
+          <div class="dest-guide-name">Rajasthan</div>
+          <div class="dest-guide-tagline">Royal forts, desert safaris and vibrant culture in the land of kings.</div>
+          <div class="dest-guide-highlights">
+            <span class="dest-guide-hl">Jaipur</span>
+            <span class="dest-guide-hl">Jodhpur</span>
+            <span class="dest-guide-hl">Jaisalmer</span>
+          </div>
+          <div class="dest-guide-cta">Read Guide →</div>
+        </div>
+      </a>
+
+      <a href="destinations/goa.html" class="dest-guide-card">
+        <div class="dest-guide-img">
+          <img src="assets/destinations/goa-beach-paradise.jpg" alt="Goa" loading="lazy">
+          <div class="dest-guide-scrim"></div>
+          <div class="dest-guide-region">West India</div>
+        </div>
+        <div class="dest-guide-body">
+          <div class="dest-guide-name">Goa</div>
+          <div class="dest-guide-tagline">Sun-soaked beaches, Portuguese heritage, nightlife and fresh seafood.</div>
+          <div class="dest-guide-highlights">
+            <span class="dest-guide-hl">North Goa</span>
+            <span class="dest-guide-hl">South Goa</span>
+            <span class="dest-guide-hl">Old Goa</span>
+          </div>
+          <div class="dest-guide-cta">Read Guide →</div>
+        </div>
+      </a>
+
+      <a href="destinations/char-dham.html" class="dest-guide-card">
+        <div class="dest-guide-img">
+          <img src="assets/destinations/kedarnath.jpg" alt="Char Dham" loading="lazy">
+          <div class="dest-guide-scrim"></div>
+          <div class="dest-guide-region">Pilgrimage</div>
+        </div>
+        <div class="dest-guide-body">
+          <div class="dest-guide-name">Char Dham</div>
+          <div class="dest-guide-tagline">Kedarnath, Badrinath, Yamunotri &amp; Gangotri — the sacred circuit of Uttarakhand.</div>
+          <div class="dest-guide-highlights">
+            <span class="dest-guide-hl">Kedarnath</span>
+            <span class="dest-guide-hl">Badrinath</span>
+            <span class="dest-guide-hl">Gangotri</span>
+          </div>
+          <div class="dest-guide-cta">Read Guide →</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-inner">
+    <div>
+      <h2>Can't find your destination?</h2>
+      <p>We cover 32+ destinations across India. WhatsApp us with your dream destination and we'll plan it.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="packages.html" class="btn btn-ghost">Browse All Packages</a>
+      <a href="https://wa.me/918390922322?text=Hi%2C%20I%20want%20to%20plan%20a%20trip%20to%20a%20specific%20destination." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<site-footer></site-footer>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us — Avadhut Tours</title>
+<meta name="description" content="Avadhut Tours — customised travel since 2008. Based in Airoli, Navi Mumbai. 15+ years, 5000+ trips, 32+ destinations. Call +91 83909 22322.">
+<link rel="icon" type="image/png" href="/assets/logo/avadhut-emblem.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="components.js"></script>
+<style>
+/* ---- FOUNDER STORY ---- */
+.founder-section {
+  background: linear-gradient(135deg, #1B1D5C 0%, #2E3192 100%);
+  padding: 56px 0;
+}
+.founder-inner {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 48px;
+  align-items: start;
+  overflow: hidden;
+}
+.founder-narrative {
+  min-width: 0;
+}
+.founder-narrative h2 {
+  color: #FAD466;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 20px;
+  font-family: var(--font-display, 'Georgia', serif);
+}
+.founder-narrative p {
+  color: rgba(255,255,255,0.88);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  overflow-wrap: break-word;
+}
+.founder-narrative p:last-child {
+  margin-bottom: 0;
+}
+.founder-stats-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+.founder-stats-heading {
+  color: #FAD466;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.founder-stat-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.founder-stat-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+.founder-stat-card .fsn {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #FAD466;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.founder-stat-card .fsl {
+  display: block;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+/* Milestone timeline */
+.milestone-label {
+  color: #FAD466;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 32px 0 16px;
+}
+.milestone-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+  max-width: 100%;
+}
+.milestone-track::-webkit-scrollbar {
+  height: 4px;
+}
+.milestone-track::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+}
+.milestone-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(250,212,102,0.35);
+  border-radius: 999px;
+  padding: 8px 16px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.milestone-chip .mc-year {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #FAD466;
+  letter-spacing: 0.05em;
+}
+.milestone-chip .mc-text {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.85);
+}
+.milestone-chip .mc-emoji {
+  font-size: 1rem;
+}
+@media (max-width: 768px) {
+  .founder-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+
+/* ---- TRUST & ACCREDITATION ---- */
+.trust-section {
+  background: #ffffff;
+  padding: 64px 0;
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.trust-tile {
+  border: 2px solid rgba(27,29,92,0.1);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.trust-tile:hover {
+  border-color: rgba(241,90,35,0.35);
+  box-shadow: 0 4px 16px rgba(241,90,35,0.08);
+}
+.trust-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(241,90,35,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 14px;
+}
+.trust-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--at-navy, #1B1D5C);
+  margin-bottom: 6px;
+}
+.trust-desc {
+  font-size: 0.8rem;
+  color: #777;
+  line-height: 1.5;
+}
+.trust-cta {
+  text-align: center;
+  margin-top: 36px;
+}
+@media (max-width: 768px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<site-header active="about"></site-header>
+<main>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>About Avadhut Tours</h1>
+    <p>Your trusted travel partner since 2008 — 15 years, 5,000+ happy trips, 32+ destinations</p>
+  </div>
+</section>
+
+<!-- THANK YOU STATE -->
+<div id="ty-card" class="ty-card" style="display:none">
+  <div class="ty-inner">
+    <div class="ty-icon">✅</div>
+    <h2>Enquiry Received!</h2>
+    <p>Thank you for reaching out! We'll get back to you within 2 hours with a personalised tour plan.</p>
+    <a href="https://wa.me/918390922322?text=Hi%2C%20I%20just%20submitted%20a%20tour%20enquiry%20via%20your%20website." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ADDITION 1: FOUNDER STORY                                    -->
+<!-- Inserted AFTER page hero, BEFORE Our Story                  -->
+<!-- ============================================================ -->
+<section class="founder-section">
+  <div class="container">
+    <div class="founder-inner">
+
+      <!-- Left: narrative -->
+      <div class="founder-narrative">
+        <h2>The Story Behind the Journey</h2>
+        <p>Avadhut Kadam started this company in 2008 with a simple question: why do Indian families have to choose between budget and quality when they travel? Having personally led over 50 road trips across India before starting the business, he had seen first-hand how rigid fixed packages failed travellers — wrong hotels, rushed itineraries, drivers who didn't care.</p>
+        <p>He began with a single Innova Crysta and a promise: every trip would be planned as if it were his own family travelling. Word spread through Airoli and Navi Mumbai. Within a year, 12 families had trusted Avadhut Tours with their most cherished holidays.</p>
+        <p>Today, with offices in Navi Mumbai, Pune and Satara, a fleet of 40+ vehicles and a team of dedicated travel consultants, Avadhut Tours has grown — but the founding promise hasn't changed. Your trip, your way.</p>
+
+        <!-- Milestone timeline -->
+        <div class="milestone-label">Our Journey</div>
+        <div class="milestone-track">
+          <div class="milestone-chip">
+            <span class="mc-emoji">🚀</span>
+            <span class="mc-year">2008</span>
+            <span class="mc-text">Founded with 1 vehicle in Airoli</span>
+          </div>
+          <div class="milestone-chip">
+            <span class="mc-emoji">📈</span>
+            <span class="mc-year">2012</span>
+            <span class="mc-text">Completed 100th group tour</span>
+          </div>
+          <div class="milestone-chip">
+            <span class="mc-emoji">🏢</span>
+            <span class="mc-year">2015</span>
+            <span class="mc-text">Expanded to corporate fleet services</span>
+          </div>
+          <div class="milestone-chip">
+            <span class="mc-emoji">✈️</span>
+            <span class="mc-year">2018</span>
+            <span class="mc-text">Added international packages — Thailand, Dubai, Bali</span>
+          </div>
+          <div class="milestone-chip">
+            <span class="mc-emoji">🏆</span>
+            <span class="mc-year">2022</span>
+            <span class="mc-text">5,000+ happy travellers milestone</span>
+          </div>
+          <div class="milestone-chip">
+            <span class="mc-emoji">🗺️</span>
+            <span class="mc-year">2024</span>
+            <span class="mc-text">New offices in Pune &amp; Satara</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: stat cards -->
+      <div class="founder-stats-col">
+        <div class="founder-stats-heading">By the Numbers</div>
+        <div class="founder-stat-cards">
+          <div class="founder-stat-card">
+            <span class="fsn">15+</span>
+            <span class="fsl">Years in Travel</span>
+          </div>
+          <div class="founder-stat-card">
+            <span class="fsn">5,000+</span>
+            <span class="fsl">Trips Completed</span>
+          </div>
+          <div class="founder-stat-card">
+            <span class="fsn">32+</span>
+            <span class="fsl">Destinations</span>
+          </div>
+          <div class="founder-stat-card">
+            <span class="fsn">40+</span>
+            <span class="fsl">Vehicles in Fleet</span>
+          </div>
+          <div class="founder-stat-card">
+            <span class="fsn">50+</span>
+            <span class="fsl">Corporate Clients</span>
+          </div>
+          <div class="founder-stat-card">
+            <span class="fsn">70%</span>
+            <span class="fsl">Repeat Customers</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- WHAT WE DO -->
+<section class="section" style="background:var(--at-sand)">
+  <div class="container">
+    <h2 class="section-title">What We Do</h2>
+    <div class="about-services-grid">
+      <div class="about-svc-card">
+        <div class="asc-icon">🗺️</div>
+        <h3>Custom Tour Packages</h3>
+        <p>32+ destinations across India &amp; abroad. Every itinerary built around your budget, dates, and travel style.</p>
+        <a href="packages.html" class="about-svc-link">Browse Packages →</a>
+      </div>
+      <div class="about-svc-card">
+        <div class="asc-icon">🚗</div>
+        <h3>Vehicle Rental</h3>
+        <p>Sedan to Luxury Coach — 8 vehicle types with verified AC vehicles, experienced drivers, PAN India routes.</p>
+        <a href="rentals.html" class="about-svc-link">View Fleet →</a>
+      </div>
+      <div class="about-svc-card">
+        <div class="asc-icon">🏢</div>
+        <h3>Corporate Fleet</h3>
+        <p>Employee shuttles, executive cabs, wedding &amp; event transport &amp; monthly contracts for 50+ companies across Mumbai.</p>
+        <a href="fleet.html" class="about-svc-link">Fleet Solutions →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Our Commitment to You</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h3>100% Custom</h3>
+        <p>No fixed departures, no group compromises. Your trip is built from scratch around your requirements.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Transparent Pricing</h3>
+        <p>No hidden charges. Everything — transport, hotels, sightseeing — itemised clearly before booking.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📞</div>
+        <h3>Always Reachable</h3>
+        <p>Your dedicated travel consultant is available before, during, and after your trip. No automated bots.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏅</div>
+        <h3>15 Years of Trust</h3>
+        <p>Since 2008, 5,000+ trips completed. 70% repeat clients. Rated 4.7★ on Google by 500+ travellers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- ADDITION 3: TRUST & ACCREDITATION                           -->
+<!-- Inserted AFTER Meet the Team, BEFORE Contact                -->
+<!-- ============================================================ -->
+<section class="trust-section">
+  <div class="container">
+    <h2 class="section-title">Why Trust Avadhut Tours</h2>
+    <p class="section-subtitle" style="text-align:center;color:#555;max-width:520px;margin:0 auto">Credentials, community trust and a 15-year track record that speaks for itself.</p>
+
+    <div class="trust-grid">
+
+      <div class="trust-tile">
+        <div class="trust-icon">✅</div>
+        <div class="trust-title">GST Registered</div>
+        <div class="trust-desc">GSTIN verified business — fully compliant and accountable.</div>
+      </div>
+
+      <div class="trust-tile">
+        <div class="trust-icon">⭐</div>
+        <div class="trust-title">4.7★ Google Rating</div>
+        <div class="trust-desc">Based on 500+ genuine reviews from real travellers.</div>
+      </div>
+
+      <div class="trust-tile">
+        <div class="trust-icon">👥</div>
+        <div class="trust-title">5,000+ Happy Travellers</div>
+        <div class="trust-desc">Families, corporates and solo travellers since 2008.</div>
+      </div>
+
+      <div class="trust-tile">
+        <div class="trust-icon">🚗</div>
+        <div class="trust-title">Police-Verified Drivers</div>
+        <div class="trust-desc">All drivers are background-checked and professionally trained.</div>
+      </div>
+
+      <div class="trust-tile">
+        <div class="trust-icon">🧾</div>
+        <div class="trust-title">GST Invoice Provided</div>
+        <div class="trust-desc">Proper tax invoices issued for every booking, every time.</div>
+      </div>
+
+      <div class="trust-tile">
+        <div class="trust-icon">🔒</div>
+        <div class="trust-title">15+ Years of Trust</div>
+        <div class="trust-desc">Family-run, community-trusted — built on referrals and repeat clients.</div>
+      </div>
+
+    </div>
+
+    <div class="trust-cta">
+      <a href="https://share.google/BIthxw6Fp5xZxVwD6" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm" style="font-size:1rem;padding:14px 28px">
+        ⭐ Read Our Google Reviews
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT + ENQUIRY FORM -->
+<section class="section" style="background:var(--at-sand)" id="contact">
+  <div class="container">
+    <div class="enq-wrap">
+      <div class="enq-left">
+        <h2>Get in Touch</h2>
+        <p>Planning a trip or have questions? Drop us a message — we'll respond within 2 hours.</p>
+        <div class="enq-contact">
+          <p>📞 <a href="tel:+918390922322">+91 83909 22322</a></p>
+          <p>✉ <a href="mailto:avadhuttours365@gmail.com">avadhuttours365@gmail.com</a></p>
+          <p>📍 P-191, Sukh Vaibhav, Sector-4,<br>Airoli, Navi Mumbai — 400708</p>
+          <p>⏰ Mon–Sat, 9 AM – 8 PM</p>
+        </div>
+        <a href="https://wa.me/918390922322?text=Hi%2C%20I%20want%20to%20plan%20a%20trip%20with%20Avadhut%20Tours." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer" style="margin-top:16px;display:inline-flex">💬 WhatsApp Us</a>
+        <div style="margin-top:20px">
+          <a href="https://share.google/BIthxw6Fp5xZxVwD6" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm">⭐ View Google Reviews</a>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:16px;flex-wrap:wrap">
+          <a href="#" onclick="openModal('cancel');return false" style="font-size:13px;color:var(--at-saffron-600);text-decoration:none;font-weight:600">Cancellation Policy</a>
+          <a href="#" onclick="openModal('tnc');return false" style="font-size:13px;color:var(--at-saffron-600);text-decoration:none;font-weight:600">Terms &amp; Conditions</a>
+          <a href="#" onclick="openModal('privacy');return false" style="font-size:13px;color:var(--at-saffron-600);text-decoration:none;font-weight:600">Privacy Policy</a>
+        </div>
+        <!-- Google Maps -->
+        <div class="map-embed" style="margin-top:24px">
+          <a href="https://maps.app.goo.gl/a5L6UpvNtCxhMyqQ8" target="_blank" rel="noopener noreferrer" class="map-link">
+            📍 View us on Google Maps →
+          </a>
+        </div>
+      </div>
+      <div class="enq-right">
+        <form action="https://formsubmit.co/avadhuttours365@gmail.com" method="POST" class="enq-form">
+          <input type="hidden" name="_subject" value="New Enquiry — Avadhut Tours">
+          <input type="hidden" name="_next" value="https://www.avadhuttours.com/about.html?ty=1">
+          <input type="hidden" name="_captcha" value="true">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" name="name" required placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label>Mobile Number *</label>
+              <input type="tel" name="mobile" required placeholder="+91 XXXXX XXXXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="your@email.com">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Enquiry Type *</label>
+              <select name="enquiry_type" required>
+                <option value="">Select</option>
+                <option>Tour Package</option>
+                <option>Custom Itinerary</option>
+                <option>Vehicle Rental</option>
+                <option>Corporate Fleet</option>
+                <option>General Query</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Destination / Route</label>
+              <input type="text" name="destination" placeholder="e.g. Kashmir, Goa, Airport">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Travel Month</label>
+              <select name="travel_month">
+                <option value="">Select month</option>
+                <option>January</option><option>February</option><option>March</option>
+                <option>April</option><option>May</option><option>June</option>
+                <option>July</option><option>August</option><option>September</option>
+                <option>October</option><option>November</option><option>December</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Group Size</label>
+              <select name="group_size">
+                <option value="">Select</option>
+                <option>1–2 (Couple)</option>
+                <option>3–5 (Small Family)</option>
+                <option>6–10 (Family Group)</option>
+                <option>11–20 (Medium Group)</option>
+                <option>20+ (Large Group)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" rows="3" placeholder="Tell us more about your travel plans, budget, or any special requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Enquiry →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<site-footer></site-footer>
+
+<script>
+// Thank-you detection
+if (new URLSearchParams(window.location.search).get('ty')) {
+  document.getElementById('ty-card').style.display = 'block';
+  document.getElementById('contact').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kashmir Travel Guide — Best Time, Places to Visit | Avadhut Tours</title>
+<meta name="description" content="Complete Kashmir travel guide — Dal Lake shikara rides, Gulmarg gondola, Pahalgam meadows & more. Best time to visit, tips & tour packages from Avadhut Tours.">
+<link rel="icon" type="image/png" href="/assets/logo/avadhut-emblem.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<script src="../components.js"></script>
+<style>
+  .dest-hero {
+    height: 480px;
+    background: linear-gradient(to bottom, rgba(27,29,92,0.45) 0%, rgba(27,29,92,0.7) 100%),
+                url('../assets/destinations/kashmir-dal-lake.jpg') center/cover no-repeat;
+    display: flex; align-items: flex-end;
+  }
+  .dest-hero .page-hero-inner { padding-bottom: 48px; }
+  .breadcrumb { background: var(--at-cream, #faf7f2); padding: 10px 0; border-bottom: 1px solid #e8e0d5; font-size: 0.85rem; }
+  .breadcrumb a { color: var(--at-saffron-500, #F15A23); text-decoration: none; }
+  .breadcrumb span { color: #888; margin: 0 6px; }
+  .quick-facts { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin: 32px 0; }
+  .qf-tile { background: var(--at-cream, #faf7f2); border-radius: 12px; padding: 20px 16px; text-align: center; border: 1px solid #e8e0d5; }
+  .qf-icon { font-size: 2rem; margin-bottom: 8px; }
+  .qf-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--at-saffron-500, #F15A23); margin-bottom: 4px; }
+  .qf-value { font-size: 0.95rem; color: var(--at-navy, #1B1D5C); font-weight: 600; }
+  .attractions-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 28px; }
+  .attr-card { background: #fff; border-radius: 12px; padding: 24px 20px; border: 1px solid #e8e0d5; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+  .attr-icon { font-size: 1.8rem; margin-bottom: 10px; }
+  .attr-card h3 { font-size: 1rem; color: var(--at-navy, #1B1D5C); margin: 0 0 6px; }
+  .attr-card p { font-size: 0.875rem; color: #666; margin: 0; line-height: 1.5; }
+  .month-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
+  .month-table th { background: var(--at-navy, #1B1D5C); color: #fff; padding: 10px 6px; text-align: center; }
+  .month-table td { padding: 10px 6px; text-align: center; border: 1px solid #e8e0d5; }
+  .mt-peak { background: #d4edda; color: #155724; font-weight: 700; }
+  .mt-good { background: #fff3cd; color: #856404; font-weight: 600; }
+  .mt-avg  { background: #ffe5cc; color: #7a3d00; }
+  .mt-low  { background: #e9ecef; color: #555; }
+  .tips-list { list-style: none; padding: 0; counter-reset: tips; }
+  .tips-list li { counter-increment: tips; display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #e8e0d5; font-size: 0.95rem; color: #444; line-height: 1.6; }
+  .tips-list li::before { content: counter(tips); background: var(--at-saffron-500, #F15A23); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px; }
+  .pkg-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; margin-top: 24px; }
+  .pkg-card-link { background: #fff; border-radius: 12px; padding: 24px; border: 2px solid #e8e0d5; text-decoration: none; display: block; transition: border-color .2s, box-shadow .2s; }
+  .pkg-card-link:hover { border-color: var(--at-saffron-500, #F15A23); box-shadow: 0 4px 16px rgba(241,90,35,.15); }
+  .pkg-card-link h3 { color: var(--at-navy, #1B1D5C); font-size: 1.05rem; margin: 0 0 6px; }
+  .pkg-card-link p { color: #666; font-size: 0.875rem; margin: 0 0 12px; }
+  .pkg-badge { display: inline-block; background: var(--at-saffron-500, #F15A23); color: #fff; font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  @media(max-width:768px){
+    .quick-facts { grid-template-columns: repeat(2,1fr); }
+    .attractions-grid { grid-template-columns: 1fr 1fr; }
+    .pkg-cards { grid-template-columns: 1fr; }
+  }
+  @media(max-width:480px){
+    .attractions-grid { grid-template-columns: 1fr; }
+    .quick-facts { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<site-header active="destinations"></site-header>
+<main>
+
+<!-- HERO -->
+<section class="page-hero dest-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">Destination Guide</p>
+    <h1>Kashmir</h1>
+    <p>Heaven on Earth — Dal Lake, Gulmarg snow & Pahalgam meadows</p>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Home</a>
+    <span>›</span>
+    <a href="../packages.html?region=north">Destinations</a>
+    <span>›</span>
+    Kashmir
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Overview</p>
+    <h2 class="sec-hdr">Why Kashmir?</h2>
+    <p>Kashmir, often called "Paradise on Earth," is a land of breathtaking natural beauty — a valley cradled between the mighty Himalayas and the Pir Panjal range. The iconic Dal Lake with its floating gardens and hand-carved wooden shikaras, the snow-blanketed meadows of Gulmarg, and the pine-forested valleys of Pahalgam combine to create a destination unlike any other in India.</p>
+    <p>Beyond the landscape, Kashmir enchants with its rich culture — intricate Pashmina shawls woven by skilled craftsmen, saffron farms that colour the fields purple every autumn, and the warmth of a Kashmiri household offering a cup of fragrant Kahwa. The Mughal Gardens of Srinagar, laid out by emperors centuries ago, remain among the finest formal gardens on the subcontinent.</p>
+    <p>Whether you are a couple seeking a romantic shikara ride at sunset, a family hoping to see their first snowfall, or an adventure seeker eyeing Gulmarg's gondola and ski slopes, Kashmir delivers memories that last a lifetime. Avadhut Tours has been crafting Kashmir holidays from Navi Mumbai for over 15 years — we know every shortcut, every hidden gem, and every hotel that truly delivers.</p>
+
+    <!-- QUICK FACTS -->
+    <div class="quick-facts">
+      <div class="qf-tile">
+        <div class="qf-icon">📅</div>
+        <div class="qf-label">Best Time</div>
+        <div class="qf-value">April – June &amp; Sep – Oct</div>
+      </div>
+      <div class="qf-tile">
+        <div class="qf-icon">🏛️</div>
+        <div class="qf-label">Capital / State</div>
+        <div class="qf-value">Srinagar, J&amp;K (UT)</div>
+      </div>
+      <div class="qf-tile">
+        <div class="qf-icon">🍲</div>
+        <div class="qf-label">Must-Try Food</div>
+        <div class="qf-value">Rogan Josh &amp; Kahwa</div>
+      </div>
+      <div class="qf-tile">
+        <div class="qf-icon">🎒</div>
+        <div class="qf-label">What to Pack</div>
+        <div class="qf-value">Warm layers, waterproof jacket</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOP ATTRACTIONS -->
+<section class="section warm">
+  <div class="container">
+    <p class="eyebrow">Must-See Places</p>
+    <h2 class="sec-hdr">Top Attractions in Kashmir</h2>
+    <div class="attractions-grid">
+      <div class="attr-card">
+        <div class="attr-icon">🚣</div>
+        <h3>Dal Lake Shikara Ride</h3>
+        <p>Glide across the iconic Dal Lake in a hand-carved wooden shikara at sunrise or sunset. Visit the floating vegetable markets and Nehru Park island.</p>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon">🚡</div>
+        <h3>Gulmarg Gondola</h3>
+        <p>Asia's highest cable car lifts you to 4,200 m — spectacular views of Nanga Parbat and untouched Himalayan snowfields. Ski resort in winter.</p>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon">🌿</div>
+        <h3>Pahalgam Meadows</h3>
+        <p>The "Valley of Shepherds" offers Baisaran meadows, Aru Valley and the Lidder River — perfect for pony rides and family picnics in pine forests.</p>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon">🏞️</div>
+        <h3>Betaab Valley</h3>
+        <p>Named after a Bollywood film shot here, Betaab Valley near Pahalgam stuns with its crystal-clear stream, pine forest backdrop and lush green carpet.</p>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon">🌸</div>
+        <h3>Mughal Gardens</h3>
+        <p>Nishat Bagh, Shalimar Bagh and Chashme Shahi — three terraced Mughal gardens above Dal Lake are ablaze with tulips in April and May.</p>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon">🏔️</div>
+        <h3>Sonamarg Glacier</h3>
+        <p>The "Meadow of Gold" sits at 2,740 m en route to Ladakh. Thajiwas Glacier is a short pony ride away — a must for first-time snow lovers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEST TIME — MONTH TABLE -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Planning Your Trip</p>
+    <h2 class="sec-hdr">Best Time to Visit Kashmir</h2>
+    <p>Kashmir is beautiful year-round but dramatically different each season. Here's a quick month-by-month breakdown to help you choose:</p>
+    <table class="month-table">
+      <thead>
+        <tr>
+          <th>Month</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th>
+          <th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Rating</strong></td>
+          <td class="mt-low">Snow</td>
+          <td class="mt-low">Snow</td>
+          <td class="mt-avg">OK</td>
+          <td class="mt-peak">Best</td>
+          <td class="mt-peak">Best</td>
+          <td class="mt-peak">Best</td>
+          <td class="mt-good">Good</td>
+          <td class="mt-good">Good</td>
+          <td class="mt-peak">Best</td>
+          <td class="mt-peak">Best</td>
+          <td class="mt-avg">Cool</td>
+          <td class="mt-low">Snow</td>
+        </tr>
+        <tr>
+          <td><strong>Temp (°C)</strong></td>
+          <td>−2/4</td><td>0/6</td><td>4/13</td><td>8/18</td><td>12/22</td><td>15/26</td>
+          <td>18/28</td><td>17/27</td><td>12/22</td><td>8/18</td><td>2/12</td><td>−1/6</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.82rem;color:#888;margin-top:8px">
+      <span style="background:#d4edda;padding:2px 8px;border-radius:4px;margin-right:6px">Best</span>
+      Peak season — book early &nbsp;|&nbsp;
+      <span style="background:#fff3cd;padding:2px 8px;border-radius:4px;margin-right:6px">Good</span>
+      Monsoon — greener but occasional rain &nbsp;|&nbsp;
+      <span style="background:#e9ecef;padding:2px 8px;border-radius:4px">Snow</span>
+      Roads may close — ideal for snow lovers
+    </p>
+  </div>
+</section>
+
+<!-- TRAVEL TIPS -->
+<section class="section warm">
+  <div class="container">
+    <p class="eyebrow">Insider Advice</p>
+    <h2 class="sec-hdr">Travel Tips for Kashmir</h2>
+    <ol class="tips-list">
+      <li><strong>Book houseboats early for May–June:</strong> Dal Lake houseboats fill up fast during peak season. Confirm the exact houseboat you'll stay in before paying — photos can be misleading.</li>
+      <li><strong>Carry cash:</strong> Many remote areas including Gulmarg and Pahalgam markets have limited ATMs and spotty card connectivity. Keep ₹5,000–10,000 in cash.</li>
+      <li><strong>Layer your clothing:</strong> Even in June, evenings in Gulmarg drop to 8–10°C. Pack a fleece, a windproof jacket, and comfortable walking shoes.</li>
+      <li><strong>Pre-book the Gulmarg Gondola online:</strong> The gondola sells out by 10 AM in peak season. Book tickets at skiindia.com/gondola the evening before to avoid long queues.</li>
+      <li><strong>Respect local customs:</strong> Kashmir is predominantly Muslim — dress modestly near mosques and markets, avoid alcohol in public, and always ask before photographing locals.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Travel with Avadhut Tours</p>
+    <h2 class="sec-hdr">Kashmir Tour Packages</h2>
+    <p>Every Kashmir package from Avadhut Tours is fully customised — you choose your travel dates, group size, vehicle type and hotel category. Departures from Mumbai, Pune and other major cities.</p>
+    <div class="pkg-cards">
+      <a href="../packages.html?region=north" class="pkg-card-link">
+        <h3>Kashmir Paradise — 6 Nights / 7 Days</h3>
+        <p>Srinagar • Dal Lake Houseboat • Gulmarg • Pahalgam • Sonamarg. Includes AC vehicle, breakfast &amp; dinner, experienced driver-guide.</p>
+        <span class="pkg-badge">From ₹22,999 / person</span>
+      </a>
+      <a href="../packages.html?region=north" class="pkg-card-link">
+        <h3>Gulmarg Honeymoon Special — 4 Nights / 5 Days</h3>
+        <p>Romantic houseboat stay, gondola ride, candlelit dinner by the lake, couple spa. Tailored for newlyweds &amp; anniversaries.</p>
+        <span class="pkg-badge">View Packages →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section dark" style="text-align:center">
+  <div class="container">
+    <p class="eyebrow" style="color:rgba(255,255,255,0.7)">Start Planning</p>
+    <h2 class="sec-hdr" style="color:#fff">Ready to visit Kashmir?</h2>
+    <p style="color:rgba(255,255,255,0.8);max-width:540px;margin:0 auto 28px">Get a personalised itinerary and price quote within 2 hours. No obligation, no upfront payment.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/918390922322?text=Hi%2C%20I%27m%20interested%20in%20a%20Kashmir%20tour%20package." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp Us</a>
+      <a href="../packages.html?region=north" class="btn btn-outline">Browse North India Packages</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<site-footer></site-footer>
+</body>
+</html>
