@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tour Packages — Avadhut Tours</title>
+<meta name="description" content="Browse 32+ customised tour packages for families, honeymoon, pilgrimage, adventure and more. Departures from Mumbai, Pune, Delhi & more cities.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFCMUQ1QyIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iOTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjRkFENDY2Ij5BVDwvdGV4dD48L3N2Zz4=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="components.js"></script>
+<script src="data/packages-data.js"></script>
+</head>
+<body>
+
+<site-header active="packages"></site-header>
+<main>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Our Tour Packages</h1>
+    <p>32+ destinations across India &amp; abroad — customised to your budget, group &amp; dates</p>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<section class="filter-bar-section">
+  <div class="container">
+    <div class="filter-scroll-row" id="seg-chips">
+      <button class="fchip active" data-seg="all">All</button>
+      <button class="fchip" data-seg="family">Family</button>
+      <button class="fchip" data-seg="honeymoon">Honeymoon</button>
+      <button class="fchip" data-seg="senior">Senior</button>
+      <button class="fchip" data-seg="ladies">Ladies</button>
+      <button class="fchip" data-seg="group">Group</button>
+      <button class="fchip" data-seg="pilgrimage">Pilgrimage</button>
+      <button class="fchip" data-seg="adventure">Adventure</button>
+      <button class="fchip" data-seg="wildlife">Wildlife</button>
+      <button class="fchip" data-seg="heritage">Heritage</button>
+      <button class="fchip" data-seg="international">International</button>
+      <button class="fchip" data-seg="oneday">One Day</button>
+      <button class="fchip" data-seg="weekend">Weekend</button>
+    </div>
+    <div class="filter-meta-row">
+      <div class="filter-scroll-row region-chips" id="region-chips">
+        <button class="fchip-sm active" data-region="all">All India</button>
+        <button class="fchip-sm" data-region="north">North</button>
+        <button class="fchip-sm" data-region="south">South</button>
+        <button class="fchip-sm" data-region="east">East</button>
+        <button class="fchip-sm" data-region="west">West</button>
+        <button class="fchip-sm" data-region="international">International</button>
+      </div>
+      <div class="filter-sort">
+        <select id="sort-sel" class="sort-select" onchange="applyFilters()">
+          <option value="pop">Popularity</option>
+          <option value="price-asc">Price ↑</option>
+          <option value="price-desc">Price ↓</option>
+          <option value="days">Duration</option>
+        </select>
+        <span class="results-count" id="results-count"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES GRID -->
+<section class="section">
+  <div class="container">
+    <p class="price-disclaimer">* Prices shown are indicative. Final pricing will be confirmed at the time of booking via phone or WhatsApp.</p>
+    <div class="tour-grid" id="pkg-grid"></div>
+    <div id="no-results" style="display:none;text-align:center;padding:40px">
+      <p style="font-size:1.1rem;color:var(--at-brown-800)">No packages match your filter. <a href="#" onclick="resetFilters();return false" style="color:var(--at-saffron-600)">Clear filters</a> or <a href="https://wa.me/918390922322?text=Hi%2C%20I%20need%20a%20custom%20tour%20package." target="_blank" rel="noopener noreferrer" style="color:var(--at-saffron-600)">WhatsApp us</a> for a custom itinerary.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM TRIP CTA -->
+<section class="cta-band">
+  <div class="cta-inner">
+    <div>
+      <h2>Can't find what you're looking for?</h2>
+      <p>We build 100% custom tours — your destination, your dates, your budget.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="about.html#contact" class="btn btn-ghost">Request Custom Tour</a>
+      <a href="https://wa.me/918390922322?text=Hi%2C%20I%20want%20a%20custom%20tour%20package." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGE DETAIL MODAL -->
+<div class="modal-bd" id="pkg-modal" onclick="if(event.target===this)closePkgModal()">
+  <div class="modal-box modal-box-wide">
+    <div class="modal-head">
+      <h3 id="modal-title" style="font-family:var(--font-display);font-size:17px;font-weight:800;color:var(--text-strong);margin:0"></h3>
+      <button onclick="closePkgModal()" class="modal-close">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body-content"></div>
+  </div>
+</div>
+
+</main>
+<site-footer></site-footer>
+
+<script>
+let ALL_PKGS = [];
+let activeSeg = 'all';
+let activeRegion = 'all';
+
+function getStoneClass(segs) {
+  if (!segs || !segs.length) return 'saffron';
+  if (segs.includes('honeymoon')) return 'red';
+  if (segs.includes('ladies') || segs.includes('senior')) return 'teal';
+  if (segs.includes('pilgrimage') || segs.includes('heritage')) return 'marigold';
+  if (segs.includes('adventure') || segs.includes('wildlife')) return 'green';
+  if (segs.includes('international')) return 'navy';
+  return 'saffron';
+}
+
+function getSegLabel(segs) {
+  if (!segs || !segs.length) return '';
+  const priority = ['honeymoon','ladies','senior','pilgrimage','heritage','adventure','wildlife','international','oneday','weekend','family','group'];
+  for (const s of priority) if (segs.includes(s)) return s.charAt(0).toUpperCase() + s.slice(1);
+  return segs[0];
+}
+
+function fmt(n) { return '₹' + Number(n).toLocaleString('en-IN'); }
+
+function tourCardHtml(t) {
+  const stone = getStoneClass(t.seg);
+  const label = getSegLabel(t.seg);
+  const disc = t.orig ? Math.round((1 - t.price / t.orig) * 100) : 0;
+  const highlights = (t.hl || []).slice(0, 3).map(h => `<li>${h}</li>`).join('');
+  const badge = t.badge ? `<span class="tc-badge stone-${t.badgeTone || stone}">${t.badge}</span>` : '';
+  const wa = `https://wa.me/918390922322?text=Hi%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(t.title)}%20package.%20Please%20share%20details.`;
+
+  return `<div class="tour-card" id="card-${t.id}">
+    <div class="tc-img" style="background-image:url('${t.img}')">
+      ${badge}
+      ${disc > 0 ? `<span class="tc-disc">${disc}% OFF</span>` : ''}
+      <span class="tc-seg stone-${stone}">${label}</span>
+      <div class="tc-scrim"></div>
+    </div>
+    <div class="tc-body">
+      <div class="tc-meta"><span>⭐ ${t.rating}</span><span>(${t.reviews} reviews)</span><span>${t.days}D/${t.nights}N</span></div>
+      <h3 class="tc-title">${t.title}</h3>
+      <p class="tc-loc">📍 ${t.loc}</p>
+      <ul class="tc-hl">${highlights}</ul>
+      ${t.nextDep ? `<p class="tc-dep">Next dep: <strong>${t.nextDep}</strong>${t.seatsLeft ? ` &nbsp;·&nbsp; <span class="seats-left">${t.seatsLeft} seats left</span>` : ''}</p>` : ''}
+    </div>
+    <div class="tc-footer">
+      <div class="tc-price">
+        ${t.orig ? `<span class="tc-orig">${fmt(t.orig)}</span>` : ''}
+        <span class="tc-now">${fmt(t.price)}</span>
+        <span class="tc-pp">per person</span>
+      </div>
+      <div class="tc-actions">
+        <button class="btn btn-sm btn-outline" onclick="openPkgModal('${t.id}')">View Details</button>
+        <a href="${wa}" class="btn btn-sm btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 Enquire</a>
+      </div>
+    </div>
+  </div>`;
+}
+
+function applyFilters() {
+  const sortVal = document.getElementById('sort-sel').value;
+  let results = ALL_PKGS.filter(t => {
+    const segMatch = activeSeg === 'all' || (t.seg && t.seg.includes(activeSeg));
+    const regionMatch = activeRegion === 'all' || t.region === activeRegion;
+    return segMatch && regionMatch;
+  });
+  if (sortVal === 'price-asc') results.sort((a, b) => a.price - b.price);
+  else if (sortVal === 'price-desc') results.sort((a, b) => b.price - a.price);
+  else if (sortVal === 'days') results.sort((a, b) => b.days - a.days);
+
+  const grid = document.getElementById('pkg-grid');
+  const noRes = document.getElementById('no-results');
+  const count = document.getElementById('results-count');
+  if (results.length === 0) {
+    grid.innerHTML = '';
+    noRes.style.display = 'block';
+    count.textContent = '';
+  } else {
+    noRes.style.display = 'none';
+    grid.innerHTML = results.map(tourCardHtml).join('');
+    count.textContent = `${results.length} package${results.length > 1 ? 's' : ''} found`;
+  }
+}
+
+function resetFilters() {
+  activeSeg = 'all'; activeRegion = 'all';
+  document.querySelectorAll('#seg-chips .fchip').forEach(c => c.classList.toggle('active', c.dataset.seg === 'all'));
+  document.querySelectorAll('#region-chips .fchip-sm').forEach(c => c.classList.toggle('active', c.dataset.region === 'all'));
+  applyFilters();
+}
+
+function updateUrl() {
+  const p = new URLSearchParams();
+  if (activeSeg !== 'all') p.set('seg', activeSeg);
+  if (activeRegion !== 'all') p.set('region', activeRegion);
+  history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p.toString() : ''));
+}
+
+document.querySelectorAll('#seg-chips .fchip').forEach(btn => {
+  btn.addEventListener('click', () => {
+    activeSeg = btn.dataset.seg;
+    document.querySelectorAll('#seg-chips .fchip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    if (activeSeg === 'international') {
+      activeRegion = 'all';
+      document.querySelectorAll('#region-chips .fchip-sm').forEach(c => c.classList.toggle('active', c.dataset.region === 'all'));
+    }
+    applyFilters();
+    updateUrl();
+  });
+});
+document.querySelectorAll('#region-chips .fchip-sm').forEach(btn => {
+  btn.addEventListener('click', () => {
+    activeRegion = btn.dataset.region;
+    document.querySelectorAll('#region-chips .fchip-sm').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+    updateUrl();
+  });
+});
+
+document.addEventListener('keydown', function (e) {
+  const modal = document.getElementById('pkg-modal');
+  if (!modal.classList.contains('open')) return;
+  if (e.key === 'Escape') { closePkgModal(); return; }
+  if (e.key === 'Tab') {
+    const focusable = Array.from(modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')).filter(el => !el.disabled);
+    if (!focusable.length) return;
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+    else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+  }
+});
+
+function openPkgModal(id) {
+  const t = ALL_PKGS.find(p => p.id === id);
+  if (!t) return;
+  document.getElementById('modal-title').textContent = t.title;
+  const wa = `https://wa.me/918390922322?text=Hi%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(t.title)}%20package.%20Please%20share%20pricing%20and%20details.`;
+  const itinerary = (t.itinerary || []).map(d => `<div class="itin-day"><strong>${d.d} — ${d.t}</strong><p>${d.x}</p></div>`).join('');
+  const inclusions = (t.inclusions || []).map(i => `<li>✓ ${i}</li>`).join('');
+  const exclusions = (t.exclusions || []).map(e => `<li>✗ ${e}</li>`).join('');
+  const cities = (t.departureCities || []).map(c => `<span class="city-chip">${c}</span>`).join('');
+
+  document.getElementById('modal-body-content').innerHTML = `
+    <div class="pkg-modal-top">
+      <img src="${t.img}" alt="${t.title}" class="pkg-modal-img" loading="lazy">
+      <div class="pkg-modal-info">
+        <p class="pkg-modal-loc">📍 ${t.loc}</p>
+        <p class="pkg-modal-dur">🗓 ${t.days} Days / ${t.nights} Nights &nbsp;·&nbsp; ⭐ ${t.rating} (${t.reviews} reviews)</p>
+        ${t.difficulty ? `<p>Difficulty: <strong>${t.difficulty}</strong></p>` : ''}
+        ${cities ? `<div class="city-chips-wrap"><span>Departures from: </span>${cities}</div>` : ''}
+        <div class="pkg-modal-price">
+          ${t.orig ? `<span class="tc-orig">${fmt(t.orig)}</span>` : ''}
+          <span class="tc-now big">${fmt(t.price)}</span>
+          <span class="tc-pp">per person</span>
+        </div>
+        <div class="pkg-modal-actions">
+          <a href="${wa}" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp Enquiry</a>
+          <a href="about.html#contact" class="btn btn-primary">Request Custom Quote</a>
+        </div>
+        ${t.nextDep ? `<p class="tc-dep" style="margin-top:12px">Next departure: <strong>${t.nextDep}</strong>${t.seatsLeft ? ` · <span class="seats-left">${t.seatsLeft} seats left</span>` : ''}</p>` : ''}
+      </div>
+    </div>
+    ${t.overview ? `<div class="pkg-modal-section"><h4>Overview</h4><p>${t.overview}</p></div>` : ''}
+    <div class="pkg-modal-grid">
+      ${inclusions ? `<div class="pkg-modal-section"><h4>What's Included</h4><ul class="incl-list">${inclusions}</ul></div>` : ''}
+      ${exclusions ? `<div class="pkg-modal-section"><h4>What's Excluded</h4><ul class="excl-list">${exclusions}</ul></div>` : ''}
+    </div>
+    ${itinerary ? `<div class="pkg-modal-section"><h4>Itinerary</h4>${itinerary}</div>` : ''}
+  `;
+  document.getElementById('pkg-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => {
+    const close = document.querySelector('#pkg-modal .modal-close');
+    if (close) close.focus();
+  });
+}
+
+function closePkgModal() {
+  document.getElementById('pkg-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Load all packages — uses inline data first (works on file://), falls back to fetch on server
+function initPackages(pkgs) {
+  ALL_PKGS = pkgs;
+  const params = new URLSearchParams(window.location.search);
+  const segParam = params.get('seg');
+  const regionParam = params.get('region');
+  if (segParam) {
+    activeSeg = segParam;
+    document.querySelectorAll('#seg-chips .fchip').forEach(c => c.classList.toggle('active', c.dataset.seg === segParam));
+  }
+  if (regionParam) {
+    activeRegion = regionParam;
+    document.querySelectorAll('#region-chips .fchip-sm').forEach(c => c.classList.toggle('active', c.dataset.region === regionParam));
+  }
+  applyFilters();
+  const hash = window.location.hash;
+  if (hash) {
+    const el = document.getElementById('card-' + hash.replace('#', ''));
+    if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 200);
+  }
+}
+
+if (window.AT_PACKAGES) {
+  initPackages(window.AT_PACKAGES);
+} else {
+  safeFetch('data/packages.json')
+    .then(r => r.json())
+    .then(initPackages)
+    .catch(() => {
+      document.getElementById('pkg-grid').innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px 20px"><p style="font-size:1.1rem;margin-bottom:20px">Unable to load packages. WhatsApp us directly.</p><a href="https://wa.me/918390922322?text=Hi%2C%20please%20share%20your%20tour%20packages." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp for Packages</a></div>`;
+    });
+}
+</script>
+</body>
+</html>

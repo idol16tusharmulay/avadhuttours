@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travel Stories &amp; Tips — Avadhut Tours Blog</title>
+<meta name="description" content="Expert travel advice, destination guides and real trip stories from Avadhut Tours. Plan your next India holiday with confidence.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFCMUQ1QyIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iOTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjRkFENDY2Ij5BVDwvdGV4dD48L3N2Zz4=">
+<meta property="og:title" content="Travel Stories &amp; Tips — Avadhut Tours Blog">
+<meta property="og:description" content="Expert travel advice, destination guides and real trip stories from Avadhut Tours.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="components.js"></script>
+<style>
+/* ── BLOG INDEX ───────────────────────────────────────── */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 36px;
+}
+.blog-card {
+  background: var(--surface-card);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 10px rgba(42,27,18,.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform .22s, box-shadow .22s;
+  text-decoration: none;
+  color: inherit;
+}
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(42,27,18,.13);
+}
+.blog-card-img {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+.blog-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s;
+  display: block;
+}
+.blog-card:hover .blog-card-img img {
+  transform: scale(1.05);
+}
+.blog-card-cat {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--at-saffron-500);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.blog-card-body {
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.blog-card-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-strong);
+  line-height: 1.3;
+  margin: 0;
+}
+.blog-card-excerpt {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  color: var(--at-stone-400);
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+.blog-card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.blog-card-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--at-saffron-600);
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-subtle);
+}
+/* CTA section */
+.blog-cta {
+  background: linear-gradient(135deg, var(--at-navy-700) 0%, var(--at-navy-500) 100%);
+  border-radius: 20px;
+  padding: 44px 40px;
+  text-align: center;
+  margin-top: 56px;
+}
+.blog-cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, .6rem + 2vw, 2rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 10px;
+}
+.blog-cta p {
+  font-size: 15px;
+  color: rgba(255,255,255,.75);
+  max-width: 48ch;
+  margin: 0 auto 24px;
+  line-height: 1.65;
+}
+.blog-cta-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+/* Responsive */
+@media (max-width: 700px) {
+  .blog-grid { grid-template-columns: 1fr; gap: 20px; }
+  .blog-cta { padding: 32px 20px; }
+}
+</style>
+</head>
+<body>
+
+<site-header active="blog"></site-header>
+<main>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">From the Avadhut Tours Team</div>
+    <h1>Travel Stories &amp; Tips</h1>
+    <p>Expert advice, destination guides and real trip stories — so your next holiday is your best one yet.</p>
+  </div>
+</section>
+
+<!-- BLOG ARTICLES GRID -->
+<section class="section">
+  <div class="container">
+    <div class="sec-hdr">
+      <div class="sec-hdr-left">
+        <div class="eyebrow">Latest articles</div>
+        <h2>From the Blog</h2>
+      </div>
+    </div>
+
+    <div class="blog-grid">
+
+      <!-- Card 1: Kashmir Family Guide -->
+      <a class="blog-card" href="blog/kashmir-family-guide.html">
+        <div class="blog-card-img">
+          <img src="assets/destinations/kashmir-dal-lake.jpg" alt="Dal Lake, Kashmir" loading="lazy">
+          <span class="blog-card-cat">Destination Guide</span>
+        </div>
+        <div class="blog-card-body">
+          <h2 class="blog-card-title">7 Days in Kashmir with Family — A Complete Travel Guide</h2>
+          <p class="blog-card-excerpt">Kashmir is everything the postcards promise — and then some. Here's exactly how to plan a 7-day family trip with kids and senior members, from houseboat stays to Gulmarg's gondola.</p>
+          <div class="blog-card-meta">
+            <span>✍ Avadhut Tours Team</span>
+            <span>📖 5 min read</span>
+            <span>📍 Kashmir</span>
+          </div>
+          <span class="blog-card-read">Read Article →</span>
+        </div>
+      </a>
+
+      <!-- Card 2: Manali Season Guide -->
+      <a class="blog-card" href="blog/manali-season-guide.html">
+        <div class="blog-card-img">
+          <img src="assets/destinations/manali-solang-valley.jpg" alt="Solang Valley, Manali" loading="lazy">
+          <span class="blog-card-cat">Destination Guide</span>
+        </div>
+        <div class="blog-card-body">
+          <h2 class="blog-card-title">Manali in Summer vs Winter — When Is the Best Time to Go?</h2>
+          <p class="blog-card-excerpt">Green valleys and open highways versus snow-covered slopes and cosy cafés. The honest answer depends on what you want from Manali — and this guide helps you decide.</p>
+          <div class="blog-card-meta">
+            <span>✍ Avadhut Tours Team</span>
+            <span>📖 5 min read</span>
+            <span>📍 Manali</span>
+          </div>
+          <span class="blog-card-read">Read Article →</span>
+        </div>
+      </a>
+
+      <!-- Card 3: Senior Travel Tips -->
+      <a class="blog-card" href="blog/senior-travel-tips.html">
+        <div class="blog-card-img">
+          <img src="assets/groups/group-golden-temple-family.jpg" alt="Senior travellers at Golden Temple" loading="lazy">
+          <span class="blog-card-cat">Senior Travel</span>
+        </div>
+        <div class="blog-card-body">
+          <h2 class="blog-card-title">Top 10 Travel Tips for Senior Citizens in India</h2>
+          <p class="blog-card-excerpt">Travelling after 60 is one of life's great pleasures — but it needs smarter planning. From destination selection to medications and hotel choices, here's our honest checklist.</p>
+          <div class="blog-card-meta">
+            <span>✍ Avadhut Tours Team</span>
+            <span>📖 5 min read</span>
+            <span>📍 All India</span>
+          </div>
+          <span class="blog-card-read">Read Article →</span>
+        </div>
+      </a>
+
+      <!-- Card 4: Group Tour Planning -->
+      <a class="blog-card" href="blog/group-tour-planning.html">
+        <div class="blog-card-img">
+          <img src="assets/groups/group-manali-snow.jpg" alt="Group tour at Manali snow" loading="lazy">
+          <span class="blog-card-cat">Group Tours</span>
+        </div>
+        <div class="blog-card-body">
+          <h2 class="blog-card-title">How to Plan a Group Tour of 20+ People — Complete Checklist</h2>
+          <p class="blog-card-excerpt">Group travel is rewarding but unforgiving if not planned well. Here's a practical, experience-backed checklist covering vehicles, hotels, budgets, communication and what can go wrong.</p>
+          <div class="blog-card-meta">
+            <span>✍ Avadhut Tours Team</span>
+            <span>📖 6 min read</span>
+            <span>📍 All India</span>
+          </div>
+          <span class="blog-card-read">Read Article →</span>
+        </div>
+      </a>
+
+    </div><!-- /.blog-grid -->
+
+    <!-- CTA BOX -->
+    <div class="blog-cta">
+      <h2>Want to plan your own trip?</h2>
+      <p>Talk to our travel experts — we'll design a personalised itinerary that fits your budget, group size and dates. No generic packages, no hidden costs.</p>
+      <div class="blog-cta-btns">
+        <a href="about.html#contact" class="btn btn-ghost">Get a Free Quote</a>
+        <a href="https://wa.me/918390922322?text=Hi%2C%20I%20read%20your%20travel%20blog%20and%20want%20to%20plan%20a%20trip." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+<site-footer></site-footer>
+</body>
+</html>

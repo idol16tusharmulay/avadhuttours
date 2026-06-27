@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kerala Travel Guide — Backwaters, Munnar, Kochi | Avadhut Tours</title>
+<meta name="description" content="Complete Kerala travel guide — Alleppey houseboat, Munnar tea gardens, Periyar wildlife, Fort Kochi & Kovalam beach. Best time to visit, tips & packages from Avadhut Tours.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFCMUQ1QyIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iOTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjRkFENDY2Ij5BVDwvdGV4dD48L3N2Zz4=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<script src="../components.js"></script>
+<style>
+  .dest-hero {
+    height: 480px;
+    background: linear-gradient(to bottom, rgba(27,29,92,0.35) 0%, rgba(27,29,92,0.65) 100%),
+                url('../assets/destinations/kerala-houseboat.jpg') center/cover no-repeat;
+    display: flex; align-items: flex-end;
+  }
+  .dest-hero .page-hero-inner { padding-bottom: 48px; }
+  .breadcrumb { background: var(--at-cream, #faf7f2); padding: 10px 0; border-bottom: 1px solid #e8e0d5; font-size: 0.85rem; }
+  .breadcrumb a { color: var(--at-saffron-500, #F15A23); text-decoration: none; }
+  .breadcrumb span { color: #888; margin: 0 6px; }
+  .quick-facts { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin: 32px 0; }
+  .qf-tile { background: var(--at-cream, #faf7f2); border-radius: 12px; padding: 20px 16px; text-align: center; border: 1px solid #e8e0d5; }
+  .qf-icon { font-size: 2rem; margin-bottom: 8px; }
+  .qf-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--at-saffron-500, #F15A23); margin-bottom: 4px; }
+  .qf-value { font-size: 0.95rem; color: var(--at-navy, #1B1D5C); font-weight: 600; }
+  .attractions-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 28px; }
+  .attr-card { background: #fff; border-radius: 12px; padding: 24px 20px; border: 1px solid #e8e0d5; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+  .attr-icon { font-size: 1.8rem; margin-bottom: 10px; }
+  .attr-card h3 { font-size: 1rem; color: var(--at-navy, #1B1D5C); margin: 0 0 6px; }
+  .attr-card p { font-size: 0.875rem; color: #666; margin: 0; line-height: 1.5; }
+  .month-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
+  .month-table th { background: var(--at-navy, #1B1D5C); color: #fff; padding: 10px 6px; text-align: center; }
+  .month-table td { padding: 10px 6px; text-align: center; border: 1px solid #e8e0d5; }
+  .mt-peak { background: #d4edda; color: #155724; font-weight: 700; }
+  .mt-good { background: #fff3cd; color: #856404; font-weight: 600; }
+  .mt-avg  { background: #ffe5cc; color: #7a3d00; }
+  .mt-low  { background: #e9ecef; color: #555; }
+  .tips-list { list-style: none; padding: 0; counter-reset: tips; }
+  .tips-list li { counter-increment: tips; display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #e8e0d5; font-size: 0.95rem; color: #444; line-height: 1.6; }
+  .tips-list li::before { content: counter(tips); background: var(--at-saffron-500, #F15A23); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px; }
+  .pkg-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; margin-top: 24px; }
+  .pkg-card-link { background: #fff; border-radius: 12px; padding: 24px; border: 2px solid #e8e0d5; text-decoration: none; display: block; transition: border-color .2s, box-shadow .2s; }
+  .pkg-card-link:hover { border-color: var(--at-saffron-500, #F15A23); box-shadow: 0 4px 16px rgba(241,90,35,.15); }
+  .pkg-card-link h3 { color: var(--at-navy, #1B1D5C); font-size: 1.05rem; margin: 0 0 6px; }
+  .pkg-card-link p { color: #666; font-size: 0.875rem; margin: 0 0 12px; }
+  .pkg-badge { display: inline-block; background: var(--at-saffron-500, #F15A23); color: #fff; font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  @media(max-width:768px){
+    .quick-facts { grid-template-columns: repeat(2,1fr); }
+    .attractions-grid { grid-template-columns: 1fr 1fr; }
+    .pkg-cards { grid-template-columns: 1fr; }
+  }
+  @media(max-width:480px){
+    .attractions-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<site-header active="destinations"></site-header>
+<main>
+
+<!-- HERO -->
+<section class="page-hero dest-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">Destination Guide</p>
+    <h1>Kerala</h1>
+    <p>God's Own Country — backwaters, spice gardens & tiger reserves</p>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Home</a>
+    <span>›</span>
+    <a href="../packages.html?region=south">Destinations</a>
+    <span>›</span>
+    Kerala
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Overview</p>
+    <h2 class="sec-hdr">Why Kerala?</h2>
+    <p>Kerala is a destination that simply cannot be rushed. "God's Own Country" lives up to its name with a sensory richness that is hard to match anywhere in India — the lazy drift of a traditional rice-boat houseboat through Alleppey's palm-fringed backwaters at dusk, the misty green stillness of Munnar's tea estates at dawn, the pungent sweetness of cardamom and cinnamon from a Thekkady spice garden in full bloom.</p>
+    <p>For cultural travellers, Fort Kochi is a museum without walls — Chinese fishing nets that have stood for 600 years, a Portuguese-built church, Dutch palaces, and Jewish synagogues all within a 2 km walk. Kathakali performances, Ayurvedic spas, and the unique Kerala Sadya feast banana-leaf banquet make this the most culturally immersive destination in peninsular India.</p>
+    <p>Families appreciate Kerala's safety, cleanliness and child-friendly wildlife experiences at Periyar Tiger Reserve in Thekkady. Honeymooners choose it for the romance of private houseboats. Avadhut Tours has been crafting Kerala holidays for Mumbai families since our early years — we know which operators run the best houseboats and which Munnar homestays offer the most authentic experience.</p>
+
+    <!-- QUICK FACTS -->
+    <div class="quick-facts">
+      <div class="qf-tile">
+        <div class="qf-icon">📅</div>
+        <div class="qf-label">Best Time</div>
+        <div class="qf-value">October – February</div>
+      </div>
+      <div class="qf-tile">
+        <div class="qf-icon">🏛️</div>
+        <div class="qf-label">Capital / State</div>
+        <div class="qf-value">Thiruvananthapuram, Kerala</div>
+      </div>
+      <div class="qf-tile">
+        <div class="qf-icon">🍲</div>
+        <div class="qf-label">Must-Try Food</div>
+        <div class="qf-value">Kerala Prawn Curry &amp; Appam</div>
+      </div>
+      <div class="qf-tile">
+        <div class="qf-icon">🎒</div>
+        <div class="qf-label">What to Pack</div>
+        <div class="qf-value">Light cotton clothes, insect repellent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOP ATTRACTIONS -->
+<section class="section warm">
+  <div class="container">
+    <p class="eyebrow">Must-See Places</p>
+    <h2 class="sec-hdr">Top Attractions in Kerala</h2>
+    <div class="attractions-grid">
+      <div class="attr-card">
+        <div class="attr-icon">🛶</div>
+        <h3>Alleppey Houseboat Stay</h3>
+        <p>Drift through 900 km of backwater canals on a Kerala kettuvallam. Overnight stays include onboard chef serving fresh catch and traditional Kerala meals.</p>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon">🌿</div>
+        <h3>Munnar Tea Gardens</h3>
+        <p>Emerald-green tea estates stretch across rolling hills at 1,600 m. Visit the Tea Museum, Eravikulam National Park and Top Station viewpoint for cloud-level panoramas.</p>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon">🐘</div>
+        <h3>Periyar Wildlife Sanctuary</h3>
+        <p>Boat safaris on Periyar Lake offer sightings of wild elephants, gaur and sambar deer. Thekkady also has guided jungle treks and spice plantation tours.</p>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon">⛵</div>
+        <h3>Fort Kochi Chinese Fishing Nets</h3>
+        <p>The iconic cantilevered fishing nets of Fort Kochi are a photographer's dream at sunset. Buy the fresh catch from fishermen and have it cooked at a nearby stall.</p>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon">🏖️</div>
+        <h3>Kovalam Beach</h3>
+        <p>Three crescent beaches near Thiruvananthapuram — Lighthouse Beach, Hawah Beach and Samudra Beach. Excellent for swimming, parasailing and beachside Ayurvedic massage.</p>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon">🌶️</div>
+        <h3>Thekkady Spice Plantation</h3>
+        <p>Walk through spice estates growing pepper, cardamom, cloves, cinnamon and vanilla. Buy directly from farmers — quality and price far better than any city shop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEST TIME TABLE -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Planning Your Trip</p>
+    <h2 class="sec-hdr">Best Time to Visit Kerala</h2>
+    <p>Kerala has a distinct monsoon season that transforms the landscape — lush but very wet. The winter months from October to February are optimal for most travellers:</p>
+    <table class="month-table">
+      <thead>
+        <tr>
+          <th>Month</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th>
+          <th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Rating</strong></td>
+          <td class="mt-peak">Best</td>
+          <td class="mt-peak">Best</td>
+          <td class="mt-good">Good</td>
+          <td class="mt-avg">Hot</td>
+          <td class="mt-avg">Hot</td>
+          <td class="mt-low">Heavy Rain</td>
+          <td class="mt-low">Heavy Rain</td>
+          <td class="mt-low">Heavy Rain</td>
+          <td class="mt-avg">Rain easing</td>
+          <td class="mt-peak">Best</td>
+          <td class="mt-peak">Best</td>
+          <td class="mt-peak">Best</td>
+        </tr>
+        <tr>
+          <td><strong>Temp (°C)</strong></td>
+          <td>22/31</td><td>23/32</td><td>26/34</td><td>28/35</td><td>28/34</td><td>24/30</td>
+          <td>23/29</td><td>23/29</td><td>24/30</td><td>24/31</td><td>24/31</td><td>23/31</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.82rem;color:#888;margin-top:8px">
+      <span style="background:#d4edda;padding:2px 8px;border-radius:4px;margin-right:6px">Best</span>
+      Cool &amp; dry — ideal for all activities &nbsp;|&nbsp;
+      <span style="background:#fff3cd;padding:2px 8px;border-radius:4px;margin-right:6px">Good</span>
+      Warm but pleasant &nbsp;|&nbsp;
+      <span style="background:#e9ecef;padding:2px 8px;border-radius:4px">Heavy Rain</span>
+      Backwater cruises may be limited
+    </p>
+  </div>
+</section>
+
+<!-- TRAVEL TIPS -->
+<section class="section warm">
+  <div class="container">
+    <p class="eyebrow">Insider Advice</p>
+    <h2 class="sec-hdr">Travel Tips for Kerala</h2>
+    <ol class="tips-list">
+      <li><strong>Book the houseboat two months ahead:</strong> Premium AC houseboats on the Vembanad and Ashtamudi Lakes get booked solid from October to January. Confirm the exact boat (photos &amp; ATDC registration) before paying any advance.</li>
+      <li><strong>Fly into Kochi for North Kerala, Trivandrum for South:</strong> Kerala is a long state — choose your entry airport based on your itinerary to avoid backtracking. Kochi works best for Munnar + Alleppey; Trivandrum for Kovalam + Thekkady.</li>
+      <li><strong>Try an authentic Kerala Sadya:</strong> A traditional Sadya meal on a banana leaf with 20+ dishes is served in many restaurants on Sundays and festivals. Ask your driver or hotel for the best local restaurant — not a hotel buffet.</li>
+      <li><strong>Carry a rain jacket even in winter:</strong> Munnar and Thekkady at 900–1,600 m can have sudden showers even in December–January. A compact rain jacket takes very little space and saves the day.</li>
+      <li><strong>Buy spices at the plantation, not the airport:</strong> Cardamom, black pepper and vanilla from Thekkady farms are 40–60% cheaper than at Kochi or Trivandrum airports — and fresher. Most plantations allow direct purchase after a tour.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Travel with Avadhut Tours</p>
+    <h2 class="sec-hdr">Kerala Tour Packages</h2>
+    <p>Our Kerala packages cover the classic Golden Triangle (Munnar–Alleppey–Kovalam) as well as extended itineraries adding Wayanad or Kannur. Fully customised to your group size and dates.</p>
+    <div class="pkg-cards">
+      <a href="../packages.html?region=south" class="pkg-card-link">
+        <h3>Kerala Backwaters Delight — 5 Nights / 6 Days</h3>
+        <p>Kochi sightseeing • Munnar tea estates • Thekkady Periyar boat safari • Alleppey houseboat overnight. AC vehicle, breakfast &amp; dinner included.</p>
+        <span class="pkg-badge">View Packages →</span>
+      </a>
+      <a href="../packages.html?region=south" class="pkg-card-link">
+        <h3>Kerala Honeymoon Special — 6 Nights / 7 Days</h3>
+        <p>Private houseboat, Munnar romantic cottage, Kovalam beachside resort stay, candlelit dinners &amp; couples Ayurvedic massage. Tailored for newlyweds.</p>
+        <span class="pkg-badge">View Packages →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section dark" style="text-align:center">
+  <div class="container">
+    <p class="eyebrow" style="color:rgba(255,255,255,0.7)">Start Planning</p>
+    <h2 class="sec-hdr" style="color:#fff">Ready to visit Kerala?</h2>
+    <p style="color:rgba(255,255,255,0.8);max-width:540px;margin:0 auto 28px">WhatsApp us and get a personalised Kerala itinerary within 2 hours — including houseboat options and best dates for your travel window.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/918390922322?text=Hi%2C%20I%27m%20interested%20in%20a%20Kerala%20tour%20package." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp Us</a>
+      <a href="../packages.html?region=south" class="btn btn-outline">Browse South India Packages</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<site-footer></site-footer>
+</body>
+</html>

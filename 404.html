@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Not Found — Avadhut Tours</title>
+<meta name="description" content="The page you're looking for doesn't exist. Browse our tour packages or contact Avadhut Tours.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFCMUQ1QyIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iOTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjRkFENDY2Ij5BVDwvdGV4dD48L3N2Zz4=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="components.js"></script>
+<style>
+  .err-section {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .err-inner {
+    max-width: 520px;
+  }
+  .err-code {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 15vw, 7rem);
+    font-weight: 900;
+    color: var(--at-navy-700, #1B1D5C);
+    line-height: 1;
+    margin: 0 0 8px;
+    opacity: .12;
+  }
+  .err-icon {
+    font-size: 56px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .err-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 800;
+    color: var(--at-navy-700, #1B1D5C);
+    margin: 0 0 12px;
+  }
+  .err-sub {
+    font-size: 15.5px;
+    color: var(--text-muted, #6b7280);
+    line-height: 1.65;
+    margin: 0 0 32px;
+  }
+  .err-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .err-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--at-stone-200, #e5e7eb);
+    padding-top: 24px;
+  }
+  .err-links a {
+    font-size: 13.5px;
+    color: var(--at-saffron-600, #b45309);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .err-links a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<site-header></site-header>
+<main>
+<section class="err-section">
+  <div class="err-inner">
+    <div class="err-code">404</div>
+    <span class="err-icon">🗺️</span>
+    <h1 class="err-title">Page Not Found</h1>
+    <p class="err-sub">Looks like this route took a wrong turn. The page you're looking for doesn't exist or may have moved.</p>
+    <div class="err-btns">
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+      <a href="packages.html" class="btn btn-outline">Browse Packages</a>
+      <a href="https://wa.me/918390922322?text=Hi%2C%20I%20was%20looking%20for%20something%20on%20your%20website%20and%20couldn%27t%20find%20it." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp Us</a>
+    </div>
+    <div class="err-links">
+      <a href="packages.html">Tour Packages</a>
+      <a href="rentals.html">Vehicle Rentals</a>
+      <a href="fleet.html">Corporate Fleet</a>
+      <a href="about.html#contact">Contact Us</a>
+    </div>
+  </div>
+</section>
+</main>
+<site-footer></site-footer>
+</body>
+</html>

@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trip Gallery — Avadhut Tours</title>
+<meta name="description" content="Real photos from real Avadhut Tours trips — Kashmir, Manali, Kerala, Rajasthan, Thailand and more. See the magic before you book.">
+<meta name="keywords" content="avadhut tours gallery, india tour photos, kashmir photos, manali trip, kerala backwaters, rajasthan tour, group travel india">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFCMUQ1QyIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iOTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjRkFENDY2Ij5BVDwvdGV4dD48L3N2Zz4=">
+<meta property="og:title" content="Trip Gallery — Avadhut Tours">
+<meta property="og:description" content="Real photos from real Avadhut Tours trips across India and beyond.">
+<meta property="og:image" content="https://www.avadhuttours.com/assets/groups/amritsar-golden-temple-night.jpg">
+<meta property="og:url" content="https://www.avadhuttours.com/gallery.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="components.js"></script>
+
+<style>
+/* ── GALLERY FILTER BAR ─────────────────────────────── */
+.gal-filter-bar {
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 16px 0;
+  position: sticky;
+  top: 62px;
+  z-index: 100;
+}
+.gal-filter-inner {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+.gal-filter-inner::-webkit-scrollbar { display: none; }
+.gal-tab {
+  flex: 0 0 auto;
+  padding: 9px 20px;
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-default);
+  background: var(--surface-card);
+  color: var(--text-body);
+  cursor: pointer;
+  transition: all 0.16s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.gal-tab:hover { background: var(--at-saffron-50); color: var(--at-saffron-600); border-color: var(--at-saffron-400); }
+.gal-tab.active { background: var(--at-saffron-500); color: #fff; border-color: var(--at-saffron-500); }
+.gal-count {
+  font-size: 11px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-weight: 700;
+}
+.gal-tab:not(.active) .gal-count {
+  background: var(--at-stone-200);
+  color: var(--at-stone-600);
+}
+
+/* ── GALLERY SECTION ─────────────────────────────────── */
+.gal-section {
+  padding: 36px 0 48px;
+  background: var(--at-cream);
+  min-height: 500px;
+}
+
+/* ── MASONRY GRID ────────────────────────────────────── */
+.gal-grid {
+  column-count: 3;
+  column-gap: 14px;
+}
+.gal-tile {
+  break-inside: avoid;
+  margin-bottom: 14px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--at-stone-200);
+  /* transition for filter hide/show */
+  transition: opacity 0.25s, transform 0.25s;
+}
+.gal-tile.hidden {
+  display: none;
+}
+.gal-tile img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+  border-radius: 12px;
+}
+.gal-tile:hover img {
+  transform: scale(1.04);
+}
+
+/* Hover overlay */
+.gal-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,17,10,0.82) 0%, rgba(26,17,10,0.1) 55%, transparent 80%);
+  opacity: 0;
+  transition: opacity 0.22s;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px 14px;
+}
+.gal-tile:hover .gal-overlay { opacity: 1; }
+.gal-overlay-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.gal-overlay-hint {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.72);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.gal-overlay-hint::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.7)' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+/* Groups badge on tile */
+.gal-groups-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(241,90,35,0.92);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+/* ── NO RESULTS ──────────────────────────────────────── */
+.gal-empty {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+  grid-column: 1 / -1;
+}
+.gal-empty p {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin: 0 0 16px;
+}
+
+/* ── LIGHTBOX ────────────────────────────────────────── */
+.lb-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 1500;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.lb-overlay.open { display: flex; }
+
+.lb-close {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.14s;
+  line-height: 1;
+}
+.lb-close:hover { background: rgba(255,255,255,0.22); }
+
+.lb-counter {
+  position: fixed;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.05em;
+  z-index: 10;
+}
+
+.lb-img-wrap {
+  position: relative;
+  max-width: min(92vw, 1100px);
+  max-height: calc(100vh - 130px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lb-img {
+  max-width: 100%;
+  max-height: calc(100vh - 130px);
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+  transition: opacity 0.2s;
+}
+.lb-img.loading { opacity: 0; }
+
+.lb-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.14s;
+  z-index: 10;
+  flex-shrink: 0;
+}
+.lb-arrow:hover { background: rgba(255,255,255,0.22); }
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
+
+.lb-caption {
+  margin-top: 16px;
+  text-align: center;
+  padding: 0 20px;
+}
+.lb-caption-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.lb-caption-region {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.5);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Spinner inside lightbox */
+.lb-spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.lb-spinner span {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255,255,255,0.15);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: lb-spin 0.7s linear infinite;
+}
+@keyframes lb-spin { to { transform: rotate(360deg); } }
+
+/* ── CTA SECTION ─────────────────────────────────────── */
+.gal-cta {
+  background: linear-gradient(135deg, var(--at-brown-800) 0%, var(--at-navy-700) 100%);
+  padding: 52px 0;
+  text-align: center;
+}
+.gal-cta .eyebrow {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 10px;
+}
+.gal-cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 0.8rem + 2vw, 2.2rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+.gal-cta h2 span { color: #FAD466; }
+.gal-cta p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.72);
+  max-width: 48ch;
+  margin: 0 auto 28px;
+  line-height: 1.65;
+}
+.gal-cta-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .gal-grid { column-count: 2; column-gap: 12px; }
+  .gal-tile { margin-bottom: 12px; }
+  .lb-prev { left: 8px; }
+  .lb-next { right: 8px; }
+  .lb-arrow { width: 42px; height: 42px; font-size: 18px; }
+  .gal-filter-bar { top: 56px; }
+}
+@media (max-width: 600px) {
+  .gal-grid { column-count: 1; column-gap: 0; }
+  .gal-tile { margin-bottom: 10px; }
+  .gal-overlay { opacity: 1; }
+  .lb-prev { left: 4px; }
+  .lb-next { right: 4px; }
+  .lb-arrow { width: 38px; height: 38px; font-size: 16px; }
+  .lb-img-wrap { max-width: 100vw; }
+  .lb-caption-name { font-size: 15px; }
+  .gal-cta { padding: 36px 0; }
+}
+@media (max-width: 380px) {
+  .gal-tab { padding: 8px 14px; font-size: 12.5px; }
+}
+</style>
+</head>
+<body>
+
+<site-header active="gallery"></site-header>
+
+<main>
+
+<!-- ── PAGE HERO ─────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Real Trips · Real People · Real India</div>
+    <h1>Trip Gallery</h1>
+    <p>Real photos from real Avadhut Tours trips across India and beyond</p>
+  </div>
+</section>
+
+<!-- ── FILTER TABS ────────────────────────────────────── -->
+<div class="gal-filter-bar" id="gal-filter-bar">
+  <div class="container">
+    <div class="gal-filter-inner" role="tablist" aria-label="Filter gallery by region">
+      <button class="gal-tab active" data-cat="all" role="tab" aria-selected="true" onclick="filterGallery('all',this)">
+        All Photos <span class="gal-count" id="cnt-all"></span>
+      </button>
+      <button class="gal-tab" data-cat="north" role="tab" aria-selected="false" onclick="filterGallery('north',this)">
+        North India <span class="gal-count" id="cnt-north"></span>
+      </button>
+      <button class="gal-tab" data-cat="south" role="tab" aria-selected="false" onclick="filterGallery('south',this)">
+        South India <span class="gal-count" id="cnt-south"></span>
+      </button>
+      <button class="gal-tab" data-cat="west" role="tab" aria-selected="false" onclick="filterGallery('west',this)">
+        West India <span class="gal-count" id="cnt-west"></span>
+      </button>
+      <button class="gal-tab" data-cat="international" role="tab" aria-selected="false" onclick="filterGallery('international',this)">
+        International <span class="gal-count" id="cnt-international"></span>
+      </button>
+      <button class="gal-tab" data-cat="groups" role="tab" aria-selected="false" onclick="filterGallery('groups',this)">
+        Our Groups <span class="gal-count" id="cnt-groups"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── GALLERY GRID ───────────────────────────────────── -->
+<section class="gal-section">
+  <div class="container">
+    <div class="gal-grid" id="gal-grid">
+
+      <!-- NORTH INDIA -->
+      <div class="gal-tile" data-cat="north" data-name="Kashmir — Dal Lake" data-idx="0">
+        <img loading="lazy" src="assets/destinations/kashmir-dal-lake.jpg" alt="Kashmir Dal Lake — Shikara ride on the serene Dal Lake">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Kashmir — Dal Lake</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <div class="gal-tile" data-cat="north" data-name="Manali — Snow Valley" data-idx="1">
+        <img loading="lazy" src="assets/destinations/manali.jpg" alt="Manali snowcapped mountains and valley">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Manali — Snow Valley</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <div class="gal-tile" data-cat="north" data-name="Manali — Solang Valley" data-idx="2">
+        <img loading="lazy" src="assets/destinations/manali-solang-valley.jpg" alt="Solang Valley Manali — snow activities and adventure">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Manali — Solang Valley</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <div class="gal-tile" data-cat="north" data-name="Leh — Ladakh" data-idx="3">
+        <img loading="lazy" src="assets/destinations/leh-ladakh.jpg" alt="Leh Ladakh high altitude landscape and monasteries">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Leh — Ladakh</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- SOUTH INDIA -->
+      <div class="gal-tile" data-cat="south" data-name="Kerala — Houseboat" data-idx="4">
+        <img loading="lazy" src="assets/destinations/kerala-houseboat.jpg" alt="Kerala houseboat cruise on the backwaters">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Kerala — Houseboat Stay</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- NORTH - continued -->
+      <div class="gal-tile" data-cat="north" data-name="Ladakh — Magnetic Hill" data-idx="5">
+        <img loading="lazy" src="assets/destinations/ladakh-magnetic-hill.jpg" alt="Ladakh Magnetic Hill — the mysterious anti-gravity road">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Ladakh — Magnetic Hill</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- WEST INDIA -->
+      <div class="gal-tile" data-cat="west" data-name="Rajasthan — Desert Safari" data-idx="6">
+        <img loading="lazy" src="assets/destinations/rajasthan-desert.jpg" alt="Rajasthan desert sand dunes — camel safari at sunset">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Rajasthan — Desert Safari</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- GROUPS — weave in early -->
+      <div class="gal-tile" data-cat="groups" data-name="Golden Temple — Amritsar Night" data-idx="7">
+        <img loading="lazy" src="assets/groups/amritsar-golden-temple-night.jpg" alt="Amritsar Golden Temple illuminated at night — Avadhut Tours group">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Golden Temple — Amritsar</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+      <!-- SOUTH - continued -->
+      <div class="gal-tile" data-cat="south" data-name="Kerala — Backwaters" data-idx="8">
+        <img loading="lazy" src="assets/destinations/kerala-backwaters.jpg" alt="Kerala backwaters — palm fringed canals and lush greenery">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Kerala — Backwaters</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- WEST - continued -->
+      <div class="gal-tile" data-cat="west" data-name="Rajasthan — Palace" data-idx="9">
+        <img loading="lazy" src="assets/destinations/rajasthan-palace.jpg" alt="Rajasthan magnificent palace and royal heritage">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Rajasthan — Palace</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- NORTH - Himachal -->
+      <div class="gal-tile" data-cat="north" data-name="Himachal Pradesh" data-idx="10">
+        <img loading="lazy" src="assets/destinations/himachal.jpg" alt="Himachal Pradesh scenic mountain vistas">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Himachal Pradesh</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- GROUPS - Golden Temple Family -->
+      <div class="gal-tile" data-cat="groups" data-name="Family at Golden Temple" data-idx="11">
+        <img loading="lazy" src="assets/groups/group-golden-temple-family.jpg" alt="Avadhut Tours group family photo at Golden Temple Amritsar">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Family at Golden Temple</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+      <!-- WEST - Goa -->
+      <div class="gal-tile" data-cat="west" data-name="Goa — Beach Paradise" data-idx="12">
+        <img loading="lazy" src="assets/destinations/goa-beach-paradise.jpg" alt="Goa beach paradise — golden sands and azure waters">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Goa — Beach Paradise</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- NORTH - Kedarnath -->
+      <div class="gal-tile" data-cat="north" data-name="Kedarnath Temple" data-idx="13">
+        <img loading="lazy" src="assets/destinations/kedarnath.jpg" alt="Kedarnath temple — sacred Char Dham pilgrimage">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Kedarnath Temple</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- GROUPS - Manali Forest -->
+      <div class="gal-tile" data-cat="groups north" data-name="Group in Manali Forest" data-idx="14">
+        <img loading="lazy" src="assets/groups/group-manali-forest.jpg" alt="Avadhut Tours group trekking through Manali pine forests">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Group in Manali Forest</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+      <!-- INTERNATIONAL - Thailand -->
+      <div class="gal-tile" data-cat="international" data-name="Thailand — Beach" data-idx="15">
+        <img loading="lazy" src="assets/destinations/thailand-beach.jpg" alt="Thailand beach holiday — crystal clear turquoise waters">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Thailand — Beach Holiday</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- NORTH - Darjeeling train -->
+      <div class="gal-tile" data-cat="north" data-name="Darjeeling — Toy Train" data-idx="16">
+        <img loading="lazy" src="assets/destinations/darjeeling-train.jpg" alt="Darjeeling toy train — UNESCO heritage mountain railway">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Darjeeling — Toy Train</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- GROUPS - Manali Snow -->
+      <div class="gal-tile" data-cat="groups north" data-name="Group — Snow Fun Manali" data-idx="17">
+        <img loading="lazy" src="assets/groups/group-manali-snow.jpg" alt="Avadhut Tours group enjoying snow activities at Manali">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Snow Fun — Manali</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+      <!-- WEST - Lonavala -->
+      <div class="gal-tile" data-cat="west" data-name="Lonavala — Western Ghats" data-idx="18">
+        <img loading="lazy" src="assets/destinations/lonavala.jpg" alt="Lonavala scenic valley and waterfalls in Western Ghats">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Lonavala — Western Ghats</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- INTERNATIONAL - Bangkok -->
+      <div class="gal-tile" data-cat="international" data-name="Thailand — Bangkok" data-idx="19">
+        <img loading="lazy" src="assets/destinations/thailand-bangkok.jpg" alt="Thailand Bangkok temples and city skyline">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Thailand — Bangkok</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- GROUPS - Solang -->
+      <div class="gal-tile" data-cat="groups north" data-name="Group — Solang Valley" data-idx="20">
+        <img loading="lazy" src="assets/groups/group-solang.jpg" alt="Avadhut Tours group at Solang Valley snow point Manali">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Group — Solang Valley</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+      <!-- NORTH - Darjeeling Tea -->
+      <div class="gal-tile" data-cat="north" data-name="Darjeeling — Tea Gardens" data-idx="21">
+        <img loading="lazy" src="assets/destinations/darjeeling-tea.jpg" alt="Darjeeling tea gardens — rolling green estates">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Darjeeling — Tea Gardens</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- GROUPS - Beach -->
+      <div class="gal-tile" data-cat="groups west" data-name="Group — Beach Trip" data-idx="22">
+        <img loading="lazy" src="assets/groups/group-beach.jpg" alt="Avadhut Tours group enjoying the beach together">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Group — Beach Trip</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+      <!-- INTERNATIONAL - Andaman -->
+      <div class="gal-tile" data-cat="international" data-name="Andaman — Havelock Island" data-idx="23">
+        <img loading="lazy" src="assets/destinations/andaman-havelock.jpg" alt="Andaman Havelock Island pristine beach and coral reefs">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Andaman — Havelock Island</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+      </div>
+
+      <!-- GROUPS - Dharamshala -->
+      <div class="gal-tile" data-cat="groups north" data-name="Group — Dharamshala Stadium" data-idx="24">
+        <img loading="lazy" src="assets/groups/group-dharamshala-stadium.jpg" alt="Avadhut Tours group at HPCA Cricket Stadium Dharamshala">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Dharamshala — Cricket Stadium</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+      <!-- GROUPS - Manali Mall Road -->
+      <div class="gal-tile" data-cat="groups north" data-name="Group — Manali Mall Road" data-idx="25">
+        <img loading="lazy" src="assets/groups/group-manali-mall.jpg" alt="Avadhut Tours group at Manali Mall Road exploring the town">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Manali — Mall Road</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+      <!-- GROUPS - Karla Caves -->
+      <div class="gal-tile" data-cat="groups west" data-name="Group — Karla Caves" data-idx="26">
+        <img loading="lazy" src="assets/groups/group-karla-caves.jpg" alt="Avadhut Tours group at the historic Karla Caves near Pune">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Karla Caves — Maharashtra</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+      <!-- GROUPS - Tea Garden -->
+      <div class="gal-tile" data-cat="groups south" data-name="Group — Tea Garden" data-idx="27">
+        <img loading="lazy" src="assets/groups/group-tea-garden.jpg" alt="Avadhut Tours group exploring lush tea gardens in south India">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Group — Tea Garden</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+      <!-- GROUPS - Selfie Forest -->
+      <div class="gal-tile" data-cat="groups" data-name="Group Selfie — Forest Trail" data-idx="28">
+        <img loading="lazy" src="assets/groups/group-selfie-forest.jpg" alt="Happy Avadhut Tours group selfie on a forest trail">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Group Selfie — Forest Trail</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+      <!-- GROUPS - Sikkim Darjeeling -->
+      <div class="gal-tile" data-cat="groups north" data-name="Sikkim–Darjeeling Tour 2019" data-idx="29">
+        <img loading="lazy" src="assets/groups/group-sikkim-darjeeling-2019.jpg" alt="Avadhut Tours Sikkim Darjeeling group tour 2019">
+        <div class="gal-overlay">
+          <div class="gal-overlay-name">Sikkim–Darjeeling 2019</div>
+          <div class="gal-overlay-hint">Click to view</div>
+        </div>
+        <div class="gal-groups-badge">Avadhut Group</div>
+      </div>
+
+    </div><!-- /.gal-grid -->
+
+    <div class="gal-empty" id="gal-empty">
+      <p>No photos in this category yet. More coming soon!</p>
+      <a href="packages.html" class="btn btn-primary">Browse Packages</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CTA ──────────────────────────────────────────────── -->
+<section class="gal-cta">
+  <div class="container">
+    <div class="eyebrow">Your next chapter awaits</div>
+    <h2>Book a Trip to Your<br><span>Favourite Destination</span></h2>
+    <p>Inspired by what you see? Let us plan the perfect trip for you — customised itinerary, your budget, your dates.</p>
+    <div class="gal-cta-btns">
+      <a href="packages.html" class="btn btn-primary" style="font-size:15px;padding:14px 28px">Browse Packages →</a>
+      <a href="https://wa.me/918390922322?text=Hi%2C%20I%20saw%20your%20gallery%20and%20want%20to%20plan%20a%20trip!" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="font-size:15px;padding:14px 28px">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ── LIGHTBOX ──────────────────────────────────────────── -->
+<div class="lb-overlay" id="lb" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+  <div class="lb-counter" id="lb-counter"></div>
+  <button class="lb-close" id="lb-close" aria-label="Close lightbox">✕</button>
+  <button class="lb-arrow lb-prev" id="lb-prev" aria-label="Previous photo">&#8249;</button>
+  <div class="lb-img-wrap" id="lb-img-wrap">
+    <div class="lb-spinner" id="lb-spinner"><span></span></div>
+    <img class="lb-img loading" id="lb-img" src="" alt="">
+  </div>
+  <div class="lb-caption">
+    <div class="lb-caption-name" id="lb-caption-name"></div>
+    <div class="lb-caption-region" id="lb-caption-region"></div>
+  </div>
+  <button class="lb-arrow lb-next" id="lb-next" aria-label="Next photo">&#8250;</button>
+</div>
+
+<site-footer></site-footer>
+
+<script>
+// ── GALLERY DATA ─────────────────────────────────────────
+// Collect tiles into JS array for lightbox nav
+var allTiles = [];
+var visibleTiles = [];
+var currentIdx = 0;
+
+// Build tile index from DOM on load
+function buildTileIndex() {
+  allTiles = Array.from(document.querySelectorAll('.gal-tile'));
+}
+
+// ── COUNT BADGES ─────────────────────────────────────────
+function updateCounts(activecat) {
+  var cats = ['all','north','south','west','international','groups'];
+  cats.forEach(function(cat) {
+    var el = document.getElementById('cnt-' + cat);
+    if (!el) return;
+    var count;
+    if (cat === 'all') {
+      count = allTiles.length;
+    } else {
+      count = allTiles.filter(function(t) {
+        return t.getAttribute('data-cat').split(' ').indexOf(cat) !== -1;
+      }).length;
+    }
+    el.textContent = count;
+  });
+}
+
+// ── FILTER ───────────────────────────────────────────────
+function filterGallery(cat, btn) {
+  // Update active tab
+  document.querySelectorAll('.gal-tab').forEach(function(t) {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected','false');
+  });
+  if (btn) {
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected','true');
+  }
+
+  // Show / hide tiles
+  var hasVisible = false;
+  allTiles.forEach(function(tile) {
+    var tileCats = tile.getAttribute('data-cat').split(' ');
+    var show = (cat === 'all') || (tileCats.indexOf(cat) !== -1);
+    if (show) {
+      tile.classList.remove('hidden');
+      hasVisible = true;
+    } else {
+      tile.classList.add('hidden');
+    }
+  });
+
+  // Empty state
+  var emptyEl = document.getElementById('gal-empty');
+  if (emptyEl) emptyEl.style.display = hasVisible ? 'none' : 'block';
+
+  // Rebuild visible list for lightbox
+  buildVisibleList();
+}
+
+function buildVisibleList() {
+  visibleTiles = allTiles.filter(function(t) {
+    return !t.classList.contains('hidden');
+  });
+}
+
+// ── LIGHTBOX ─────────────────────────────────────────────
+var lb      = document.getElementById('lb');
+var lbImg   = document.getElementById('lb-img');
+var lbName  = document.getElementById('lb-caption-name');
+var lbReg   = document.getElementById('lb-caption-region');
+var lbCtr   = document.getElementById('lb-counter');
+var lbSpin  = document.getElementById('lb-spinner');
+
+var CAT_LABELS = {
+  north: 'North India',
+  south: 'South India',
+  west: 'West India',
+  international: 'International',
+  groups: 'Avadhut Group'
+};
+
+function openLightbox(tileEl) {
+  var idx = visibleTiles.indexOf(tileEl);
+  if (idx === -1) idx = 0;
+  currentIdx = idx;
+  showLbSlide(currentIdx);
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  lbImg.src = '';
+}
+
+function showLbSlide(idx) {
+  if (!visibleTiles.length) return;
+  idx = ((idx % visibleTiles.length) + visibleTiles.length) % visibleTiles.length;
+  currentIdx = idx;
+  var tile = visibleTiles[idx];
+  var img = tile.querySelector('img');
+  var name = tile.getAttribute('data-name') || '';
+  var cats = tile.getAttribute('data-cat').split(' ');
+  var regionLabel = '';
+  for (var i = 0; i < cats.length; i++) {
+    if (CAT_LABELS[cats[i]]) { regionLabel = CAT_LABELS[cats[i]]; break; }
+  }
+
+  // Show spinner, hide image
+  lbImg.classList.add('loading');
+  lbSpin.style.display = 'flex';
+
+  lbImg.onload = function() {
+    lbImg.classList.remove('loading');
+    lbSpin.style.display = 'none';
+  };
+  lbImg.onerror = function() {
+    lbSpin.style.display = 'none';
+  };
+  lbImg.src = img.src;
+  lbImg.alt = img.alt || name;
+  lbName.textContent = name;
+  lbReg.textContent = regionLabel;
+  lbCtr.textContent = (idx + 1) + ' / ' + visibleTiles.length;
+}
+
+function lbNext() { showLbSlide(currentIdx + 1); }
+function lbPrev() { showLbSlide(currentIdx - 1); }
+
+// Click tiles to open lightbox
+document.getElementById('gal-grid').addEventListener('click', function(e) {
+  var tile = e.target.closest('.gal-tile');
+  if (tile && !tile.classList.contains('hidden')) {
+    openLightbox(tile);
+  }
+});
+
+// Close / nav buttons
+document.getElementById('lb-close').addEventListener('click', closeLightbox);
+document.getElementById('lb-next').addEventListener('click', lbNext);
+document.getElementById('lb-prev').addEventListener('click', lbPrev);
+
+// Click outside image to close
+lb.addEventListener('click', function(e) {
+  if (e.target === lb) closeLightbox();
+});
+
+// Keyboard nav
+document.addEventListener('keydown', function(e) {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') lbNext();
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   lbPrev();
+});
+
+// Touch swipe support
+(function() {
+  var startX = 0;
+  var startY = 0;
+  lb.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+  lb.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    var dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 44) {
+      if (dx < 0) lbNext(); else lbPrev();
+    }
+  }, { passive: true });
+})();
+
+// ── INIT ────────────────────────────────────────────────
+buildTileIndex();
+buildVisibleList();
+updateCounts('all');
+</script>
+
+</body>
+</html>
