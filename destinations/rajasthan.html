@@ -31,7 +31,8 @@
   .attr-icon { font-size: 1.8rem; margin-bottom: 10px; }
   .attr-card h3 { font-size: 1rem; color: var(--at-navy, #1B1D5C); margin: 0 0 6px; }
   .attr-card p { font-size: 0.875rem; color: #666; margin: 0; line-height: 1.5; }
-  .month-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
+  .month-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 8px; }
+  .month-table { width: 100%; min-width: 620px; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
   .month-table th { background: var(--at-navy, #1B1D5C); color: #fff; padding: 10px 6px; text-align: center; }
   .month-table td { padding: 10px 6px; text-align: center; border: 1px solid #e8e0d5; }
   .mt-peak { background: #d4edda; color: #155724; font-weight: 700; }
@@ -163,7 +164,7 @@
     <p class="eyebrow">Planning Your Trip</p>
     <h2 class="sec-hdr">Best Time to Visit Rajasthan</h2>
     <p>Rajasthan's climate is extreme — blazing summers and chilly desert nights. The October to March window is the sweet spot for comfortable sightseeing and the desert experience:</p>
-    <table class="month-table">
+    <div class="month-table-wrap"><table class="month-table">
       <thead>
         <tr>
           <th>Month</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th>
@@ -192,7 +193,7 @@
           <td>27/39</td><td>26/37</td><td>24/37</td><td>19/35</td><td>13/29</td><td>9/25</td>
         </tr>
       </tbody>
-    </table>
+    </table></div></table>
     <p style="font-size:0.82rem;color:#888;margin-top:8px">
       <span style="background:#d4edda;padding:2px 8px;border-radius:4px;margin-right:6px">Best</span>
       Cool days, chilly desert nights — ideal &nbsp;|&nbsp;
@@ -216,6 +217,54 @@
       <li><strong>Buy textiles in Jodhpur, not Jaipur:</strong> Jodhpur's Sardar Market and Ghanta Ghar area have better prices and quality for block-printed fabric, Jodhpuri suits and leather goods than tourist-facing Jaipur markets.</li>
       <li><strong>Book Jaisalmer Desert Camps in advance:</strong> Premium camps at Sam Dunes book out 2–3 months ahead from November to January. Basic camps are available walk-in, but the experience difference between premium and basic is significant.</li>
     </ol>
+  </div>
+</section>
+
+<!-- HOW TO REACH -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Getting there</p>
+    <h2 class="sec-hdr">How to Reach</h2>
+    <div class="dest-info-grid">
+      <div class="dest-info-card"><div class="dic-ico">✈️</div><h3>By Air</h3><p><strong>Jaipur (JAI)</strong> is the main hub. Direct flights also to Udaipur (UDR), Jodhpur (JDH) and Jaisalmer (JSA — limited).</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚆</div><h3>By Train</h3><p>Delhi–Jaipur Shatabdi (4.5h) is fast and comfortable. Mandor / Marudhar Express to other cities. <strong>Palace on Wheels</strong> for luxury circuit.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚌</div><h3>By Road</h3><p>NH-48 Delhi → Jaipur (5h on expressway). Inter-city distances are large — break into 2–3 cities per trip.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🏰</div><h3>Heritage Trains</h3><p>Maharajas' Express and Royal Rajasthan on Wheels — week-long luxury train circuits.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL CUISINE -->
+<section class="section warm">
+  <div class="container">
+    <p class="eyebrow">Eat like a local</p>
+    <h2 class="sec-hdr">Royal Rajputana Cuisine</h2>
+    <p>Food is half the trip. Here's what to seek out — every Avadhut itinerary leaves room for tasting the local specialties.</p>
+    <ul class="dest-food-list">
+        <li><strong>Dal-Baati-Churma</strong> — baked wheat balls with lentils &amp; sweet crumble</li>
+        <li><strong>Laal Maas</strong> — fiery red mutton curry with Mathania chillies</li>
+        <li><strong>Gatte ki Sabzi</strong> — gram-flour dumplings in yogurt gravy</li>
+        <li><strong>Ker Sangri</strong> — desert berry &amp; bean stir-fry (Marwari)</li>
+        <li><strong>Pyaaz Kachori</strong> — Jodhpur's onion-stuffed deep-fried snack</li>
+        <li><strong>Mawa Kachori</strong> — Jaipur's sweet milk-stuffed pastry</li>
+        <li><strong>Ghewar</strong> — disc-shaped honey-soaked monsoon sweet</li>
+        <li><strong>Bajre ki Khichdi</strong> — millet &amp; lentil winter porridge</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SUGGESTED TRIP LENGTHS -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">How long should you stay?</p>
+    <h2 class="sec-hdr">Suggested Trip Lengths</h2>
+    <p>All durations are fully customisable. Mix &amp; match cities, add rest days, upgrade hotels — we re-quote on the fly.</p>
+    <div class="dest-info-grid lengths-grid">
+      <div class="dest-info-card"><div class="dl-label">Golden Triangle</div><div class="dl-days">4N / 5D</div><p>Delhi + Agra + Jaipur — classic first-timer route.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Royal Three</div><div class="dl-days">6N / 7D</div><p>Jaipur + Udaipur + Jodhpur.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Desert Add-on</div><div class="dl-days">9N / 10D</div><p>Add Jaisalmer dunes + camp-night + Pushkar.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Grand Tour</div><div class="dl-days">12N+</div><p>Full state including Bikaner, Mount Abu, Ranthambore wildlife.</p></div>
+    </div>
   </div>
 </section>
 

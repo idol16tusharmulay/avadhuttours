@@ -31,7 +31,8 @@
   .attr-icon { font-size: 1.8rem; margin-bottom: 10px; }
   .attr-card h3 { font-size: 1rem; color: var(--at-navy, #1B1D5C); margin: 0 0 6px; }
   .attr-card p { font-size: 0.875rem; color: #666; margin: 0; line-height: 1.5; }
-  .month-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
+  .month-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 8px; }
+  .month-table { width: 100%; min-width: 620px; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
   .month-table th { background: var(--at-navy, #1B1D5C); color: #fff; padding: 10px 6px; text-align: center; }
   .month-table td { padding: 10px 6px; text-align: center; border: 1px solid #e8e0d5; }
   .mt-peak { background: #d4edda; color: #155724; font-weight: 700; }
@@ -164,7 +165,7 @@
     <p class="eyebrow">Planning Your Trip</p>
     <h2 class="sec-hdr">Best Time to Visit Kashmir</h2>
     <p>Kashmir is beautiful year-round but dramatically different each season. Here's a quick month-by-month breakdown to help you choose:</p>
-    <table class="month-table">
+    <div class="month-table-wrap"><table class="month-table">
       <thead>
         <tr>
           <th>Month</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th>
@@ -193,7 +194,7 @@
           <td>18/28</td><td>17/27</td><td>12/22</td><td>8/18</td><td>2/12</td><td>−1/6</td>
         </tr>
       </tbody>
-    </table>
+    </table></div></table>
     <p style="font-size:0.82rem;color:#888;margin-top:8px">
       <span style="background:#d4edda;padding:2px 8px;border-radius:4px;margin-right:6px">Best</span>
       Peak season — book early &nbsp;|&nbsp;
@@ -217,6 +218,54 @@
       <li><strong>Pre-book the Gulmarg Gondola online:</strong> The gondola sells out by 10 AM in peak season. Book tickets at skiindia.com/gondola the evening before to avoid long queues.</li>
       <li><strong>Respect local customs:</strong> Kashmir is predominantly Muslim — dress modestly near mosques and markets, avoid alcohol in public, and always ask before photographing locals.</li>
     </ol>
+  </div>
+</section>
+
+<!-- HOW TO REACH -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Getting there</p>
+    <h2 class="sec-hdr">How to Reach</h2>
+    <div class="dest-info-grid">
+      <div class="dest-info-card"><div class="dic-ico">✈️</div><h3>By Air</h3><p>Direct flights to <strong>Srinagar (SXR)</strong> from Mumbai (3h), Delhi (1.5h), Bengaluru and Pune. Most cost-effective in Apr–May and Sep–Oct.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚆</div><h3>By Train</h3><p>Trains run only as far as <strong>Jammu Tawi</strong>; from there a 7–9h scenic drive on NH-44 over the Banihal Pass.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚌</div><h3>By Road</h3><p>Volvo / SUV from Jammu, Pathankot, or Delhi (via Udhampur). Picturesque but 12+ hours from Delhi — best broken into two days.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚁</div><h3>Helicopter</h3><p>Srinagar–Vaishno Devi helicopter for combined pilgrimage + Kashmir tours.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL CUISINE -->
+<section class="section warm">
+  <div class="container">
+    <p class="eyebrow">Eat like a local</p>
+    <h2 class="sec-hdr">Kashmiri Wazwan</h2>
+    <p>Food is half the trip. Here's what to seek out — every Avadhut itinerary leaves room for tasting the local specialties.</p>
+    <ul class="dest-food-list">
+        <li><strong>Rogan Josh</strong> — slow-cooked lamb in red Kashmiri chilli &amp; yogurt</li>
+        <li><strong>Yakhni</strong> — light yogurt-based mutton curry</li>
+        <li><strong>Dum Aloo</strong> — baby potatoes in spiced gravy</li>
+        <li><strong>Modur Pulao</strong> — sweet saffron rice with dry fruits</li>
+        <li><strong>Kahwa</strong> — green tea with saffron, almonds &amp; cinnamon</li>
+        <li><strong>Tabak Maaz</strong> — twice-cooked lamb ribs</li>
+        <li><strong>Trout</strong> — fresh from Lidder &amp; Sindh rivers</li>
+        <li><strong>Wazwan feast</strong> — 7–36 course wedding banquet (advance order)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SUGGESTED TRIP LENGTHS -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">How long should you stay?</p>
+    <h2 class="sec-hdr">Suggested Trip Lengths</h2>
+    <p>All durations are fully customisable. Mix &amp; match cities, add rest days, upgrade hotels — we re-quote on the fly.</p>
+    <div class="dest-info-grid lengths-grid">
+      <div class="dest-info-card"><div class="dl-label">Weekender</div><div class="dl-days">4N / 5D</div><p>Srinagar + Gulmarg only — quick taste of the valley.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Classic</div><div class="dl-days">6N / 7D</div><p>Srinagar + Gulmarg + Pahalgam + houseboat night. The most-booked.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Extended</div><div class="dl-days">9N / 10D</div><p>Add Sonamarg, Yusmarg, more leisure time. Best for senior groups.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Grand</div><div class="dl-days">12N+</div><p>Add Ladakh leg via Zoji La (Jun–Sep only) or pilgrimage extensions.</p></div>
+    </div>
   </div>
 </section>
 

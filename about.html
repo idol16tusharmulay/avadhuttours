@@ -456,10 +456,10 @@
         </div>
       </div>
       <div class="enq-right">
-        <form action="https://formsubmit.co/avadhuttours365@gmail.com" method="POST" class="enq-form">
+        <form id="enquiry-form" action="https://formsubmit.co/ajax/avadhuttours365@gmail.com" method="POST" class="enq-form">
           <input type="hidden" name="_subject" value="New Enquiry — Avadhut Tours">
-          <input type="hidden" name="_next" value="https://www.avadhuttours.com/about.html?ty=1">
-          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
           <div class="form-row">
             <div class="form-group">
               <label>Full Name *</label>
@@ -493,13 +493,14 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Travel Month</label>
+              <label>Approximate Travel Month <span style="color:var(--text-muted);font-weight:400;font-size:12px">(we'll confirm dates with you)</span></label>
               <select name="travel_month">
-                <option value="">Select month</option>
+                <option value="">Not sure yet</option>
                 <option>January</option><option>February</option><option>March</option>
                 <option>April</option><option>May</option><option>June</option>
                 <option>July</option><option>August</option><option>September</option>
                 <option>October</option><option>November</option><option>December</option>
+                <option>Flexible — please suggest</option>
               </select>
             </div>
             <div class="form-group">
@@ -529,7 +530,38 @@
 <site-footer></site-footer>
 
 <script>
-// Thank-you detection
+// AJAX form submission — keeps user on page, shows inline success
+(function(){
+  const form = document.getElementById('enquiry-form');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const origBtn = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    fetch(form.action, {
+      method: 'POST',
+      headers: {'Accept': 'application/json'},
+      body: new FormData(form)
+    }).then(r => r.json()).then(data => {
+      if(data.success === 'true' || data.success === true){
+        document.getElementById('ty-card').style.display = 'block';
+        document.getElementById('contact').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        form.reset();
+      } else {
+        throw new Error(data.message || 'Submit failed');
+      }
+    }).catch(err => {
+      alert('Sorry — we couldn\'t send your enquiry. Please WhatsApp us at +91 83909 22322.');
+      btn.disabled = false;
+      btn.textContent = origBtn;
+    });
+  });
+})();
+
+// Legacy ?ty=1 support for any old redirect bookmarks
 if (new URLSearchParams(window.location.search).get('ty')) {
   document.getElementById('ty-card').style.display = 'block';
   document.getElementById('contact').style.display = 'none';

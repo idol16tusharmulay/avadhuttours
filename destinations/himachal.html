@@ -31,7 +31,8 @@
   .attr-icon { font-size: 1.8rem; margin-bottom: 10px; }
   .attr-card h3 { font-size: 1rem; color: var(--at-navy, #1B1D5C); margin: 0 0 6px; }
   .attr-card p { font-size: 0.875rem; color: #666; margin: 0; line-height: 1.5; }
-  .month-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
+  .month-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 8px; }
+  .month-table { width: 100%; min-width: 620px; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
   .month-table th { background: var(--at-navy, #1B1D5C); color: #fff; padding: 10px 6px; text-align: center; }
   .month-table td { padding: 10px 6px; text-align: center; border: 1px solid #e8e0d5; }
   .mt-peak { background: #d4edda; color: #155724; font-weight: 700; }
@@ -163,7 +164,7 @@
     <p class="eyebrow">Planning Your Trip</p>
     <h2 class="sec-hdr">Best Time to Visit Himachal Pradesh</h2>
     <p>Shimla and Manali can be visited in different seasons for very different experiences — here's what each month offers:</p>
-    <table class="month-table">
+    <div class="month-table-wrap"><table class="month-table">
       <thead>
         <tr>
           <th>Month</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th>
@@ -192,7 +193,7 @@
           <td>17/24</td><td>16/23</td><td>11/20</td><td>6/16</td><td>0/10</td><td>−3/6</td>
         </tr>
       </tbody>
-    </table>
+    </table></div></table>
     <p style="font-size:0.82rem;color:#888;margin-top:8px">
       <span style="background:#d4edda;padding:2px 8px;border-radius:4px;margin-right:6px">Best</span>
       Clear skies, all roads open &nbsp;|&nbsp;
@@ -216,6 +217,54 @@
       <li><strong>Avoid July–August if road safety is a concern:</strong> Monsoon brings landslides on NH3 (Manali-Rohtang stretch). Check HRTC road updates before travel during this period.</li>
       <li><strong>Try local dhabas in Old Manali:</strong> The best Himachali food — Sidu (steamed wheat bread with ghee), Dham (festive thali) and fresh Beas river trout — is served in small local eateries near Hadimba Temple, not hotel restaurants.</li>
     </ol>
+  </div>
+</section>
+
+<!-- HOW TO REACH -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Getting there</p>
+    <h2 class="sec-hdr">How to Reach</h2>
+    <div class="dest-info-grid">
+      <div class="dest-info-card"><div class="dic-ico">✈️</div><h3>By Air</h3><p>Flights to <strong>Bhuntar (Kullu, KUU)</strong> or <strong>Shimla (SLV)</strong> — limited frequency. Dharamshala (DHM) for the north.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚆</div><h3>By Train</h3><p>Toy train Kalka → Shimla (5h, UNESCO heritage). Mainline to Pathankot or Chandigarh, drive up.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚌</div><h3>By Road</h3><p>Overnight Volvo from Delhi to Manali (12h), Shimla (8h) or Dharamshala (12h). Affordable and reliable.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚗</div><h3>Self-drive</h3><p>NH-3 (Delhi → Chandigarh → Manali) is well-paved. Note: Rohtang &amp; Spiti need permits.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL CUISINE -->
+<section class="section warm">
+  <div class="container">
+    <p class="eyebrow">Eat like a local</p>
+    <h2 class="sec-hdr">Pahari (Hill) Cuisine</h2>
+    <p>Food is half the trip. Here's what to seek out — every Avadhut itinerary leaves room for tasting the local specialties.</p>
+    <ul class="dest-food-list">
+        <li><strong>Siddu</strong> — steamed wheat bun stuffed with poppy seeds &amp; walnuts</li>
+        <li><strong>Babru</strong> — black-lentil-stuffed crispy kachori</li>
+        <li><strong>Madra</strong> — chickpeas in spiced yogurt sauce</li>
+        <li><strong>Dham</strong> — festive Brahmin-cooked thali on a leaf plate</li>
+        <li><strong>Chha Gosht</strong> — lamb in gram flour &amp; yogurt curry</li>
+        <li><strong>Tudkiya Bhath</strong> — Kullu-style spiced rice with lentils</li>
+        <li><strong>Kullu Trout</strong> — fresh river fish, simply grilled</li>
+        <li><strong>Mittha</strong> — sweet rice with raisins (often closes a Dham)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SUGGESTED TRIP LENGTHS -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">How long should you stay?</p>
+    <h2 class="sec-hdr">Suggested Trip Lengths</h2>
+    <p>All durations are fully customisable. Mix &amp; match cities, add rest days, upgrade hotels — we re-quote on the fly.</p>
+    <div class="dest-info-grid lengths-grid">
+      <div class="dest-info-card"><div class="dl-label">Weekender</div><div class="dl-days">3N / 4D</div><p>Shimla + Kufri OR Manali standalone.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Classic</div><div class="dl-days">5N / 6D</div><p>Shimla + Manali combo via Kullu valley.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Full Circuit</div><div class="dl-days">7N / 8D</div><p>Add Dharamshala / McLeodganj OR Dalhousie.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Spiti Adventure</div><div class="dl-days">10N+</div><p>Manali → Spiti → Kaza loop (Jun–Sep only). For 4×4 enthusiasts.</p></div>
+    </div>
   </div>
 </section>
 

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tour Package — Avadhut Tours</title>
+<meta name="description" content="Detailed tour itinerary, hotel list, inclusions, exclusions and customisation options. Custom-built by Avadhut Tours.">
+<link rel="icon" type="image/png" href="/assets/logo/avadhut-emblem.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="components.js"></script>
+<script src="data/packages-data.js"></script>
+<style>
+.pkg-detail-hero{position:relative;height:380px;background:#1a1a1a center/cover no-repeat}
+@media(max-width:640px){.pkg-detail-hero{height:260px}}
+.pkg-detail-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7),rgba(0,0,0,.2))}
+.pkg-detail-hero-inner{position:absolute;inset:0;display:flex;align-items:flex-end;padding:clamp(24px,5vw,48px) clamp(16px,4vw,32px);max-width:1200px;margin:0 auto;left:0;right:0;z-index:1}
+.pdh-content{color:#fff;max-width:780px}
+.pdh-eyebrow{display:inline-block;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:5px 12px;border-radius:999px;margin-bottom:10px}
+.pdh-title{font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800;line-height:1.15;margin:0 0 8px;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.pdh-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:13.5px;font-weight:600;opacity:.95}
+.pdh-meta span{white-space:nowrap}
+
+.pkg-layout{display:grid;grid-template-columns:1fr 320px;grid-template-areas:'main side';gap:32px;align-items:start}
+.pkg-main{grid-area:main}
+.pkg-side{grid-area:side}
+@media(max-width:900px){
+  .pkg-layout{grid-template-columns:1fr;grid-template-areas:'side' 'main';gap:16px}
+  .pkg-side{position:static!important;top:auto!important}
+}
+
+.pkg-main h2{font-family:var(--font-display);font-size:1.4rem;color:var(--text-strong);margin:36px 0 14px;font-weight:800}
+.pkg-main h2:first-child{margin-top:0}
+.pkg-main p{font-size:15px;line-height:1.7;color:var(--text-body)}
+
+.pkg-incl-icons-row{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 14px}
+.pkg-incl-icons-row span{background:var(--at-saffron-50);color:var(--at-saffron-700);font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;white-space:nowrap}
+
+.itin-list{display:flex;flex-direction:column;gap:0;border-left:3px solid var(--at-saffron-200);padding-left:0;margin-top:10px}
+.itin-day-card{background:#fff;border:1px solid var(--border-subtle);border-radius:0 12px 12px 12px;padding:0;margin:0 0 12px 12px;overflow:hidden}
+.itin-day-card summary{padding:16px 18px;cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;font-family:var(--font-display);font-weight:700;color:var(--at-navy);outline:none}
+.itin-day-card summary::-webkit-details-marker{display:none}
+.itin-day-card summary::before{content:'+';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--at-saffron-500);color:#fff;font-weight:800;font-size:14px;flex-shrink:0;transition:transform .2s}
+.itin-day-card[open] summary::before{content:'−'}
+.itin-day-card .day-num{background:var(--at-navy);color:#fff;font-size:11px;padding:2px 8px;border-radius:999px;font-weight:700}
+.itin-day-card .day-title{flex:1;font-size:14.5px}
+.itin-day-content{padding:0 18px 18px 54px;font-size:14px;color:var(--text-body);line-height:1.65}
+
+/* ── HOTELS — content-driven (one hero image + city list + amenities) ── */
+.hotels-block{background:#fff;border:1px solid #e8e0d5;border-radius:14px;overflow:hidden;margin-top:14px;box-shadow:0 2px 8px rgba(42,27,18,.05)}
+.hotels-hero{position:relative;height:140px;background:#1a1a1a center/cover no-repeat}
+.hotels-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.15) 65%)}
+.hotels-hero-text{position:absolute;bottom:12px;left:16px;right:16px;color:#fff;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.hotels-hero-text strong{font-family:var(--font-display);font-size:16px;font-weight:800;display:block;text-shadow:0 2px 6px rgba(0,0,0,.5)}
+.hotels-hero-text span{font-size:12.5px;color:rgba(255,255,255,.92)}
+.hotels-tier-pill{background:#FAD466;color:#1B1D5C;font-family:var(--font-display);font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:999px;white-space:nowrap}
+
+.hotels-list{padding:6px 0}
+.hotel-row{display:grid;grid-template-columns:auto 1fr auto auto;gap:14px;align-items:center;padding:11px 18px;border-bottom:1px solid #f3ece2;font-size:14px}
+.hotel-row:last-child{border-bottom:none}
+.hr-num{width:24px;height:24px;border-radius:50%;background:var(--at-saffron-50);color:var(--at-saffron-700);font-family:var(--font-display);font-size:11.5px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hr-city{font-family:var(--font-display);font-weight:700;color:var(--text-strong);font-size:14.5px;line-height:1.2}
+.hr-city-sub{font-size:12px;color:#777;font-weight:500;margin-top:1px}
+.hr-nights{font-size:12.5px;color:#666;font-weight:600;white-space:nowrap}
+.hr-tier{font-family:var(--font-display);font-size:11.5px;font-weight:800;color:#b8550e;background:#fff5e6;padding:3px 8px;border-radius:999px;white-space:nowrap}
+@media(max-width:540px){
+  .hotel-row{grid-template-columns:auto 1fr auto;gap:10px;padding:10px 14px}
+  .hr-nights{display:none}
+  .hr-city-sub{display:block}
+  .hr-city-sub::before{content:attr(data-nights) ' · '}
+}
+
+.hotels-amenities{background:#faf6f0;border-top:1px solid #f0e6d6;padding:14px 18px}
+.ha-label{font-family:var(--font-display);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:8px}
+.ha-list{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:#444;line-height:1.5;margin:0}
+.ha-list span{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.ha-list span::before{content:'✓';color:var(--at-green-600);font-weight:800;font-size:12px}
+
+.upgrade-callout{background:linear-gradient(135deg,#FFF8EE,#FFEEDC);border:1px solid #f5dcb8;border-radius:12px;padding:16px 18px;margin-top:14px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
+@media(max-width:600px){.upgrade-callout{grid-template-columns:1fr;text-align:left;padding:14px}}
+.uc-text h4{font-family:var(--font-display);font-size:14.5px;font-weight:800;color:#1B1D5C;margin:0 0 6px}
+.uc-tiers{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:#5a4a3a;line-height:1.5;margin:0}
+.uc-tiers strong{color:#b8550e;font-family:var(--font-display);font-weight:800}
+.upgrade-callout .btn{white-space:nowrap}
+
+.hotel-note{font-size:12px;color:#777;background:#faf6f0;padding:10px 14px;border-radius:8px;border-left:3px solid #FAD466;margin-top:10px;line-height:1.5}
+
+.incl-excl-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+@media(max-width:640px){.incl-excl-grid{grid-template-columns:1fr}}
+.incl-list,.excl-list{list-style:none;padding:0;margin:0}
+.incl-list li,.excl-list li{font-size:14px;line-height:1.55;padding:6px 0 6px 26px;position:relative;color:var(--text-body)}
+.incl-list li::before{content:'✓';position:absolute;left:0;top:5px;color:var(--at-green-600);font-weight:800}
+.excl-list li::before{content:'✕';position:absolute;left:0;top:5px;color:#c14040;font-weight:800}
+
+.pkg-side{position:sticky;top:80px}
+.pkg-side-card{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:22px;box-shadow:0 4px 16px rgba(42,27,18,.06)}
+.psc-price-from{font-size:11.5px;color:#777;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.psc-price{font-family:var(--font-display);font-size:28px;font-weight:800;color:#d3331f;line-height:1;margin:4px 0}
+.psc-pp{font-size:12px;color:#666}
+.psc-divider{border-top:1px dashed #e8e0d5;margin:16px 0}
+.psc-cta-stack{display:flex;flex-direction:column;gap:8px}
+.psc-cta-stack .btn{width:100%;justify-content:center}
+.psc-note{font-size:12.5px;color:#666;line-height:1.5;margin-top:12px}
+
+/* Mobile: compact horizontal price card */
+@media(max-width:900px){
+  .pkg-side-card{padding:14px 16px;border-radius:12px;box-shadow:0 2px 8px rgba(42,27,18,.06)}
+  .psc-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+  .psc-top .psc-price{font-size:22px;margin:0}
+  .psc-top .psc-price-from{font-size:10.5px;margin-bottom:1px}
+  .psc-top .psc-pp{font-size:11px}
+  .psc-divider{display:none}
+  .psc-cta-stack{flex-direction:row;flex-wrap:wrap;gap:6px}
+  .psc-cta-stack .btn{flex:1 1 auto;font-size:13px;padding:10px 12px;min-height:42px}
+  .psc-cta-stack .btn-outline{flex:1 1 100%}
+  .psc-note{font-size:11.5px;margin-top:8px;padding-top:8px;border-top:1px dashed #e8e0d5}
+}
+
+.pkg-cta-band{background:linear-gradient(135deg,#1B1D5C 0%,#2E3192 100%);color:#fff;padding:28px clamp(16px,4vw,32px);border-radius:14px;margin-top:32px;text-align:center}
+.pkg-cta-band h3{font-family:var(--font-display);font-size:1.3rem;font-weight:800;margin:0 0 8px;color:#fff!important;line-height:1.25}
+.pkg-cta-band p{font-size:14px;color:rgba(255,255,255,.85)!important;max-width:50ch;margin:0 auto 18px;line-height:1.55}
+
+.pkg-actions-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.pkg-actions-toolbar .btn{flex:0 0 auto;min-height:38px}
+@media(max-width:600px){.pkg-actions-toolbar .btn{flex:1 1 calc(50% - 4px);font-size:12.5px;justify-content:center}}
+
+@media print{
+  site-header,site-footer,.wa-float,.announce,.pkg-actions-toolbar,.pkg-side,.pkg-cta-band,.pkg-detail-hero::after{display:none!important}
+  .pkg-detail-hero{height:auto;background:none!important;color:#000;padding:0;margin-bottom:20px}
+  .pkg-detail-hero-inner{position:static;padding:0;color:#000}
+  .pdh-content{color:#000;max-width:none}
+  .pdh-title{color:#000;text-shadow:none}
+  .pdh-eyebrow,.pdh-meta{color:#333}
+  .pkg-layout{grid-template-columns:1fr;gap:0}
+  body{font-size:12pt;color:#000;background:#fff}
+  .itin-day-card{break-inside:avoid;page-break-inside:avoid}
+  .itin-day-card details{open:''}
+  .itin-day-card[open] summary::before,.itin-day-card summary::before{display:none}
+  .itin-day-content{padding-left:12px}
+  a{color:#000;text-decoration:none}
+  h2{margin-top:18px}
+}
+</style>
+</head>
+<body>
+
+<site-header active="packages"></site-header>
+<main>
+
+<div id="pkg-loading" style="padding:80px 20px;text-align:center"><p>Loading package details…</p></div>
+<div id="pkg-notfound" style="display:none;padding:80px 20px;text-align:center">
+  <h2 style="font-family:var(--font-display);color:var(--text-strong)">Package not found</h2>
+  <p style="color:var(--text-muted);margin-bottom:20px">The package you're looking for doesn't exist or has been moved.</p>
+  <a href="packages.html" class="btn btn-primary">Browse All Packages</a>
+</div>
+
+<div id="pkg-container" style="display:none">
+  <section class="pkg-detail-hero" id="pkg-hero">
+    <div class="pkg-detail-hero-inner">
+      <div class="pdh-content">
+        <div class="pdh-eyebrow" id="pdh-seg"></div>
+        <h1 class="pdh-title" id="pdh-title"></h1>
+        <div class="pdh-meta" id="pdh-meta"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="pkg-actions-toolbar">
+        <a href="packages.html" class="btn btn-outline btn-sm">← Back to all packages</a>
+        <button onclick="window.print()" class="btn btn-outline btn-sm">📄 Download as PDF</button>
+        <button onclick="toggleWishlist()" id="wishlist-btn" class="btn btn-outline btn-sm">♡ Save to wishlist</button>
+        <button onclick="sharePackage()" class="btn btn-outline btn-sm">🔗 Share</button>
+      </div>
+
+      <div class="pkg-layout">
+        <aside class="pkg-side">
+          <div class="pkg-side-card">
+            <div class="psc-top">
+              <div>
+                <div class="psc-price-from">Indicative from</div>
+                <div class="psc-price" id="psc-price"></div>
+                <div class="psc-pp">per person · twin sharing</div>
+              </div>
+            </div>
+            <div class="psc-divider"></div>
+            <div class="psc-cta-stack">
+              <a id="pkg-wa-btn" href="#" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+              <a href="about.html#contact" class="btn btn-primary">📝 Get Quote</a>
+              <a href="tel:+918390922322" class="btn btn-outline">📞 Call</a>
+            </div>
+            <p class="psc-note">🚌 Pickup from any major city — share yours and we'll plan it.<br>✅ 25% advance to confirm · GST invoice provided</p>
+          </div>
+        </aside>
+
+        <div class="pkg-main">
+          <h2>Overview</h2>
+          <p id="pkg-overview"></p>
+
+          <h2>What's Included</h2>
+          <div class="pkg-incl-icons-row">
+            <span>🚗 AC Transport</span><span>🏨 Hotel Stay</span><span>🍽 Meals</span><span>👁 Sightseeing</span><span>👨‍💼 Tour Manager</span>
+          </div>
+          <div class="incl-excl-grid">
+            <div>
+              <h3 style="font-family:var(--font-display);font-size:1rem;margin:0 0 6px;color:#16a34a">✓ Included</h3>
+              <ul class="incl-list" id="pkg-incl"></ul>
+            </div>
+            <div>
+              <h3 style="font-family:var(--font-display);font-size:1rem;margin:0 0 6px;color:#c14040">✕ Not included</h3>
+              <ul class="excl-list" id="pkg-excl"></ul>
+            </div>
+          </div>
+
+          <h2>Day-by-Day Itinerary</h2>
+          <p style="font-size:13px;color:#666">Click any day to expand. <em>Fully customisable — we can add rest days, swap activities, change pace.</em></p>
+          <div class="itin-list" id="pkg-itin"></div>
+
+          <h2>🛏️ Where You'll Stay</h2>
+          <p style="font-size:14px;color:#555;margin:0 0 4px">Hand-picked <strong style="color:#b8550e">3★ properties</strong> across your route — included in the indicative price.</p>
+          <div id="pkg-hotels"></div>
+
+          <div class="upgrade-callout">
+            <div class="uc-text">
+              <h4>✨ Want to upgrade?</h4>
+              <div class="uc-tiers">
+                <div><strong>4★ Premium</strong> — Upgraded furnishings · buffet breakfast · lounge/bar · room service · better-view rooms</div>
+                <div><strong>5★ Luxury</strong> — Suite-style rooms · multi-cuisine · spa · concierge · premium view · welcome drink</div>
+              </div>
+            </div>
+            <a id="pkg-upgrade-wa" href="#" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer">💬 Ask About Upgrades</a>
+          </div>
+
+          <div class="hotel-note">💡 <strong>Note on hotel names:</strong> Specific properties are confirmed in your personalised itinerary based on availability, dates, and group preferences. We work with trusted, well-reviewed hotels in each location.</div>
+
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list" id="pkg-faqs"></div>
+
+          <div class="pkg-cta-band">
+            <h3>Ready to make it yours?</h3>
+            <p>Share your dates and group size — we'll send a personalised itinerary &amp; quote within 2 hours.</p>
+            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+              <a id="pkg-wa-btn-bottom" href="#" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp Enquiry</a>
+              <a href="about.html#contact" class="btn" style="background:#FAD466;color:#1B1D5C;font-weight:800">Request a Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+<site-footer></site-footer>
+
+<script>
+function fmt(n){return '₹'+Number(n).toLocaleString('en-IN')}
+function getParam(k){return new URLSearchParams(window.location.search).get(k)}
+
+const COMMON_FAQS = [
+  {q:"Can I change the dates or duration?",a:"Absolutely — every trip is 100% customised. Tell us your preferred dates, and if you'd like a shorter/longer version we'll re-design the itinerary."},
+  {q:"Can I upgrade or change the hotel category?",a:"Yes. The indicative price is based on 3★ properties. You can upgrade to 4★ or 5★ — we'll re-quote with the updated rates."},
+  {q:"Where will you pick us up from?",a:"Pickup is flexible. Share your home city or preferred starting point and we'll arrange transport from there — Mumbai, Pune, anywhere."},
+  {q:"Is airfare included?",a:"No — domestic packages exclude airfare/train tickets so you can book your preferred carrier/timing. We're happy to suggest the best flights and book them separately if needed."},
+  {q:"How do I lock in the booking?",a:"A 25% advance confirms the booking; balance is due 15 days before departure. We accept UPI, bank transfer and cards. Full GST invoice provided."},
+  {q:"What if I need to cancel or postpone?",a:"Full refund (minus ₹500 admin) for cancellations 30+ days before departure. 50% refund 15–30 days out. See the full <a href='about.html#contact' style='color:var(--at-saffron-600)'>cancellation policy</a>."}
+];
+
+function render(t){
+  document.getElementById('pkg-loading').style.display='none';
+  document.getElementById('pkg-container').style.display='block';
+  document.title = t.title + ' — Avadhut Tours';
+
+  const hero = document.getElementById('pkg-hero');
+  hero.style.backgroundImage = `linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.2)),url('${t.img}')`;
+  document.getElementById('pdh-title').textContent = t.title;
+  document.getElementById('pdh-seg').textContent = (t.seg||[]).map(s=>s.charAt(0).toUpperCase()+s.slice(1)).join(' · ');
+  document.getElementById('pdh-meta').innerHTML = `<span>📍 ${t.loc}</span><span>🗓 ${t.days} Days / ${t.nights} Nights</span><span>⭐ ${t.rating} (${t.reviews} reviews)</span>${t.difficulty?`<span>💪 ${t.difficulty}</span>`:''}`;
+
+  document.getElementById('pkg-overview').textContent = t.overview || '';
+  document.getElementById('pkg-incl').innerHTML = (t.inclusions||[]).map(i=>`<li>${i}</li>`).join('');
+  document.getElementById('pkg-excl').innerHTML = (t.exclusions||[]).map(e=>`<li>${e}</li>`).join('');
+
+  document.getElementById('pkg-itin').innerHTML = (t.itinerary||[]).map((d,i)=>`<details class="itin-day-card" ${i===0?'open':''}><summary><span class="day-num">${d.d}</span><span class="day-title">${d.t}</span></summary><div class="itin-day-content">${d.x}</div></details>`).join('');
+
+  const hotels = t.hotels || [];
+  if(hotels.length){
+    const totalNights = hotels.reduce((s,h)=>s+(h.nights||1),0);
+    const rows = hotels.map((h,i)=>{
+      const nightsLabel = h.nights === 1 ? '1 night' : `${h.nights||1} nights`;
+      const nameHtml = h.name && h.name.trim()
+        ? `<div class="hr-city-sub" data-nights="${nightsLabel}">${h.name}</div>`
+        : `<div class="hr-city-sub" data-nights="${nightsLabel}"></div>`;
+      return `<div class="hotel-row">
+        <span class="hr-num">${i+1}</span>
+        <div><div class="hr-city">📍 ${h.city}</div>${nameHtml}</div>
+        <span class="hr-nights">${nightsLabel}</span>
+        <span class="hr-tier">${h.tier || '3★'}</span>
+      </div>`;
+    }).join('');
+    document.getElementById('pkg-hotels').innerHTML = `
+      <div class="hotels-block">
+        <div class="hotels-hero" style="background-image:linear-gradient(to top,rgba(0,0,0,.4),rgba(0,0,0,.05)),url('${t.img}')">
+          <div class="hotels-hero-text">
+            <div>
+              <strong>Your stay: ${hotels.length} ${hotels.length===1?'city':'cities'} · ${totalNights} ${totalNights===1?'night':'nights'}</strong>
+              <span>All 3★ hand-picked properties</span>
+            </div>
+            <span class="hotels-tier-pill">★ 3-Star Standard</span>
+          </div>
+        </div>
+        <div class="hotels-list">${rows}</div>
+        <div class="hotels-amenities">
+          <div class="ha-label">What's typically included</div>
+          <p class="ha-list">
+            <span>AC rooms</span><span>Free Wi-Fi</span><span>In-house restaurant</span><span>Daily housekeeping</span><span>24×7 reception</span>
+          </p>
+        </div>
+      </div>`;
+  } else {
+    document.getElementById('pkg-hotels').innerHTML = '<p style="color:#777;font-size:14px;margin-top:10px">Hotels confirmed at quote time based on your preferences.</p>';
+  }
+
+  document.getElementById('pkg-faqs').innerHTML = COMMON_FAQS.map(f=>`<div class="faq-item"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">${f.q} <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">${f.a}</div></div></div>`).join('');
+
+  document.getElementById('psc-price').textContent = fmt(t.price);
+  const wa = `https://wa.me/918390922322?text=Hi%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(t.title)}%20package.%20Please%20share%20pricing%20and%20details.`;
+  const waUpgrade = `https://wa.me/918390922322?text=Hi%2C%20for%20the%20${encodeURIComponent(t.title)}%20package%2C%20please%20share%20hotel%20upgrade%20options%20(4%E2%98%85%20%2F%205%E2%98%85)%20and%20the%20price%20difference.`;
+  document.getElementById('pkg-wa-btn').href = wa;
+  document.getElementById('pkg-wa-btn-bottom').href = wa;
+  const upgradeBtn = document.getElementById('pkg-upgrade-wa');
+  if(upgradeBtn) upgradeBtn.href = waUpgrade;
+
+  // Wishlist + recently viewed
+  updateWishlistBtn(t.id);
+  pushRecentlyViewed(t.id);
+}
+
+function init(){
+  const id = getParam('id');
+  if(!id){document.getElementById('pkg-loading').style.display='none';document.getElementById('pkg-notfound').style.display='block';return;}
+  const pkgs = window.AT_PACKAGES || [];
+  const t = pkgs.find(p=>p.id===id);
+  if(!t){document.getElementById('pkg-loading').style.display='none';document.getElementById('pkg-notfound').style.display='block';return;}
+  render(t);
+}
+
+// Wishlist (localStorage)
+function getWishlist(){try{return JSON.parse(localStorage.getItem('at-wishlist')||'[]')}catch(e){return[]}}
+function setWishlist(arr){try{localStorage.setItem('at-wishlist',JSON.stringify(arr))}catch(e){}}
+function updateWishlistBtn(id){
+  const btn = document.getElementById('wishlist-btn');
+  if(!btn) return;
+  const inList = getWishlist().includes(id);
+  btn.innerHTML = inList ? '♥ Saved to wishlist' : '♡ Save to wishlist';
+  btn.style.background = inList ? 'var(--at-red-50,#fdeaeb)' : '';
+  btn.style.color = inList ? 'var(--at-red-600)' : '';
+}
+function toggleWishlist(){
+  const id = getParam('id');
+  if(!id) return;
+  const list = getWishlist();
+  const idx = list.indexOf(id);
+  if(idx >= 0) list.splice(idx,1); else list.push(id);
+  setWishlist(list);
+  updateWishlistBtn(id);
+}
+
+// Recently viewed
+function pushRecentlyViewed(id){
+  try{
+    let rv = JSON.parse(localStorage.getItem('at-recent')||'[]');
+    rv = [id, ...rv.filter(x=>x!==id)].slice(0,6);
+    localStorage.setItem('at-recent', JSON.stringify(rv));
+  }catch(e){}
+}
+
+// Share
+function sharePackage(){
+  const url = window.location.href;
+  const title = document.title;
+  if(navigator.share){
+    navigator.share({title, url}).catch(()=>{});
+  } else {
+    navigator.clipboard.writeText(url).then(()=>{
+      const btn = event.target;
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✓ Link copied!';
+      setTimeout(()=>btn.innerHTML = orig, 2000);
+    }).catch(()=>alert('Copy this link: '+url));
+  }
+}
+
+init();
+</script>
+</body>
+</html>

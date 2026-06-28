@@ -64,6 +64,17 @@
   </div>
 </section>
 
+<!-- RECENTLY VIEWED (auto-hides when empty) -->
+<section class="section" id="recent-section" style="display:none;padding-bottom:0">
+  <div class="container">
+    <div class="sec-hdr" style="margin-bottom:14px">
+      <div class="sec-hdr-left"><div class="eyebrow">Continue browsing</div><h2 style="font-size:1.2rem">Recently Viewed</h2></div>
+      <a class="sec-link" href="wishlist.html">View wishlist →</a>
+    </div>
+    <div class="recent-strip" id="recent-strip"></div>
+  </div>
+</section>
+
 <!-- PACKAGES GRID -->
 <section class="section">
   <div class="container">
@@ -88,17 +99,6 @@
     </div>
   </div>
 </section>
-
-<!-- PACKAGE DETAIL MODAL -->
-<div class="modal-bd" id="pkg-modal" onclick="if(event.target===this)closePkgModal()">
-  <div class="modal-box modal-box-wide">
-    <div class="modal-head">
-      <h3 id="modal-title" style="font-family:var(--font-display);font-size:17px;font-weight:800;color:var(--text-strong);margin:0"></h3>
-      <button onclick="closePkgModal()" class="modal-close">✕</button>
-    </div>
-    <div class="modal-body" id="modal-body-content"></div>
-  </div>
-</div>
 
 </main>
 <site-footer></site-footer>
@@ -130,7 +130,6 @@ function fmt(n) { return '₹' + Number(n).toLocaleString('en-IN'); }
 function tourCardHtml(t) {
   const stone = getStoneClass(t.seg);
   const label = getSegLabel(t.seg);
-  const disc = t.orig ? Math.round((1 - t.price / t.orig) * 100) : 0;
   const highlights = (t.hl || []).slice(0, 3).map(h => `<li>${h}</li>`).join('');
   const badge = t.badge ? `<span class="tc-badge stone-${t.badgeTone || stone}">${t.badge}</span>` : '';
   const wa = `https://wa.me/918390922322?text=Hi%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(t.title)}%20package.%20Please%20share%20details.`;
@@ -138,7 +137,6 @@ function tourCardHtml(t) {
   return `<div class="tour-card" id="card-${t.id}">
     <div class="tc-img" style="background-image:url('${t.img}')">
       ${badge}
-      ${disc > 0 ? `<span class="tc-disc">${disc}% OFF</span>` : ''}
       <span class="tc-seg stone-${stone}">${label}</span>
       <div class="tc-scrim"></div>
     </div>
@@ -146,17 +144,16 @@ function tourCardHtml(t) {
       <div class="tc-meta"><span>⭐ ${t.rating}</span><span>(${t.reviews} reviews)</span><span>${t.days}D/${t.nights}N</span></div>
       <h3 class="tc-title">${t.title}</h3>
       <p class="tc-loc">📍 ${t.loc}</p>
+      <div class="tc-incl-icons" title="What's included"><span>🚗 Transport</span><span>🏨 Hotel</span><span>🍽 Meals</span><span>👁 Sightseeing</span><span>👨‍💼 Tour Manager</span></div>
       <ul class="tc-hl">${highlights}</ul>
-      ${t.nextDep ? `<p class="tc-dep">Next dep: <strong>${t.nextDep}</strong>${t.seatsLeft ? ` &nbsp;·&nbsp; <span class="seats-left">${t.seatsLeft} seats left</span>` : ''}</p>` : ''}
     </div>
     <div class="tc-footer">
       <div class="tc-price">
-        ${t.orig ? `<span class="tc-orig">${fmt(t.orig)}</span>` : ''}
         <span class="tc-now">${fmt(t.price)}</span>
-        <span class="tc-pp">per person</span>
+        <span class="tc-pp">indicative · per person · twin sharing</span>
       </div>
       <div class="tc-actions">
-        <button class="btn btn-sm btn-outline" onclick="openPkgModal('${t.id}')">View Details</button>
+        <a href="package.html?id=${t.id}" class="btn btn-sm btn-outline">View Details →</a>
         <a href="${wa}" class="btn btn-sm btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 Enquire</a>
       </div>
     </div>
@@ -225,69 +222,6 @@ document.querySelectorAll('#region-chips .fchip-sm').forEach(btn => {
   });
 });
 
-document.addEventListener('keydown', function (e) {
-  const modal = document.getElementById('pkg-modal');
-  if (!modal.classList.contains('open')) return;
-  if (e.key === 'Escape') { closePkgModal(); return; }
-  if (e.key === 'Tab') {
-    const focusable = Array.from(modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')).filter(el => !el.disabled);
-    if (!focusable.length) return;
-    const first = focusable[0], last = focusable[focusable.length - 1];
-    if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
-    else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
-  }
-});
-
-function openPkgModal(id) {
-  const t = ALL_PKGS.find(p => p.id === id);
-  if (!t) return;
-  document.getElementById('modal-title').textContent = t.title;
-  const wa = `https://wa.me/918390922322?text=Hi%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(t.title)}%20package.%20Please%20share%20pricing%20and%20details.`;
-  const itinerary = (t.itinerary || []).map(d => `<div class="itin-day"><strong>${d.d} — ${d.t}</strong><p>${d.x}</p></div>`).join('');
-  const inclusions = (t.inclusions || []).map(i => `<li>✓ ${i}</li>`).join('');
-  const exclusions = (t.exclusions || []).map(e => `<li>✗ ${e}</li>`).join('');
-  const cities = (t.departureCities || []).map(c => `<span class="city-chip">${c}</span>`).join('');
-
-  document.getElementById('modal-body-content').innerHTML = `
-    <div class="pkg-modal-top">
-      <img src="${t.img}" alt="${t.title}" class="pkg-modal-img" loading="lazy">
-      <div class="pkg-modal-info">
-        <p class="pkg-modal-loc">📍 ${t.loc}</p>
-        <p class="pkg-modal-dur">🗓 ${t.days} Days / ${t.nights} Nights &nbsp;·&nbsp; ⭐ ${t.rating} (${t.reviews} reviews)</p>
-        ${t.difficulty ? `<p>Difficulty: <strong>${t.difficulty}</strong></p>` : ''}
-        ${cities ? `<div class="city-chips-wrap"><span>Departures from: </span>${cities}</div>` : ''}
-        <div class="pkg-modal-price">
-          ${t.orig ? `<span class="tc-orig">${fmt(t.orig)}</span>` : ''}
-          <span class="tc-now big">${fmt(t.price)}</span>
-          <span class="tc-pp">per person</span>
-        </div>
-        <div class="pkg-modal-actions">
-          <a href="${wa}" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp Enquiry</a>
-          <a href="about.html#contact" class="btn btn-primary">Request Custom Quote</a>
-        </div>
-        ${t.nextDep ? `<p class="tc-dep" style="margin-top:12px">Next departure: <strong>${t.nextDep}</strong>${t.seatsLeft ? ` · <span class="seats-left">${t.seatsLeft} seats left</span>` : ''}</p>` : ''}
-      </div>
-    </div>
-    ${t.overview ? `<div class="pkg-modal-section"><h4>Overview</h4><p>${t.overview}</p></div>` : ''}
-    <div class="pkg-modal-grid">
-      ${inclusions ? `<div class="pkg-modal-section"><h4>What's Included</h4><ul class="incl-list">${inclusions}</ul></div>` : ''}
-      ${exclusions ? `<div class="pkg-modal-section"><h4>What's Excluded</h4><ul class="excl-list">${exclusions}</ul></div>` : ''}
-    </div>
-    ${itinerary ? `<div class="pkg-modal-section"><h4>Itinerary</h4>${itinerary}</div>` : ''}
-  `;
-  document.getElementById('pkg-modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  requestAnimationFrame(() => {
-    const close = document.querySelector('#pkg-modal .modal-close');
-    if (close) close.focus();
-  });
-}
-
-function closePkgModal() {
-  document.getElementById('pkg-modal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
 // Load all packages — uses inline data first (works on file://), falls back to fetch on server
 function initPackages(pkgs) {
   ALL_PKGS = pkgs;
@@ -305,10 +239,24 @@ function initPackages(pkgs) {
   applyFilters();
   const hash = window.location.hash;
   if (hash) {
-    const el = document.getElementById('card-' + hash.replace('#', ''));
-    if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 200);
+    const id = hash.replace('#','');
+    if (id) { window.location.replace('package.html?id=' + encodeURIComponent(id)); return; }
   }
 }
+
+// Recently viewed strip
+function renderRecent(){
+  try {
+    const ids = JSON.parse(localStorage.getItem('at-recent')||'[]');
+    if(!ids.length) return;
+    const all = window.AT_PACKAGES || [];
+    const items = ids.map(id=>all.find(p=>p.id===id)).filter(Boolean).slice(0,6);
+    if(!items.length) return;
+    document.getElementById('recent-section').style.display = '';
+    document.getElementById('recent-strip').innerHTML = items.map(t=>`<a class="recent-card" href="package.html?id=${t.id}"><img src="${t.img}" alt="${t.title}" loading="lazy"><div class="rc-name">${t.title}</div><div class="rc-meta">${t.days}D · ${fmt(t.price)}</div></a>`).join('');
+  } catch(e) {}
+}
+renderRecent();
 
 if (window.AT_PACKAGES) {
   initPackages(window.AT_PACKAGES);

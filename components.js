@@ -10,6 +10,10 @@ class SiteHeader extends HTMLElement {
     const mob = (page, href, ico, label, sub, color) =>
       `<a class="mob-link${a === page ? ' mob-link-active' : ''}" href="${href}"><span class="mob-link-ico" style="background:${color}">${ico}</span><span><span class="mob-link-label">${label}</span><span class="mob-link-sub">${sub}</span></span><span class="mob-link-chev">›</span></a>`;
 
+    const isToursActive = ['packages','how','destinations','compare'].includes(a) ? ' active' : '';
+    const isServicesActive = ['rentals','fleet'].includes(a) ? ' active' : '';
+    const isCompanyActive = ['about','gallery','reviews','blog'].includes(a) ? ' active' : '';
+
     this.innerHTML = `
 <nav class="site-nav">
   <div class="nav-inner">
@@ -20,14 +24,33 @@ class SiteHeader extends HTMLElement {
     </a>
     <div class="nav-links">
       ${lnk('home','/index.html','Home')}
-      ${lnk('packages','/packages.html','Packages')}
-      ${lnk('destinations','/destinations.html','Destinations')}
-      ${lnk('gallery','/gallery.html','Gallery')}
-      ${lnk('rentals','/rentals.html','Rentals')}
-      ${lnk('fleet','/fleet.html','Fleet')}
-      ${lnk('blog','/blog.html','Blog')}
-      ${lnk('about','/about.html','About')}
-      <a class="nav-link" href="/about.html#contact">Contact</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dd-btn${isToursActive}" aria-haspopup="true">Tours <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-dd-menu">
+          <a href="/packages.html" class="nav-dd-item"><span class="dd-ico">🗺️</span><span><strong>All Packages</strong><em>32+ tours across India &amp; abroad</em></span></a>
+          <a href="/destinations.html" class="nav-dd-item"><span class="dd-ico">🧭</span><span><strong>Destination Guides</strong><em>Kashmir · Himachal · Kerala &amp; more</em></span></a>
+          <a href="/how-it-works.html" class="nav-dd-item"><span class="dd-ico">🛠️</span><span><strong>How It Works</strong><em>Our 5-step customisation process</em></span></a>
+          <a href="/compare.html" class="nav-dd-item"><span class="dd-ico">⚖️</span><span><strong>Compare Packages</strong><em>Side-by-side comparison</em></span></a>
+          <a href="/wishlist.html" class="nav-dd-item"><span class="dd-ico">♡</span><span><strong>My Wishlist</strong><em>Saved packages</em></span></a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dd-btn${isServicesActive}" aria-haspopup="true">Services <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-dd-menu">
+          <a href="/rentals.html" class="nav-dd-item"><span class="dd-ico">🚗</span><span><strong>Vehicle Rental</strong><em>Sedan · SUV · Tempo · Coach</em></span></a>
+          <a href="/fleet.html" class="nav-dd-item"><span class="dd-ico">🏢</span><span><strong>Corporate Fleet</strong><em>Employee shuttles · monthly contracts</em></span></a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dd-btn${isCompanyActive}" aria-haspopup="true">About Us <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-dd-menu">
+          <a href="/about.html" class="nav-dd-item"><span class="dd-ico">ℹ️</span><span><strong>Our Story</strong><em>15+ years · 5,000+ travellers</em></span></a>
+          <a href="/reviews.html" class="nav-dd-item"><span class="dd-ico">⭐</span><span><strong>Customer Reviews</strong><em>500+ Google reviews · 4.7★</em></span></a>
+          <a href="/gallery.html" class="nav-dd-item"><span class="dd-ico">📷</span><span><strong>Photo Gallery</strong><em>Trip moments from across India</em></span></a>
+          <a href="/blog.html" class="nav-dd-item"><span class="dd-ico">✍️</span><span><strong>Travel Blog</strong><em>Tips, guides &amp; destination stories</em></span></a>
+        </div>
+      </div>
+      <a class="nav-link${a==='contact' ? ' active' : ''}" href="/about.html#contact">Contact</a>
     </div>
     <div class="nav-right">
       <a href="tel:+918390922322" class="btn btn-outline btn-sm nav-call-desktop">📞 83909 22322</a>
@@ -36,7 +59,7 @@ class SiteHeader extends HTMLElement {
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.59 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.13-1.13a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
         </svg>
       </a>
-      <a href="/about.html#contact" class="btn btn-primary btn-sm">Enquire Now</a>
+      <a href="/about.html#contact" class="btn btn-primary btn-sm nav-enquire">Enquire Now</a>
       <button class="nav-hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -56,13 +79,23 @@ class SiteHeader extends HTMLElement {
   </div>
   <div class="mob-nav-list">
     ${mob('home','/index.html','🏠','Home','Back to homepage','var(--at-saffron-50)')}
+
+    <div class="mob-group-label">Tours</div>
     ${mob('packages','/packages.html','🗺️','Tour Packages','32+ destinations across India &amp; abroad','var(--at-saffron-50)')}
     ${mob('destinations','/destinations.html','🧭','Destination Guides','Kashmir · Himachal · Kerala &amp; more','var(--at-saffron-50)')}
-    ${mob('gallery','/gallery.html','📷','Gallery','Trip photos from across India','var(--at-saffron-50)')}
-    ${mob('rentals','/rentals.html','🚗','Car &amp; Bus Rental','Sedan · SUV · Tempo · Coach','#e9eaf4')}
+    ${mob('how','/how-it-works.html','🛠️','How It Works','Our 5-step customisation process','var(--at-saffron-50)')}
+    <a class="mob-link" href="/compare.html"><span class="mob-link-ico" style="background:var(--at-saffron-50)">⚖️</span><span><span class="mob-link-label">Compare Packages</span><span class="mob-link-sub">Side-by-side comparison</span></span><span class="mob-link-chev">›</span></a>
+    <a class="mob-link" href="/wishlist.html"><span class="mob-link-ico" style="background:var(--at-saffron-50)">♡</span><span><span class="mob-link-label">My Wishlist</span><span class="mob-link-sub">Your saved packages</span></span><span class="mob-link-chev">›</span></a>
+
+    <div class="mob-group-label">Services</div>
+    ${mob('rentals','/rentals.html','🚗','Vehicle Rental','Sedan · SUV · Tempo · Coach','#e9eaf4')}
     ${mob('fleet','/fleet.html','🏢','Corporate Fleet','Employee shuttle · Monthly contract','var(--at-navy-50)')}
+
+    <div class="mob-group-label">About Us</div>
+    ${mob('about','/about.html','ℹ️','Our Story','15+ years · 5000+ travellers','var(--at-green-100)')}
+    ${mob('reviews','/reviews.html','⭐','Customer Reviews','500+ Google reviews · 4.7★','var(--at-saffron-50)')}
+    ${mob('gallery','/gallery.html','📷','Photo Gallery','Trip moments from across India','var(--at-saffron-50)')}
     ${mob('blog','/blog.html','✍️','Travel Blog','Tips, guides &amp; destination stories','var(--at-green-100)')}
-    ${mob('about','/about.html','ℹ️','About Us','15+ years · 5000+ travellers','var(--at-green-100)')}
     <a class="mob-link" href="/about.html#contact"><span class="mob-link-ico" style="background:var(--at-red-50)">📞</span><span><span class="mob-link-label">Contact Us</span><span class="mob-link-sub">Enquire · WhatsApp · Call</span></span><span class="mob-link-chev">›</span></a>
   </div>
   <div class="mob-foot">
@@ -84,9 +117,18 @@ class SiteFooter extends HTMLElement {
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div class="ft-brand-col">
+      <div class="ft-brand-col ft-contact">
         <div class="ft-logo-wrap"><img class="ft-logo" src="/assets/logo/avadhut-logo-horizontal.png" alt="Avadhut Tours" onerror="this.parentElement.style.display='none'"></div>
         <p class="ft-desc">Customised tour packages &amp; vehicle rental across all India. Family-run, trusted by 5000+ travellers since 2008.</p>
+
+        <div class="ft-contact-info">
+          <div class="ft-contact-row"><span class="ft-ci">📍</span><span style="color:rgba(255,255,255,.68)">P-191, Sukh Vaibhav, Sector-4,<br>Airoli, Navi Mumbai 400 708</span></div>
+          <div class="ft-contact-row" style="margin-left:26px;font-size:12px;color:rgba(255,255,255,.5);margin-top:-4px;margin-bottom:8px">🏢 Offices in Pune &amp; Satara</div>
+          <div class="ft-contact-row"><span class="ft-ci">📞</span><a href="tel:+918390922322" style="color:rgba(255,255,255,.68)">+91 83909 22322</a></div>
+          <div class="ft-contact-row"><span class="ft-ci">✉</span><a href="mailto:avadhuttours365@gmail.com" style="color:rgba(255,255,255,.68);word-break:break-all">avadhuttours365@gmail.com</a></div>
+          <div class="ft-contact-row"><span class="ft-ci">🕐</span><span style="color:rgba(255,255,255,.68)">Mon–Sat 9 AM–8 PM</span></div>
+        </div>
+
         <div class="ft-social">
           <a href="https://www.facebook.com/avadhuttours/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -98,10 +140,23 @@ class SiteFooter extends HTMLElement {
             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
           </a>
         </div>
+
+        <form id="newsletter-form" action="https://formsubmit.co/ajax/avadhuttours365@gmail.com" method="POST" class="ft-newsletter">
+          <input type="hidden" name="_subject" value="New newsletter subscriber">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <label>📧 Monthly travel inspiration</label>
+          <div class="ft-newsletter-row">
+            <input type="email" name="email" required placeholder="your@email.com">
+            <button type="submit">Subscribe</button>
+          </div>
+          <div class="ft-newsletter-msg" id="newsletter-msg"></div>
+        </form>
       </div>
       <div class="ft-col">
         <h4>Tours</h4>
         <a href="/packages.html">All Packages</a>
+        <a href="/how-it-works.html">How It Works</a>
         <a href="/packages.html?seg=family">Family Tours</a>
         <a href="/packages.html?seg=senior">Senior Citizen</a>
         <a href="/packages.html?seg=ladies">Ladies Special</a>
@@ -110,23 +165,23 @@ class SiteFooter extends HTMLElement {
         <a href="/packages.html?seg=international">International</a>
       </div>
       <div class="ft-col">
-        <h4>Services</h4>
-        <a href="/rentals.html">Car &amp; Bus Rental</a>
-        <a href="/fleet.html">Fleet Management</a>
+        <h4>Plan Your Trip</h4>
+        <a href="/how-it-works.html">How It Works</a>
         <a href="/destinations.html">Destination Guides</a>
+        <a href="/compare.html">Compare Packages</a>
+        <a href="/wishlist.html">My Wishlist</a>
+        <a href="/reviews.html">Customer Reviews</a>
+        <a href="/blog.html">Travel Blog</a>
+        <a href="/about.html#contact">Contact / Quote</a>
+      </div>
+      <div class="ft-col">
+        <h4>Services &amp; Info</h4>
+        <a href="/rentals.html">Car &amp; Bus Rental</a>
+        <a href="/fleet.html">Corporate Fleet</a>
         <a href="/about.html">About Us</a>
-        <a href="/about.html#contact">Contact</a>
         <a href="#" onclick="openModal('cancel');return false">Cancellation Policy</a>
         <a href="#" onclick="openModal('tnc');return false">Terms &amp; Conditions</a>
         <a href="#" onclick="openModal('privacy');return false">Privacy Policy</a>
-      </div>
-      <div class="ft-col ft-contact">
-        <h4>Contact Us</h4>
-        <p>P-191, Sukh Vaibhav, Sector-4,<br>Airoli, Navi Mumbai 400 708</p>
-        <p style="color:rgba(255,255,255,.5);font-size:12px;margin:3px 0 7px">🏢 Offices: Pune &amp; Satara</p>
-        <div class="ft-contact-row"><span class="ft-ci">📞</span><a href="tel:+918390922322" style="color:rgba(255,255,255,.68)">+91 83909 22322</a></div>
-        <div class="ft-contact-row"><span class="ft-ci">✉</span><a href="mailto:avadhuttours365@gmail.com" style="color:rgba(255,255,255,.68)">avadhuttours365@gmail.com</a></div>
-        <div class="ft-contact-row"><span class="ft-ci">🕐</span><span style="color:rgba(255,255,255,.68)">Mon–Sat 9 AM–8 PM</span></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -184,6 +239,38 @@ class SiteFooter extends HTMLElement {
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/>
   </svg>
 </a>`;
+    // Wire up newsletter AJAX submit (form is part of this component's innerHTML)
+    const nl = this.querySelector('#newsletter-form');
+    if (nl) {
+      nl.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const btn = nl.querySelector('button[type="submit"]');
+        const input = nl.querySelector('input[name="email"]');
+        const msg = nl.querySelector('#newsletter-msg');
+        const origText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        if (msg) { msg.textContent = ''; msg.className = 'ft-newsletter-msg'; }
+        fetch(nl.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(nl)
+        }).then(r => r.json()).then(d => {
+          if (d.success === 'true' || d.success === true) {
+            btn.textContent = '✓ Subscribed';
+            input.value = '';
+            if (msg) { msg.textContent = "Thanks! We'll be in touch monthly."; msg.className = 'ft-newsletter-msg success'; }
+            setTimeout(() => { btn.textContent = origText; btn.disabled = false; }, 4000);
+          } else {
+            throw new Error(d.message || 'Submit failed');
+          }
+        }).catch(() => {
+          btn.textContent = origText;
+          btn.disabled = false;
+          if (msg) { msg.textContent = "Couldn't subscribe — try again or WhatsApp us."; msg.className = 'ft-newsletter-msg error'; }
+        });
+      });
+    }
   }
 }
 customElements.define('site-footer', SiteFooter);

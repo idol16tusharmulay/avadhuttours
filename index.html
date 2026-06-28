@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" href="/assets/logo/avadhut-emblem.png">
 <meta property="og:title" content="Avadhut Tours — Customised Tour Packages Across India">
 <meta property="og:description" content="Custom holidays for families, honeymoon & groups. 32+ destinations. EMI available.">
-<meta property="og:image" content="https://www.avadhuttours.com/assets/og-cover.jpg">
+<meta property="og:image" content="https://www.avadhuttours.com/assets/groups/amritsar-golden-temple-night.jpg">
 <meta property="og:url" content="https://www.avadhuttours.com">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,10 +19,47 @@
 <style>
 @media(max-width:700px){.testi-grid{grid-template-columns:1fr!important}}
 @media(max-width:600px){#insta-grid{grid-template-columns:repeat(3,1fr)!important}}
-.custom-steps{display:flex;flex:1;min-width:260px;flex-wrap:wrap;justify-content:center;gap:12px 20px}
-.custom-step{text-align:center;flex:1;min-width:72px}
-.custom-cta{display:flex;flex-direction:column;gap:10px;align-items:center;flex-shrink:0}
-@media(max-width:640px){.custom-step{flex:0 1 calc(50% - 12px);min-width:0}.custom-steps{gap:16px 12px}.custom-cta{width:100%}.custom-cta .btn,.custom-cta a{width:100%;justify-content:center;text-align:center;display:flex;box-sizing:border-box}}
+/* ── HOME: HOW IT WORKS (custom package process) ── */
+.hiw-home{position:relative;background:linear-gradient(135deg,#1B1D5C 0%,#2E3192 50%,#1B1D5C 100%);padding:40px 0;overflow:hidden}
+.hiw-home-bg{position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:rgba(250,212,102,.06);pointer-events:none}
+.hiw-home .container{position:relative}
+.hiw-home-head{text-align:center;margin-bottom:24px}
+.hiw-home-eyebrow{display:inline-block;background:rgba(250,212,102,.15);border:1px solid rgba(250,212,102,.3);border-radius:999px;padding:5px 16px;font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FAD466;margin-bottom:12px}
+.hiw-home-head h2{font-family:var(--font-display);font-size:clamp(1.45rem,3.5vw,2.1rem);font-weight:800;color:#fff;margin:0 0 8px;line-height:1.2}
+.hiw-home-head h2 span{color:#FAD466;display:block}
+.hiw-home-head p{font-size:14px;color:rgba(255,255,255,.78);max-width:55ch;margin:0 auto;line-height:1.55}
+
+.hiw-home-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:22px;position:relative}
+.hiw-home-steps::before{content:'';position:absolute;top:36px;left:8%;right:8%;height:2px;background:linear-gradient(to right,rgba(250,212,102,.4),rgba(250,212,102,.15));z-index:0}
+.hiw-h-step{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 12px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;backdrop-filter:blur(6px);z-index:1}
+.hiw-h-num{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;background:#FAD466;color:#1B1D5C;font-family:var(--font-display);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hiw-h-ico{font-size:22px;line-height:1;margin-top:4px;margin-bottom:2px}
+.hiw-h-title{font-family:var(--font-display);font-size:12.5px;font-weight:800;color:#fff;line-height:1.25}
+.hiw-h-time{font-size:10.5px;color:rgba(250,212,102,.85);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+
+.hiw-home-cta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:6px}
+.hiw-home-link{color:#FAD466;text-decoration:none;font-family:var(--font-display);font-size:13.5px;font-weight:700;border-bottom:1px solid rgba(250,212,102,.4);padding-bottom:1px}
+.hiw-home-link:hover{border-color:#FAD466}
+.hiw-home-btns{display:flex;gap:10px;flex-wrap:wrap}
+
+@media(max-width:900px){
+  .hiw-home-steps{grid-template-columns:repeat(3,1fr);gap:14px}
+  .hiw-home-steps::before{display:none}
+  .hiw-h-step{padding:14px 8px 10px}
+}
+@media(max-width:540px){
+  .hiw-home{padding:28px 0}
+  .hiw-home-steps{grid-template-columns:1fr 1fr;gap:10px}
+  .hiw-home-head{margin-bottom:18px}
+  .hiw-home-head h2 span{display:inline}
+  .hiw-h-ico{font-size:20px}
+  .hiw-h-title{font-size:12px}
+  .hiw-h-time{font-size:10px}
+  .hiw-home-cta{flex-direction:column;align-items:stretch}
+  .hiw-home-btns{flex-direction:column}
+  .hiw-home-btns .btn{width:100%;justify-content:center}
+  .hiw-home-link{text-align:center}
+}
 .insta-tile{position:relative;aspect-ratio:1;overflow:hidden;border-radius:8px}
 .insta-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
 .insta-tile:hover img{transform:scale(1.06)}
@@ -33,45 +70,90 @@
 </style>
 <script src="components.js"></script>
 <script src="data/packages-data.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXX');</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TravelAgency","name":"Avadhut Tours","url":"https://www.avadhuttours.com","telephone":"+918390922322","email":"avadhuttours365@gmail.com","address":{"@type":"PostalAddress","streetAddress":"P-191, Sukh Vaibhav, Sector-4","addressLocality":"Airoli, Navi Mumbai","addressRegion":"Maharashtra","postalCode":"400708","addressCountry":"IN"},"openingHours":"Mo-Sa 09:00-20:00","priceRange":"₹₹"}</script>
 </head>
 <body>
 
 <!-- 1. ANNOUNCEMENT -->
-<div class="announce" id="announce-bar">🎉 Summer Special 2026 — Book Manali / Kashmir before 31 July &amp; save ₹2,000 per person! &nbsp;<a href="packages.html">Explore Now →</a><button class="announce-close" onclick="dismissAnnounce()" aria-label="Dismiss announcement">✕</button></div>
+<div class="announce" id="announce-bar">🌿 100% customised itineraries — your dates, your group, your pace. &nbsp;<a href="about.html#contact">Get a free quote →</a><button class="announce-close" onclick="dismissAnnounce()" aria-label="Dismiss announcement">✕</button></div>
 
 <!-- 2. HERO -->
 <site-header active="home"></site-header>
 <main>
-<section class="hero">
-  <div class="hero-bg"><img src="assets/groups/amritsar-golden-temple-night.jpg" alt="Golden Temple — Avadhut Tours"></div>
+<section class="hero hero-rotator" id="hero-rotator">
+  <div class="hero-bg" data-slide-bg></div>
   <div class="hero-scrim"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">All India Tours · International Packages · Vehicle Rental</div>
-    <h1 class="hero-title">Discover India,<br>Your Way</h1>
+    <div class="hero-eyebrow" data-slide-eyebrow></div>
+    <h1 class="hero-title" data-slide-title></h1>
     <div class="hero-trust">
-      <span>Customised Itinerary</span>
-      <span>Easy Monthly EMI</span>
+      <span>100% Customised</span>
+      <span>No Fixed Departures</span>
       <span>24×7 Tour Manager</span>
-      <span>Well-Mannered Drivers</span>
+      <span>Police-Verified Drivers</span>
     </div>
-    <div class="hero-btns">
-      <a href="packages.html" class="btn btn-primary">Browse Packages</a>
-      <a href="about.html#contact" class="btn btn-ghost">Get Free Quote</a>
-      <a href="rentals.html" class="btn btn-navy">🚗 Vehicle Rentals</a>
+    <div class="hero-services">
+      <a href="packages.html" class="hero-svc-btn hero-svc-primary">
+        <span class="hsb-ico">🗺️</span>
+        <span class="hsb-text"><strong>Tour Packages</strong><em>32+ customised tours</em></span>
+      </a>
+      <a href="rentals.html" class="hero-svc-btn">
+        <span class="hsb-ico">🚗</span>
+        <span class="hsb-text"><strong>Vehicle Rental</strong><em>Sedan to luxury coach</em></span>
+      </a>
+      <a href="fleet.html" class="hero-svc-btn">
+        <span class="hsb-ico">🏢</span>
+        <span class="hsb-text"><strong>Corporate Fleet</strong><em>Employee shuttle &amp; B2B</em></span>
+      </a>
     </div>
   </div>
+  <div class="hero-dots" id="hero-dots"></div>
 </section>
+<script>
+(function(){
+  const slides = [
+    {img:'assets/groups/amritsar-golden-temple-night.jpg', eyebrow:'All-India Tours · International · Vehicle Rental', title:'Discover India,<br>Your Way'},
+    {img:'assets/destinations/kashmir-dal-lake.jpg', eyebrow:'Custom Family &amp; Honeymoon Trips', title:'No Fixed Dates.<br>Your Pace, Your Plan.'},
+    {img:'assets/destinations/manali.jpg', eyebrow:'15 Years · 5,000+ Trips · Family-Run', title:'Built Around<br>Your Group.'},
+    {img:'assets/destinations/kerala-houseboat.jpg', eyebrow:'2-Hour Quote · Free Consultation', title:'Talk to a Real<br>Travel Consultant.'}
+  ];
+  const root = document.getElementById('hero-rotator');
+  if(!root) return;
+  const bg = root.querySelector('[data-slide-bg]');
+  const eyebrow = root.querySelector('[data-slide-eyebrow]');
+  const title = root.querySelector('[data-slide-title]');
+  const dots = document.getElementById('hero-dots');
+
+  let idx = 0, timer = null;
+  function show(i){
+    idx = (i + slides.length) % slides.length;
+    const s = slides[idx];
+    bg.innerHTML = `<img src="${s.img}" alt="" loading="${idx===0?'eager':'lazy'}">`;
+    eyebrow.innerHTML = s.eyebrow;
+    title.innerHTML = s.title;
+    Array.from(dots.children).forEach((d,i)=>d.classList.toggle('active', i===idx));
+  }
+  function next(){ show(idx+1); }
+  function start(){ timer = setInterval(next, 6000); }
+  function stop(){ clearInterval(timer); }
+
+  dots.innerHTML = slides.map((_,i)=>`<button aria-label="Slide ${i+1}" data-i="${i}"></button>`).join('');
+  dots.addEventListener('click', e=>{ const b = e.target.closest('button'); if(b){ show(+b.dataset.i); stop(); start(); }});
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+
+  show(0); start();
+})();
+</script>
 
 <!-- 3. TRUST STRIP -->
 <div class="trust-strip">
   <div class="trust-inner">
     <div class="trust-item">5000+ Happy Travellers</div><div class="trust-div"></div>
     <div class="trust-item">32+ Destinations</div><div class="trust-div"></div>
-    <div class="trust-item">15+ Years of Experience</div><div class="trust-div"></div>
-    <div class="trust-item">Easy Monthly EMI</div><div class="trust-div"></div>
+    <div class="trust-item">15+ Years · Family-Run</div><div class="trust-div"></div>
+    <div class="trust-item">GST-Registered &amp; Invoiced</div><div class="trust-div"></div>
+    <div class="trust-item">Police-Verified Drivers</div><div class="trust-div"></div>
     <div class="trust-item">24×7 Tour Support</div>
   </div>
 </div>
@@ -126,25 +208,64 @@
   </div>
 </div>
 
-<!-- 7. CUSTOM PACKAGE USP -->
-<section style="background:linear-gradient(135deg,#1B1D5C 0%,#2E3192 50%,#1B1D5C 100%);padding:44px 0;position:relative;overflow:hidden">
-  <div style="position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:rgba(250,212,102,.06);pointer-events:none"></div>
-  <div class="container" style="position:relative">
-    <div style="text-align:center;margin-bottom:28px">
-      <div style="display:inline-block;background:rgba(250,212,102,.15);border:1px solid rgba(250,212,102,.3);border-radius:999px;padding:5px 16px;font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FAD466;margin-bottom:12px">100% Personalised</div>
-      <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:#fff;margin:0 0 10px;line-height:1.15">Can't Find Your Perfect Trip?<br><span style="color:#FAD466">We'll Build It for You.</span></h2>
-      <p style="font-size:14.5px;color:rgba(255,255,255,.72);max-width:50ch;margin:0 auto;line-height:1.6">Every Avadhut package is fully customisable — your destination, dates, budget, pace. Tell us what you want and we handle everything.</p>
+<!-- 6.5 DIFFERENTIATION BADGE STRIP -->
+<div class="diff-strip">
+  <div class="diff-inner">
+    <div class="diff-item"><span class="diff-ico">🛠️</span><div><strong>100% Customised</strong><br><span>No fixed departures</span></div></div>
+    <div class="diff-item"><span class="diff-ico">⏱️</span><div><strong>2-Hour Quote</strong><br><span>Real consultant — no bots</span></div></div>
+    <div class="diff-item"><span class="diff-ico">👨‍👩‍👧</span><div><strong>Same Family. Same Drivers.</strong><br><span>15 years, owner-run</span></div></div>
+    <div class="diff-item"><span class="diff-ico">📞</span><div><strong>Talk to Avadhut Directly</strong><br><span>Owner-led — every trip</span></div></div>
+  </div>
+</div>
+
+<!-- 7. HOW IT WORKS (custom package process) -->
+<section class="hiw-home">
+  <div class="hiw-home-bg"></div>
+  <div class="container">
+    <div class="hiw-home-head">
+      <div class="hiw-home-eyebrow">How It Works · 100% Customised</div>
+      <h2>From Your Idea to a Confirmed Trip <span>in 5 Simple Steps</span></h2>
+      <p>No fixed dates. No off-the-shelf bundles. Tell us what you want — a real travel consultant builds it around your group.</p>
     </div>
-    <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px 28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;justify-content:space-between">
-      <div class="custom-steps">
-        <div class="custom-step"><div style="width:34px;height:34px;border-radius:50%;background:#FAD466;color:#1B1D5C;font-family:var(--font-display);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 7px">1</div><div style="font-family:var(--font-display);font-size:12px;font-weight:700;color:#fff">Share Wish List</div><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px">Destination + dates</div></div>
-        <div class="custom-step"><div style="width:34px;height:34px;border-radius:50%;background:#FAD466;color:#1B1D5C;font-family:var(--font-display);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 7px">2</div><div style="font-family:var(--font-display);font-size:12px;font-weight:700;color:#fff">Get a Quote</div><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px">Within 2 hours</div></div>
-        <div class="custom-step"><div style="width:34px;height:34px;border-radius:50%;background:#FAD466;color:#1B1D5C;font-family:var(--font-display);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 7px">3</div><div style="font-family:var(--font-display);font-size:12px;font-weight:700;color:#fff">Customise</div><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px">Tweak till perfect</div></div>
-        <div class="custom-step"><div style="width:34px;height:34px;border-radius:50%;background:#FAD466;color:#1B1D5C;font-family:var(--font-display);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 7px">4</div><div style="font-family:var(--font-display);font-size:12px;font-weight:700;color:#fff">Book &amp; Travel</div><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px">EMI available</div></div>
+
+    <div class="hiw-home-steps">
+      <div class="hiw-h-step">
+        <div class="hiw-h-num">1</div>
+        <div class="hiw-h-ico">📨</div>
+        <div class="hiw-h-title">Share Your Wishlist</div>
+        <div class="hiw-h-time">2 min · WhatsApp / call</div>
       </div>
-      <div class="custom-cta">
-        <a href="about.html#contact" class="btn" style="background:#FAD466;color:#1B1D5C;font-size:14px;padding:13px 26px;font-weight:800;border-radius:999px">Plan My Custom Trip</a>
-        <a href="https://wa.me/918390922322?text=Hi%2C%20I%20want%20a%20custom%20tour%20package." target="_blank" rel="noopener noreferrer" style="font-size:13.5px;color:#4ade80;text-decoration:none;display:flex;align-items:center;gap:6px;background:rgba(37,211,102,.12);border:1.5px solid rgba(37,211,102,.35);padding:9px 18px;border-radius:999px;font-family:var(--font-display);font-weight:700">💬 Chat on WhatsApp</a>
+      <div class="hiw-h-step">
+        <div class="hiw-h-num">2</div>
+        <div class="hiw-h-ico">📝</div>
+        <div class="hiw-h-title">Get a Custom Quote</div>
+        <div class="hiw-h-time">Within 2 hours</div>
+      </div>
+      <div class="hiw-h-step">
+        <div class="hiw-h-num">3</div>
+        <div class="hiw-h-ico">🛠️</div>
+        <div class="hiw-h-title">Refine Together</div>
+        <div class="hiw-h-time">Hotels · pace · add-ons</div>
+      </div>
+      <div class="hiw-h-step">
+        <div class="hiw-h-num">4</div>
+        <div class="hiw-h-ico">✅</div>
+        <div class="hiw-h-title">Confirm with 25% Advance</div>
+        <div class="hiw-h-time">UPI · card · bank</div>
+      </div>
+      <div class="hiw-h-step">
+        <div class="hiw-h-num">5</div>
+        <div class="hiw-h-ico">✈️</div>
+        <div class="hiw-h-title">Travel — We're With You</div>
+        <div class="hiw-h-time">24×7 tour manager</div>
+      </div>
+    </div>
+
+    <div class="hiw-home-cta">
+      <a href="how-it-works.html" class="hiw-home-link">Read the full process →</a>
+      <div class="hiw-home-btns">
+        <a href="about.html#contact" class="btn" style="background:#FAD466;color:#1B1D5C;font-weight:800">Plan My Custom Trip</a>
+        <a href="https://wa.me/918390922322?text=Hi%2C%20I%20want%20a%20custom%20tour%20package." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">💬 Chat with Avadhut</a>
       </div>
     </div>
   </div>
@@ -252,24 +373,24 @@
   </div>
 </section>
 
-<!-- 11. DEALS -->
+<!-- 11. EVERGREEN PERKS -->
 <div class="deals-wrap">
   <div class="container">
     <div class="sec-hdr" style="margin-bottom:14px">
-      <div class="sec-hdr-left"><div class="eyebrow">Limited time</div><h2>Current Offers &amp; Deals</h2></div>
+      <div class="sec-hdr-left"><div class="eyebrow">Standing perks</div><h2>Ways We Help You Save</h2></div>
     </div>
     <div class="deals-grid">
       <div class="deal-card" style="background:var(--at-saffron-50);border:1.5px solid var(--at-saffron-200)">
-        <div class="deal-ico">✈️</div>
-        <div><div class="deal-title" style="color:var(--at-saffron-700)">Early Bird: ₹2,000 Off</div><div class="deal-desc">Book any Himachal, Kashmir or Kedarnath package 30+ days in advance.</div><span class="deal-code" style="background:var(--at-saffron-100);color:var(--at-saffron-700)">EARLY2026</span></div>
+        <div class="deal-ico">📅</div>
+        <div><div class="deal-title" style="color:var(--at-saffron-700)">Plan in Advance, Save More</div><div class="deal-desc">Book your trip 30+ days ahead and we'll lock in lower hotel &amp; transport rates for you.</div></div>
       </div>
       <div class="deal-card" style="background:#e9eaf4;border:1.5px solid #c6c8e4">
         <div class="deal-ico">👥</div>
-        <div><div class="deal-title" style="color:#1B1D5C">Group Discount: 15% Off</div><div class="deal-desc">Group of 10 or more travellers get 15% off on any domestic tour package.</div><span class="deal-code" style="background:#C6C8E4;color:#1B1D5C">GROUP15</span></div>
+        <div><div class="deal-title" style="color:#1B1D5C">Travelling as a Group?</div><div class="deal-desc">10 or more travellers get preferential group pricing and a dedicated tour manager.</div></div>
       </div>
       <div class="deal-card" style="background:var(--at-green-100);border:1.5px solid #9ddbb6">
         <div class="deal-ico">❤️</div>
-        <div><div class="deal-title" style="color:var(--at-green-600)">Senior Citizen Special</div><div class="deal-desc">Free travel insurance + dedicated tour escort for all senior citizen tours.</div><span class="deal-code" style="background:#9DDBB6;color:#048240">SENIOR2026</span></div>
+        <div><div class="deal-title" style="color:var(--at-green-600)">Senior Citizen Care</div><div class="deal-desc">Slower pace, lift-friendly hotels, ground-floor rooms and a dedicated escort — built into every senior trip.</div></div>
       </div>
     </div>
   </div>
@@ -423,14 +544,14 @@ function getSegLabel(segs){
 }
 function tourCardHtml(t){
   const sc=getStoneClass(t.seg),sl=getSegLabel(t.seg);
-  const seats=t.seatsLeft<=6?`<span style="color:var(--at-red-600);font-size:11px;font-weight:700">🔴 Only ${t.seatsLeft} left</span>`:`<span style="color:var(--at-green-600);font-size:11px;font-weight:600">✓ Available</span>`;
-  return `<a class="tour-card" href="packages.html#${t.id}">
-    <div class="tc-img"><img src="${t.img}" alt="${t.title}" loading="lazy"><div class="tc-scrim"></div>${t.badge?'<div class="corner-badge">'+badgeHtml(t.badge,t.badgeTone)+'</div>':''}<div class="seg-chip-card">${chipHtml(sc,sl)}</div><div class="dur-pill">${t.days}D / ${t.nights}N</div>${t.nextDep?`<div class="dep-pill">📅 ${t.nextDep}</div>`:''}</div>
+  return `<a class="tour-card" href="package.html?id=${t.id}">
+    <div class="tc-img"><img src="${t.img}" alt="${t.title}" loading="lazy"><div class="tc-scrim"></div>${t.badge?'<div class="corner-badge">'+badgeHtml(t.badge,t.badgeTone)+'</div>':''}<div class="seg-chip-card">${chipHtml(sc,sl)}</div><div class="dur-pill">${t.days}D / ${t.nights}N</div></div>
     <div class="tc-body">
       <div><div class="tc-name">${t.title}</div><div class="tc-loc">📍 ${t.loc}</div></div>
       ${t.rating?`<div class="tc-rating">${stars(t.rating)} <strong style="font-size:12px;color:var(--at-brown-800)">${t.rating.toFixed(1)}</strong> <span style="color:var(--text-muted);font-size:11.5px">(${t.reviews} reviews)</span></div>`:''}
+      <div class="tc-incl-icons" title="What's included"><span>🚗 Transport</span><span>🏨 Hotel</span><span>🍽 Meals</span><span>👁 Sightseeing</span><span>👨‍💼 Tour Manager</span></div>
       <ul class="tc-hl">${t.hl.map(h=>`<li>${h}</li>`).join('')}</ul>
-      <div class="tc-footer"><div><div class="tc-from">Starting from</div><div><span class="tc-price">${fmt(t.price)}</span>${t.orig?`<span class="tc-orig">${fmt(t.orig)}</span>`:''}</div><div class="tc-pp">per person &nbsp;·&nbsp; ${seats}</div></div><span class="tc-cta">Details →</span></div>
+      <div class="tc-footer"><div><div class="tc-from">Indicative from</div><div><span class="tc-price">${fmt(t.price)}</span></div><div class="tc-pp">per person · twin sharing</div></div><span class="tc-cta">Details →</span></div>
     </div>
   </a>`;
 }

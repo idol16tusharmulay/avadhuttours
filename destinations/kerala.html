@@ -31,7 +31,8 @@
   .attr-icon { font-size: 1.8rem; margin-bottom: 10px; }
   .attr-card h3 { font-size: 1rem; color: var(--at-navy, #1B1D5C); margin: 0 0 6px; }
   .attr-card p { font-size: 0.875rem; color: #666; margin: 0; line-height: 1.5; }
-  .month-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
+  .month-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 8px; }
+  .month-table { width: 100%; min-width: 620px; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
   .month-table th { background: var(--at-navy, #1B1D5C); color: #fff; padding: 10px 6px; text-align: center; }
   .month-table td { padding: 10px 6px; text-align: center; border: 1px solid #e8e0d5; }
   .mt-peak { background: #d4edda; color: #155724; font-weight: 700; }
@@ -163,7 +164,7 @@
     <p class="eyebrow">Planning Your Trip</p>
     <h2 class="sec-hdr">Best Time to Visit Kerala</h2>
     <p>Kerala has a distinct monsoon season that transforms the landscape — lush but very wet. The winter months from October to February are optimal for most travellers:</p>
-    <table class="month-table">
+    <div class="month-table-wrap"><table class="month-table">
       <thead>
         <tr>
           <th>Month</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th>
@@ -192,7 +193,7 @@
           <td>23/29</td><td>23/29</td><td>24/30</td><td>24/31</td><td>24/31</td><td>23/31</td>
         </tr>
       </tbody>
-    </table>
+    </table></div></table>
     <p style="font-size:0.82rem;color:#888;margin-top:8px">
       <span style="background:#d4edda;padding:2px 8px;border-radius:4px;margin-right:6px">Best</span>
       Cool &amp; dry — ideal for all activities &nbsp;|&nbsp;
@@ -216,6 +217,54 @@
       <li><strong>Carry a rain jacket even in winter:</strong> Munnar and Thekkady at 900–1,600 m can have sudden showers even in December–January. A compact rain jacket takes very little space and saves the day.</li>
       <li><strong>Buy spices at the plantation, not the airport:</strong> Cardamom, black pepper and vanilla from Thekkady farms are 40–60% cheaper than at Kochi or Trivandrum airports — and fresher. Most plantations allow direct purchase after a tour.</li>
     </ol>
+  </div>
+</section>
+
+<!-- HOW TO REACH -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Getting there</p>
+    <h2 class="sec-hdr">How to Reach</h2>
+    <div class="dest-info-grid">
+      <div class="dest-info-card"><div class="dic-ico">✈️</div><h3>By Air</h3><p>Three international airports: <strong>Kochi (COK)</strong>, <strong>Trivandrum (TRV)</strong>, <strong>Calicut (CCJ)</strong>. Direct flights from every Indian metro.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚆</div><h3>By Train</h3><p>Ernakulam Junction / Trivandrum Central are well-connected. Konkan Railway is the scenic Mumbai–Goa–Kerala route.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚌</div><h3>By Road</h3><p>Overnight Volvo from Bengaluru (10h) or Chennai (12h). NH-66 along the coast is well-maintained.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">⛵</div><h3>Houseboat Pickup</h3><p>Most Alleppey houseboats pick up directly from the jetty — 1.5h drive from Kochi airport.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL CUISINE -->
+<section class="section warm">
+  <div class="container">
+    <p class="eyebrow">Eat like a local</p>
+    <h2 class="sec-hdr">Coastal &amp; Spice Cuisine</h2>
+    <p>Food is half the trip. Here's what to seek out — every Avadhut itinerary leaves room for tasting the local specialties.</p>
+    <ul class="dest-food-list">
+        <li><strong>Sadhya</strong> — vegetarian feast of 20+ items on a banana leaf</li>
+        <li><strong>Karimeen Pollichathu</strong> — pearl-spot fish grilled in banana leaf</li>
+        <li><strong>Meen Curry</strong> — coconut-based fish curry with kokum</li>
+        <li><strong>Appam + Stew</strong> — lacy rice pancake with coconut-milk chicken stew</li>
+        <li><strong>Puttu &amp; Kadala</strong> — steamed rice cylinders with black chickpea curry</li>
+        <li><strong>Beef Fry</strong> — Kerala-Christian spiced dry beef</li>
+        <li><strong>Banana Chips</strong> — coconut-oil fried, the Kerala staple snack</li>
+        <li><strong>Fresh Tender Coconut</strong> — ₹40 anywhere on the highway</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SUGGESTED TRIP LENGTHS -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">How long should you stay?</p>
+    <h2 class="sec-hdr">Suggested Trip Lengths</h2>
+    <p>All durations are fully customisable. Mix &amp; match cities, add rest days, upgrade hotels — we re-quote on the fly.</p>
+    <div class="dest-info-grid lengths-grid">
+      <div class="dest-info-card"><div class="dl-label">Backwaters Quickie</div><div class="dl-days">4N / 5D</div><p>Alleppey houseboat + Kochi old town.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Classic</div><div class="dl-days">6N / 7D</div><p>Munnar + Thekkady + Alleppey + Kochi — the canonical loop.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Hill + Coast</div><div class="dl-days">9N / 10D</div><p>Add Varkala or Kovalam beach extension.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Wildlife Add-on</div><div class="dl-days">10N+</div><p>Periyar safaris + Wayanad add-on for nature lovers.</p></div>
+    </div>
   </div>
 </section>
 

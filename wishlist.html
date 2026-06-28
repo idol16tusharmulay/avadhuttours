@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Wishlist — Avadhut Tours</title>
+<meta name="description" content="Your saved tour packages. Send the whole shortlist to us on WhatsApp for a combined quote.">
+<link rel="icon" type="image/png" href="/assets/logo/avadhut-emblem.png">
+<link rel="stylesheet" href="style.css">
+<script src="components.js"></script>
+<script src="data/packages-data.js"></script>
+<style>
+.wl-empty{text-align:center;padding:60px 20px}
+.wl-empty-ico{font-size:48px;margin-bottom:14px}
+.wl-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;align-items:center;justify-content:space-between;background:var(--at-cream);border:1px solid var(--border-subtle);border-radius:12px;padding:14px 18px}
+.wl-actions-left{font-size:14px;color:var(--text-body);font-weight:600}
+.wl-card{display:grid;grid-template-columns:140px 1fr auto;gap:16px;background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:14px;margin-bottom:12px;align-items:center}
+.wl-card img{width:140px;height:90px;object-fit:cover;border-radius:8px}
+.wl-card .wlc-title{font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--text-strong);margin:0 0 3px}
+.wl-card .wlc-loc{font-size:12.5px;color:var(--text-muted);margin:0 0 4px}
+.wl-card .wlc-price{font-size:14px;color:var(--at-red-600);font-weight:700}
+.wl-card .wlc-actions{display:flex;flex-direction:column;gap:6px}
+.wl-card .wlc-actions .btn{white-space:nowrap}
+@media(max-width:640px){.wl-card{grid-template-columns:1fr;text-align:left}.wl-card img{width:100%;height:160px}.wl-card .wlc-actions{flex-direction:row;flex-wrap:wrap}}
+</style>
+</head>
+<body>
+
+<site-header active=""></site-header>
+<main>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">My Wishlist</div>
+    <h1>Your Saved Packages</h1>
+    <p>Shortlist trips of interest, then send the whole list to us for a combined quote and comparison.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div id="wl-content"></div>
+  </div>
+</section>
+
+</main>
+<site-footer></site-footer>
+
+<script>
+function fmt(n){return '₹'+Number(n).toLocaleString('en-IN')}
+function getWishlist(){try{return JSON.parse(localStorage.getItem('at-wishlist')||'[]')}catch(e){return[]}}
+function setWishlist(arr){try{localStorage.setItem('at-wishlist',JSON.stringify(arr))}catch(e){}}
+
+function removeItem(id){
+  const list = getWishlist().filter(x=>x!==id);
+  setWishlist(list);
+  render();
+}
+
+function clearAll(){
+  if(!confirm('Clear all saved packages?')) return;
+  setWishlist([]);
+  render();
+}
+
+function whatsappAll(items){
+  if(!items.length) return;
+  const lines = items.map(t=>`• ${t.title} — ${t.days}D/${t.nights}N — indicative from ${fmt(t.price)}`).join('\n');
+  const msg = `Hi, I'd like a combined quote for these packages from Avadhut Tours:\n\n${lines}\n\nPlease share details and your recommendation.`;
+  window.open(`https://wa.me/918390922322?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function render(){
+  const ids = getWishlist();
+  const all = window.AT_PACKAGES || [];
+  const items = ids.map(id=>all.find(p=>p.id===id)).filter(Boolean);
+
+  const container = document.getElementById('wl-content');
+
+  if(!items.length){
+    container.innerHTML = `<div class="wl-empty">
+      <div class="wl-empty-ico">♡</div>
+      <h2 style="font-family:var(--font-display);color:var(--text-strong);margin:0 0 8px">No saved packages yet</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px">Browse packages and tap "Save to wishlist" on the ones you're interested in.</p>
+      <a href="packages.html" class="btn btn-primary">Browse Packages</a>
+    </div>`;
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="wl-actions">
+      <div class="wl-actions-left">${items.length} saved package${items.length>1?'s':''}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button onclick='whatsappAll(${JSON.stringify(items.map(i=>({title:i.title,days:i.days,nights:i.nights,price:i.price})))})' class="btn btn-whatsapp btn-sm">💬 Send All to WhatsApp</button>
+        ${items.length >= 2 ? `<a href="compare.html?ids=${items.map(i=>i.id).join(',')}" class="btn btn-outline btn-sm">⚖️ Compare</a>` : ''}
+        <button onclick="clearAll()" class="btn btn-outline btn-sm">Clear all</button>
+      </div>
+    </div>
+    ${items.map(t=>`
+      <div class="wl-card">
+        <img src="${t.img}" alt="${t.title}" loading="lazy">
+        <div>
+          <p class="wlc-title">${t.title}</p>
+          <p class="wlc-loc">📍 ${t.loc} · ${t.days}D / ${t.nights}N</p>
+          <p class="wlc-price">From ${fmt(t.price)} / person</p>
+        </div>
+        <div class="wlc-actions">
+          <a href="package.html?id=${t.id}" class="btn btn-sm btn-outline">View Details</a>
+          <button onclick="removeItem('${t.id}')" class="btn btn-sm" style="background:#fdeaeb;color:#c14040;border:1px solid #f5c2c7">Remove</button>
+        </div>
+      </div>
+    `).join('')}
+  `;
+}
+
+render();
+</script>
+</body>
+</html>

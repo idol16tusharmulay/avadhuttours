@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Reviews — Avadhut Tours</title>
+<meta name="description" content="Real reviews from real Avadhut Tours customers. 500+ Google reviews · 4.7★ average rating · families, honeymooners, seniors, corporate groups.">
+<link rel="icon" type="image/png" href="/assets/logo/avadhut-emblem.png">
+<link rel="stylesheet" href="style.css">
+<script src="components.js"></script>
+<style>
+.rv-summary{display:grid;grid-template-columns:auto 1fr;gap:32px;background:linear-gradient(135deg,#1B1D5C,#2E3192);color:#fff;padding:32px;border-radius:14px;margin-bottom:32px;align-items:center}
+@media(max-width:640px){.rv-summary{grid-template-columns:1fr;text-align:center}}
+.rv-big-rating{font-family:var(--font-display);font-size:56px;font-weight:800;color:#FAD466;line-height:1}
+.rv-summary-stars{font-size:22px;color:#FAD466;margin:4px 0 6px}
+.rv-summary-text{font-size:14px;opacity:.85}
+.rv-summary-cta{display:flex;flex-direction:column;gap:8px}
+.rv-summary-cta .btn{justify-content:center}
+
+.rv-filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.rv-fchip{background:#fff;border:1.5px solid var(--border-default);padding:7px 14px;border-radius:999px;cursor:pointer;font-size:13px;font-weight:600;color:var(--text-body);transition:all .15s}
+.rv-fchip.active,.rv-fchip:hover{background:var(--at-saffron-500);color:#fff;border-color:var(--at-saffron-500)}
+
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.rv-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.rv-grid{grid-template-columns:1fr}}
+.rv-card{background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 4px rgba(42,27,18,.04)}
+.rv-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.rv-card-name{font-family:var(--font-display);font-size:14.5px;font-weight:800;color:var(--text-strong);margin:0}
+.rv-card-trip{font-size:12px;color:var(--text-muted);margin-top:2px}
+.rv-card-stars{color:#F5A623;font-size:14px;letter-spacing:1px;white-space:nowrap}
+.rv-card-text{font-size:13.5px;color:var(--text-body);line-height:1.6;margin:0;flex:1}
+.rv-card-tag{display:inline-block;background:var(--at-cream);color:var(--text-muted);font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;align-self:flex-start}
+
+.rv-cta-band{margin-top:32px;background:var(--at-saffron-50);border:1px solid var(--at-saffron-200);border-radius:14px;padding:28px;text-align:center}
+.rv-cta-band h3{font-family:var(--font-display);color:var(--at-saffron-700);font-size:1.2rem;margin:0 0 6px}
+.rv-cta-band p{font-size:14px;color:var(--text-body);max-width:50ch;margin:0 auto 16px}
+</style>
+</head>
+<body>
+
+<site-header active=""></site-header>
+<main>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Customer reviews</div>
+    <h1>What Our Travellers Say</h1>
+    <p>Real stories from real families, couples and corporate groups who travelled with us over the past 15 years.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="rv-summary">
+      <div>
+        <div class="rv-big-rating">4.7</div>
+        <div class="rv-summary-stars">★★★★★</div>
+        <div class="rv-summary-text">Based on 500+ Google reviews</div>
+      </div>
+      <div>
+        <p style="font-size:15px;margin:0 0 10px;opacity:.9">15+ years · 5,000+ trips · 70% repeat customers</p>
+        <div class="rv-summary-cta">
+          <a href="https://share.google/BIthxw6Fp5xZxVwD6" target="_blank" rel="noopener noreferrer" class="btn" style="background:#FAD466;color:#1B1D5C;font-weight:800">⭐ Read all on Google</a>
+          <a href="https://share.google/BIthxw6Fp5xZxVwD6" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff">✍️ Write a Review</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-filter-row" id="rv-filters">
+      <button class="rv-fchip active" data-filter="all">All</button>
+      <button class="rv-fchip" data-filter="family">Family</button>
+      <button class="rv-fchip" data-filter="honeymoon">Honeymoon</button>
+      <button class="rv-fchip" data-filter="senior">Senior</button>
+      <button class="rv-fchip" data-filter="ladies">Ladies</button>
+      <button class="rv-fchip" data-filter="group">Group</button>
+      <button class="rv-fchip" data-filter="corporate">Corporate</button>
+      <button class="rv-fchip" data-filter="pilgrimage">Pilgrimage</button>
+    </div>
+
+    <div class="rv-grid" id="rv-grid"></div>
+
+    <div class="rv-cta-band">
+      <h3>Travelled with us recently?</h3>
+      <p>A Google review takes 30 seconds and helps other families plan with confidence. Thank you in advance!</p>
+      <a href="https://share.google/BIthxw6Fp5xZxVwD6" target="_blank" rel="noopener noreferrer" class="btn btn-primary">⭐ Write a Google Review</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<site-footer></site-footer>
+
+<script>
+const REVIEWS = [
+  {name:"Patil Family", trip:"Amritsar · Golden Temple", tag:"family", text:"Everything was perfectly arranged — from hotels to the driver. Our parents travelled comfortably. A worry-free trip."},
+  {name:"Deshmukh Group", trip:"Shimla · Manali · 40 pax", tag:"group", text:"A group of 40 and Avadhut handled every detail brilliantly. The kids absolutely loved the snow at Solang Valley!"},
+  {name:"Iyer Family", trip:"Kerala Backwaters", tag:"family", text:"The houseboat experience was divine. Avadhut arranged everything seamlessly — truly 5-star service at an affordable price."},
+  {name:"Sharma Family", trip:"Royal Rajasthan", tag:"family", text:"Group of 8 people — grandparents to kids. Avadhut handled every detail including special diet for our elders. Hotel upgrades, patience with slow walkers — truly a 5-star experience at a budget price."},
+  {name:"Mehta Corporate Outing", trip:"Goa — 45 pax", tag:"corporate", text:"Our company outing of 45 people — perfectly coordinated buses, excellent hotels, smooth itinerary. Everyone came back energised. The price was unbeatable compared to other agencies we had quoted."},
+  {name:"Priya & Sonal", trip:"Ladies Special Kerala", tag:"ladies", text:"As two women travelling alone, safety was our biggest concern. The female tour manager was wonderful. We felt safe and well looked-after throughout. Will definitely book the next Ladies Special!"},
+  {name:"Joshi Couple", trip:"Kashmir Honeymoon", tag:"honeymoon", text:"Houseboat with private deck, candlelit dinner on Dal Lake — Avadhut went above and beyond for our honeymoon. Romantic and stress-free."},
+  {name:"Kulkarni Seniors Group", trip:"Char Dham by Helicopter", tag:"senior pilgrimage", text:"Eight senior citizens from our temple group. The helicopter darshan was a dream come true at our age. Pickup, food, lodging — everything taken care of. Tour escort was patient and kind."},
+  {name:"Rao Family", trip:"Andaman & Nicobar", tag:"family", text:"Honeymoon couple + two retired parents in same group — Avadhut customised pace for everyone. Snorkelling for us, beach relaxation for parents. Brilliant planning."},
+  {name:"Patel Group", trip:"Goa New Year — 25 pax", tag:"group", text:"Booked a beach villa for 25 of us. Catering, transport, even fireworks coordination — handled. They're our go-to for every group trip now."},
+  {name:"Mrs. Bhat (Senior)", trip:"Tirupati · Shirdi", tag:"senior pilgrimage", text:"At 72, I never thought I'd see Tirupati. The escort handled all the lines, helped me up the steps, arranged darshan tickets. Truly blessed experience."},
+  {name:"Tanvi & Anita (Ladies)", trip:"Spiti — 7 ladies", tag:"ladies", text:"All-women trip to Spiti — sceptical operators kept rejecting our enquiry. Avadhut said yes immediately and arranged a female driver-cum-guide. Trip of a lifetime."},
+  {name:"Khan Family", trip:"Andaman", tag:"family", text:"Halal food arranged at every meal across the trip. Snorkelling guide, kids' activities — everything beautifully planned. Will book again."},
+  {name:"Gupta Honeymoon", trip:"Maldives", tag:"honeymoon", text:"Overwater villa, candlelit dinner on private beach, surprise champagne — Avadhut coordinated everything from Mumbai. Pure magic."},
+  {name:"Pednekar Group", trip:"Pune to Bhutan", tag:"group", text:"23 colleagues from Pune. Got us to Bhutan smoothly — visas, flights, hotels, local guide. Even the tea-tasting in Paro was preplanned. Top notch."},
+  {name:"Wadia Family", trip:"Jaipur · Udaipur", tag:"family heritage", text:"Stayed in a heritage haveli arranged by Avadhut — an experience our kids will remember forever. Drivers were knowledgeable about local history too."},
+  {name:"Reddy Seniors", trip:"Kashi · Gaya · Prayagraj", tag:"senior pilgrimage", text:"Three temple cities in 8 days. Avadhut handled tickets, priests, transfers, vegetarian food. As seniors we felt fully cared for. Thank you."},
+  {name:"Vora Family", trip:"Singapore + Bali", tag:"family international", text:"First international trip with kids — Avadhut handled visas, flights, hotels, ground transport. Helpful 24×7 WhatsApp support even abroad."}
+];
+
+function stars(){return '★★★★★'}
+
+function render(filter){
+  const grid = document.getElementById('rv-grid');
+  const items = filter === 'all' ? REVIEWS : REVIEWS.filter(r=>r.tag.includes(filter));
+  if(!items.length){
+    grid.innerHTML = '<p style="color:var(--text-muted);grid-column:1/-1;text-align:center;padding:30px">No reviews under this category yet.</p>';
+    return;
+  }
+  grid.innerHTML = items.map(r=>`<div class="rv-card">
+    <div class="rv-card-head">
+      <div><h3 class="rv-card-name">${r.name}</h3><div class="rv-card-trip">📍 ${r.trip}</div></div>
+      <div class="rv-card-stars">${stars()}</div>
+    </div>
+    <p class="rv-card-text">"${r.text}"</p>
+    <span class="rv-card-tag">${r.tag.split(' ').map(t=>t.charAt(0).toUpperCase()+t.slice(1)).join(' · ')}</span>
+  </div>`).join('');
+}
+
+document.querySelectorAll('#rv-filters .rv-fchip').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#rv-filters .rv-fchip').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    render(btn.dataset.filter);
+  });
+});
+render('all');
+</script>
+</body>
+</html>

@@ -172,10 +172,10 @@
         </div>
       </div>
       <div class="enq-right">
-        <form action="https://formsubmit.co/avadhuttours365@gmail.com" method="POST" class="enq-form">
+        <form id="enquiry-form" action="https://formsubmit.co/ajax/avadhuttours365@gmail.com" method="POST" class="enq-form">
           <input type="hidden" name="_subject" value="Corporate Fleet Enquiry — Avadhut Tours">
-          <input type="hidden" name="_next" value="https://www.avadhuttours.com/fleet.html?ty=1">
           <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
           <div class="form-row">
             <div class="form-group">
               <label>Company Name *</label>
@@ -251,7 +251,31 @@
 <site-footer></site-footer>
 
 <script>
-// Thank-you detection
+// AJAX form submit
+(function(){
+  const form = document.getElementById('enquiry-form');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const orig = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch(form.action, {method:'POST', headers:{Accept:'application/json'}, body:new FormData(form)})
+      .then(r=>r.json()).then(d=>{
+        if(d.success === 'true' || d.success === true){
+          document.getElementById('ty-card').style.display = 'block';
+          document.getElementById('fleet-enquiry').style.display = 'none';
+          window.scrollTo({top:0, behavior:'smooth'});
+          form.reset();
+        } else throw new Error(d.message || 'fail');
+      }).catch(()=>{
+        alert('Sorry — please WhatsApp us at +91 83909 22322.');
+        btn.disabled = false; btn.textContent = orig;
+      });
+  });
+})();
+
+// Legacy ?ty=1 support
 if (new URLSearchParams(window.location.search).get('ty')) {
   document.getElementById('ty-card').style.display = 'block';
   document.getElementById('fleet-enquiry').style.display = 'none';

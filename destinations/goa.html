@@ -31,7 +31,8 @@
   .attr-icon { font-size: 1.8rem; margin-bottom: 10px; }
   .attr-card h3 { font-size: 1rem; color: var(--at-navy, #1B1D5C); margin: 0 0 6px; }
   .attr-card p { font-size: 0.875rem; color: #666; margin: 0; line-height: 1.5; }
-  .month-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
+  .month-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 8px; }
+  .month-table { width: 100%; min-width: 620px; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
   .month-table th { background: var(--at-navy, #1B1D5C); color: #fff; padding: 10px 6px; text-align: center; }
   .month-table td { padding: 10px 6px; text-align: center; border: 1px solid #e8e0d5; }
   .mt-peak { background: #d4edda; color: #155724; font-weight: 700; }
@@ -171,7 +172,7 @@
     <p class="eyebrow">Planning Your Trip</p>
     <h2 class="sec-hdr">Best Time to Visit Goa</h2>
     <p>Goa's monsoon season (June–September) is the only time to avoid if you want beaches — most shacks close and sea swimming can be dangerous. The rest of the year has something to offer:</p>
-    <table class="month-table">
+    <div class="month-table-wrap"><table class="month-table">
       <thead>
         <tr>
           <th>Month</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th>
@@ -200,7 +201,7 @@
           <td>25/30</td><td>25/29</td><td>25/30</td><td>25/32</td><td>23/32</td><td>21/31</td>
         </tr>
       </tbody>
-    </table>
+    </table></div></table>
     <p style="font-size:0.82rem;color:#888;margin-top:8px">
       <span style="background:#d4edda;padding:2px 8px;border-radius:4px;margin-right:6px">Best</span>
       Dry season, all beaches &amp; shacks open &nbsp;|&nbsp;
@@ -224,6 +225,54 @@
       <li><strong>Visit Old Goa on a weekday morning:</strong> The Basilica of Bom Jesus and Se Cathedral are packed on weekends. A Tuesday or Wednesday morning visit means you can explore the UNESCO heritage churches at your own pace without the crowds.</li>
       <li><strong>Do the Dudhsagar jeep safari, not the train route:</strong> While the train view of Dudhsagar is famous, the jeep safari from Mollem National Park offers a better close-up view of the falls and includes a swim at the base — a memorable experience for families and groups.</li>
     </ol>
+  </div>
+</section>
+
+<!-- HOW TO REACH -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Getting there</p>
+    <h2 class="sec-hdr">How to Reach</h2>
+    <div class="dest-info-grid">
+      <div class="dest-info-card"><div class="dic-ico">✈️</div><h3>By Air</h3><p><strong>Goa International (GOI / Dabolim)</strong> for South Goa, <strong>Mopa (GOX)</strong> for North Goa. Direct flights from every metro.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚆</div><h3>By Train</h3><p>Konkan Railway is scenic and cheap — Mumbai (10–12h), Bangalore (12h). Major stations: Madgaon (south), Thivim (north).</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚌</div><h3>By Road</h3><p>Overnight Volvo from Mumbai (12h), Pune (10h), Bangalore (14h). Self-drive NH-66 via Konkan.</p></div>
+      <div class="dest-info-card"><div class="dic-ico">🚗</div><h3>Local transport</h3><p>Rent a scooter (₹400/day) — the fastest way around. Cabs are pricey; Goa Miles app or pre-booked taxis are best.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL CUISINE -->
+<section class="section warm">
+  <div class="container">
+    <p class="eyebrow">Eat like a local</p>
+    <h2 class="sec-hdr">Goan-Portuguese Cuisine</h2>
+    <p>Food is half the trip. Here's what to seek out — every Avadhut itinerary leaves room for tasting the local specialties.</p>
+    <ul class="dest-food-list">
+        <li><strong>Fish Curry Rice</strong> — Goa's daily staple, every shack does it</li>
+        <li><strong>Prawn Balchao</strong> — pickled spicy prawns</li>
+        <li><strong>Chicken Cafreal</strong> — green coriander-marinated chicken</li>
+        <li><strong>Pork Vindaloo</strong> — wine-vinegar marinated, fiery</li>
+        <li><strong>Sorpotel</strong> — Christmas pork stew with offal</li>
+        <li><strong>Xacuti</strong> — roasted spice &amp; coconut curry</li>
+        <li><strong>Bebinca</strong> — 16-layer egg-yolk &amp; coconut cake</li>
+        <li><strong>Feni</strong> — local cashew or coconut spirit, drink with limca</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SUGGESTED TRIP LENGTHS -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">How long should you stay?</p>
+    <h2 class="sec-hdr">Suggested Trip Lengths</h2>
+    <p>All durations are fully customisable. Mix &amp; match cities, add rest days, upgrade hotels — we re-quote on the fly.</p>
+    <div class="dest-info-grid lengths-grid">
+      <div class="dest-info-card"><div class="dl-label">Beach Getaway</div><div class="dl-days">3N / 4D</div><p>North Goa beaches + nightlife. The default.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Full Goa</div><div class="dl-days">5N / 6D</div><p>North + South — Calangute/Baga + Palolem/Agonda.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Goa Plus</div><div class="dl-days">7N / 8D</div><p>Add Old Goa cathedrals, Dudhsagar Falls, spice plantation, Hampi side-trip.</p></div>
+      <div class="dest-info-card"><div class="dl-label">Workation</div><div class="dl-days">10N+</div><p>Long-stay villas in Assagao/Siolim for digital nomads.</p></div>
+    </div>
   </div>
 </section>
 

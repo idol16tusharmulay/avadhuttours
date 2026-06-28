@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Customisation Works — Avadhut Tours</title>
+<meta name="description" content="No fixed departures. Every Avadhut tour is built around your dates, group, budget and pace. Here's how the 5-step planning process works — from first enquiry to homecoming.">
+<link rel="icon" type="image/png" href="/assets/logo/avadhut-emblem.png">
+<meta property="og:title" content="How Customisation Works — Avadhut Tours">
+<meta property="og:description" content="The 5-step process behind every Avadhut Tours custom itinerary — share, quote, refine, confirm, travel.">
+<meta property="og:image" content="https://www.avadhuttours.com/assets/groups/amritsar-golden-temple-night.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="components.js"></script>
+<style>
+.hiw-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:32px 0 8px}
+.hiw-step{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:22px 18px;position:relative;display:flex;flex-direction:column;gap:8px;box-shadow:0 2px 8px rgba(42,27,18,.05)}
+.hiw-num{position:absolute;top:-14px;left:18px;width:30px;height:30px;border-radius:50%;background:var(--at-saffron-500);color:#fff;font-family:var(--font-display);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.hiw-icon{font-size:30px;line-height:1;margin-top:6px}
+.hiw-title{font-family:var(--font-display);font-size:15px;font-weight:800;color:var(--text-strong);margin:4px 0 2px}
+.hiw-time{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--at-saffron-600)}
+.hiw-desc{font-size:13px;color:var(--text-muted);line-height:1.55}
+@media(max-width:900px){.hiw-steps{grid-template-columns:repeat(3,1fr);gap:12px}}
+@media(max-width:640px){
+  .hiw-steps{grid-template-columns:1fr;gap:8px;margin:20px 0 4px}
+  .hiw-step{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:12px 14px 12px 18px;align-items:start;border-radius:10px}
+  .hiw-num{position:static;width:34px;height:34px;font-size:14px;grid-row:span 4;align-self:center}
+  .hiw-icon{display:none}
+  .hiw-title{margin:0;font-size:14px;grid-column:2}
+  .hiw-time{grid-column:2;font-size:10.5px}
+  .hiw-desc{grid-column:2;font-size:12.5px;line-height:1.45}
+}
+
+.hiw-promise{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+.hiw-promise-card{background:var(--at-cream);border-radius:14px;padding:24px;border:1px solid var(--border-subtle)}
+.hiw-promise-card .hp-ico{font-size:26px;margin-bottom:10px}
+.hiw-promise-card h3{font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--text-strong);margin:0 0 6px}
+.hiw-promise-card p{font-size:13.5px;color:var(--text-muted);line-height:1.6;margin:0}
+@media(max-width:780px){.hiw-promise{grid-template-columns:1fr 1fr;gap:10px}}
+@media(max-width:560px){
+  .hiw-promise{grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+  .hiw-promise-card{padding:14px 12px;border-radius:10px}
+  .hiw-promise-card .hp-ico{font-size:20px;margin-bottom:5px}
+  .hiw-promise-card h3{font-size:13px;margin:0 0 3px}
+  .hiw-promise-card p{font-size:11.5px;line-height:1.45}
+}
+
+.compare-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:24px;border-radius:12px;box-shadow:0 2px 12px rgba(42,27,18,.05)}
+.compare-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;min-width:540px}
+.compare-table th,.compare-table td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--border-subtle)}
+.compare-table th{background:var(--at-navy);color:#fff;font-family:var(--font-display);font-weight:700;font-size:13.5px;letter-spacing:.02em}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table .ct-yes{color:var(--at-green-600);font-weight:700}
+.compare-table .ct-no{color:#999}
+.compare-table td:first-child{font-weight:600;color:var(--text-strong)}
+@media(max-width:640px){.compare-table{font-size:13px}.compare-table th,.compare-table td{padding:10px 12px}}
+</style>
+</head>
+<body>
+
+<site-header active=""></site-header>
+<main>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">How It Works</div>
+    <h1>From Idea to Itinerary in 5 Steps</h1>
+    <p>No fixed departures. No off-the-shelf bundles. Every Avadhut trip is built from scratch around your group's dates, budget and pace.</p>
+  </div>
+</section>
+
+<!-- THE 5 STEPS -->
+<section class="section">
+  <div class="container">
+    <div class="sec-hdr">
+      <div class="sec-hdr-left"><div class="eyebrow">The process</div><h2>Five Steps. No Surprises.</h2></div>
+    </div>
+    <div class="hiw-steps">
+      <div class="hiw-step">
+        <span class="hiw-num">1</span>
+        <div class="hiw-icon">📨</div>
+        <div class="hiw-title">Share Your Wishlist</div>
+        <div class="hiw-time">2 minutes</div>
+        <div class="hiw-desc">WhatsApp, call or fill the enquiry form. Tell us the destination, rough dates, group size and budget. No commitment, no payment.</div>
+      </div>
+      <div class="hiw-step">
+        <span class="hiw-num">2</span>
+        <div class="hiw-icon">📝</div>
+        <div class="hiw-title">Get a Custom Quote</div>
+        <div class="hiw-time">Within 2 hours</div>
+        <div class="hiw-desc">A real travel consultant — not a bot — sends back a draft itinerary with hotels, vehicles, day-by-day plan and itemised pricing.</div>
+      </div>
+      <div class="hiw-step">
+        <span class="hiw-num">3</span>
+        <div class="hiw-icon">🛠️</div>
+        <div class="hiw-title">Refine Together</div>
+        <div class="hiw-time">As long as you need</div>
+        <div class="hiw-desc">Swap hotels, add/remove days, change pace, upgrade vehicles, special diets, accessibility needs. Iterate over WhatsApp until it's perfect.</div>
+      </div>
+      <div class="hiw-step">
+        <span class="hiw-num">4</span>
+        <div class="hiw-icon">✅</div>
+        <div class="hiw-title">Confirm with 25% Advance</div>
+        <div class="hiw-time">Whenever you're ready</div>
+        <div class="hiw-desc">UPI, bank transfer or card. GST invoice issued immediately. Balance due 15 days before travel. Full cancellation policy upfront — no surprises.</div>
+      </div>
+      <div class="hiw-step">
+        <span class="hiw-num">5</span>
+        <div class="hiw-icon">✈️</div>
+        <div class="hiw-title">Travel — We're With You</div>
+        <div class="hiw-time">24×7 throughout the trip</div>
+        <div class="hiw-desc">Your dedicated tour manager is on WhatsApp/call the entire time. Last-minute changes, hotel issues, doctor needed — we handle it.</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:13.5px;color:var(--text-muted);margin-top:18px">Total elapsed time from first enquiry to confirmed booking: typically <strong>2–5 days</strong>.</p>
+  </div>
+</section>
+
+<!-- THE PROMISE -->
+<section class="section warm">
+  <div class="container">
+    <div class="sec-hdr">
+      <div class="sec-hdr-left"><div class="eyebrow">Our promise</div><h2>What "Customised" Actually Means</h2></div>
+    </div>
+    <div class="hiw-promise">
+      <div class="hiw-promise-card">
+        <div class="hp-ico">📅</div>
+        <h3>Your Dates, Not Ours</h3>
+        <p>We don't run fixed departures. Travel any day of the year. Want to leave on a Monday and return on a Wednesday eleven days later? Done.</p>
+      </div>
+      <div class="hiw-promise-card">
+        <div class="hp-ico">👨‍👩‍👧‍👦</div>
+        <h3>Your Group, Your Pace</h3>
+        <p>Two of you? Twelve? Forty-five for a corporate offsite? We re-quote for any size — with the right vehicle, hotel rooms and pace for everyone.</p>
+      </div>
+      <div class="hiw-promise-card">
+        <div class="hp-ico">💰</div>
+        <h3>Your Budget, Itemised</h3>
+        <p>Transport, hotels, meals, sightseeing — broken out line by line. Adjust any line up or down. No hidden mark-ups, no "service charges" added later.</p>
+      </div>
+      <div class="hiw-promise-card">
+        <div class="hp-ico">🏨</div>
+        <h3>Pick Your Hotels</h3>
+        <p>3★ default. Want 4★, 5★, or a heritage property? We'll re-quote. Have a specific hotel in mind? We probably already work with them.</p>
+      </div>
+      <div class="hiw-promise-card">
+        <div class="hp-ico">🛏️</div>
+        <h3>Special Needs Welcome</h3>
+        <p>Senior parent who can't climb stairs? Vegan family? Honeymoon couple wanting a candlelit dinner? Tell us — it goes into the plan.</p>
+      </div>
+      <div class="hiw-promise-card">
+        <div class="hp-ico">📞</div>
+        <h3>One Person, Start to Finish</h3>
+        <p>The same consultant who plans your trip is your point of contact during travel. No call centres, no ticket numbers, no "let me check with my colleague".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CUSTOM VS FIXED-GROUP -->
+<section class="section">
+  <div class="container">
+    <div class="sec-hdr">
+      <div class="sec-hdr-left"><div class="eyebrow">Customised vs Fixed-departure group tours</div><h2>Why We Don't Run Group Departures</h2></div>
+    </div>
+    <p style="font-size:14.5px;color:var(--text-muted);max-width:65ch;margin:0 0 12px">Big operators sell pre-packaged group tours with fixed dates. They're cheaper per head — but you travel on their schedule, with strangers, at their pace. Here's how the two compare:</p>
+    <div class="compare-table-wrap"><table class="compare-table">
+      <thead>
+        <tr><th></th><th>Avadhut (Customised)</th><th>Fixed Group Tours</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Travel dates</td><td class="ct-yes">Pick any day</td><td class="ct-no">Fixed monthly departures</td></tr>
+        <tr><td>Group composition</td><td class="ct-yes">Just your group</td><td class="ct-no">Mixed with strangers</td></tr>
+        <tr><td>Pace</td><td class="ct-yes">Slower / faster as you wish</td><td class="ct-no">Fixed by operator</td></tr>
+        <tr><td>Hotel category</td><td class="ct-yes">Choose 3★ / 4★ / 5★</td><td class="ct-no">Fixed by package tier</td></tr>
+        <tr><td>Itinerary changes en route</td><td class="ct-yes">Possible — same-day</td><td class="ct-no">Rarely allowed</td></tr>
+        <tr><td>Per-person price</td><td>Mid range</td><td class="ct-yes">Lowest (shared costs)</td></tr>
+        <tr><td>Privacy / family time</td><td class="ct-yes">Full</td><td class="ct-no">Shared bus, shared sightseeing</td></tr>
+        <tr><td>Special diets / accessibility</td><td class="ct-yes">Handled individually</td><td class="ct-no">Best-effort</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:12.5px;color:var(--text-faint);margin-top:10px">Both models work — fixed-group tours suit solo travellers and those on tight budgets. Customised suits families, couples, corporate groups and anyone who values control over cost.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-inner">
+    <div>
+      <h2>Ready to start planning?</h2>
+      <p>Share your wishlist now — we'll send a draft itinerary within 2 hours.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="about.html#contact" class="btn btn-ghost">Fill the Enquiry Form</a>
+      <a href="https://wa.me/918390922322?text=Hi%2C%20I%27d%20like%20to%20plan%20a%20custom%20tour%20with%20Avadhut%20Tours." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<site-footer></site-footer>
+</body>
+</html>

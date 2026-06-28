@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare Packages — Avadhut Tours</title>
+<meta name="description" content="Compare two or three tour packages side-by-side — duration, inclusions, hotels, indicative price.">
+<link rel="icon" type="image/png" href="/assets/logo/avadhut-emblem.png">
+<link rel="stylesheet" href="style.css">
+<script src="components.js"></script>
+<script src="data/packages-data.js"></script>
+<style>
+.cmp-pickers{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;padding:18px;background:var(--at-cream);border:1px solid var(--border-subtle);border-radius:12px}
+.cmp-picker{flex:1;min-width:220px;display:flex;flex-direction:column;gap:6px}
+.cmp-picker label{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--at-saffron-600)}
+.cmp-picker select{padding:9px 12px;border:1.5px solid var(--border-default);border-radius:8px;font-size:14px;font-family:var(--font-body);background:#fff}
+.cmp-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border-subtle);border-radius:12px;overflow:hidden;min-width:640px}
+.cmp-table th,.cmp-table td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--border-subtle);vertical-align:top;font-size:14px}
+.cmp-table th{background:var(--at-navy);color:#fff;font-family:var(--font-display);font-weight:700}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table td:first-child,.cmp-table th:first-child{font-weight:700;background:var(--at-sand);color:var(--text-strong);min-width:120px}
+.cmp-table img{width:120px;height:80px;object-fit:cover;border-radius:8px}
+.cmp-empty{text-align:center;padding:40px 20px;color:var(--text-muted)}
+.cmp-bullets{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6;color:var(--text-body)}
+.cmp-price{font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--at-red-600)}
+</style>
+</head>
+<body>
+
+<site-header active=""></site-header>
+<main>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Compare Packages</div>
+    <h1>Compare Side-by-Side</h1>
+    <p>Pick 2 or 3 packages to see their duration, inclusions, hotels and indicative price next to each other.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cmp-pickers">
+      <div class="cmp-picker"><label>Package 1</label><select id="sel1" onchange="onPickerChange()"></select></div>
+      <div class="cmp-picker"><label>Package 2</label><select id="sel2" onchange="onPickerChange()"></select></div>
+      <div class="cmp-picker"><label>Package 3 (optional)</label><select id="sel3" onchange="onPickerChange()"></select></div>
+    </div>
+
+    <div id="cmp-result"></div>
+  </div>
+</section>
+
+</main>
+<site-footer></site-footer>
+
+<script>
+function fmt(n){return '₹'+Number(n).toLocaleString('en-IN')}
+function getParam(k){return new URLSearchParams(window.location.search).get(k)}
+function fillSelect(el, opts, selectedId){
+  el.innerHTML = '<option value="">— none —</option>' + opts.map(p=>`<option value="${p.id}" ${p.id===selectedId?'selected':''}>${p.title}</option>`).join('');
+}
+
+function onPickerChange(){
+  const ids = ['sel1','sel2','sel3'].map(id=>document.getElementById(id).value).filter(Boolean);
+  const url = new URL(window.location.href);
+  if(ids.length) url.searchParams.set('ids', ids.join(','));
+  else url.searchParams.delete('ids');
+  history.replaceState(null, '', url);
+  renderTable(ids);
+}
+
+function renderTable(ids){
+  const result = document.getElementById('cmp-result');
+  const all = window.AT_PACKAGES || [];
+  const items = ids.map(id=>all.find(p=>p.id===id)).filter(Boolean);
+
+  if(items.length < 2){
+    result.innerHTML = `<div class="cmp-empty">Select at least 2 packages above to compare.</div>`;
+    return;
+  }
+
+  const rows = [
+    {label:'Image', val: t=>`<img src="${t.img}" alt="${t.title}">`},
+    {label:'Title', val: t=>`<strong>${t.title}</strong><br><span style="font-size:12px;color:var(--text-muted)">📍 ${t.loc}</span>`},
+    {label:'Duration', val: t=>`${t.days} Days / ${t.nights} Nights`},
+    {label:'Type', val: t=>(t.seg||[]).map(s=>s.charAt(0).toUpperCase()+s.slice(1)).join(' · ')},
+    {label:'Difficulty', val: t=>t.difficulty || '—'},
+    {label:'Group size', val: t=>t.minGroup||t.maxGroup ? `${t.minGroup||'2'} – ${t.maxGroup||'∞'}` : 'Flexible'},
+    {label:'Indicative price', val: t=>`<div class="cmp-price">${fmt(t.price)}</div><span style="font-size:11.5px;color:var(--text-muted)">per person · twin sharing</span>`},
+    {label:'Rating', val: t=>`⭐ ${t.rating} <span style="color:var(--text-muted)">(${t.reviews})</span>`},
+    {label:'Highlights', val: t=>`<ul class="cmp-bullets">${(t.hl||[]).slice(0,4).map(h=>`<li>${h}</li>`).join('')}</ul>`},
+    {label:'Hotels (default)', val: t=>(t.hotels||[]).length ? `<ul class="cmp-bullets">${t.hotels.map(h=>`<li>${h.city} — ${h.tier||'3★'}${h.nights?` (${h.nights}N)`:''}</li>`).join('')}</ul>` : '<span style="color:var(--text-muted)">Confirmed at quote</span>'},
+    {label:'Included', val: t=>`<ul class="cmp-bullets">${(t.inclusions||[]).slice(0,5).map(i=>`<li>${i}</li>`).join('')}</ul>`},
+    {label:'Not included', val: t=>`<ul class="cmp-bullets">${(t.exclusions||[]).slice(0,4).map(i=>`<li>${i}</li>`).join('')}</ul>`},
+    {label:'Action', val: t=>`<a href="package.html?id=${t.id}" class="btn btn-sm btn-outline">Details</a> <a href="https://wa.me/918390922322?text=${encodeURIComponent('Hi, I am interested in the '+t.title+' package.')}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-whatsapp">💬 Enquire</a>`}
+  ];
+
+  result.innerHTML = `<div class="cmp-table-wrap"><table class="cmp-table">
+    <thead><tr><th></th>${items.map((t,i)=>`<th>${t.title}</th>`).join('')}</tr></thead>
+    <tbody>${rows.map(r=>`<tr><td>${r.label}</td>${items.map(t=>`<td>${r.val(t)}</td>`).join('')}</tr>`).join('')}</tbody>
+  </table></div>
+  <div style="margin-top:18px;padding:16px;background:var(--at-cream);border-radius:10px;font-size:13.5px;color:var(--text-muted)">
+    💡 <strong>Tip:</strong> Every package is customisable — hotel category, pace, add-ons, group size. Use WhatsApp to ask us which package fits your group best.
+  </div>`;
+}
+
+function init(){
+  const all = window.AT_PACKAGES || [];
+  const idsParam = getParam('ids');
+  const initialIds = idsParam ? idsParam.split(',').slice(0,3) : [];
+  fillSelect(document.getElementById('sel1'), all, initialIds[0]);
+  fillSelect(document.getElementById('sel2'), all, initialIds[1]);
+  fillSelect(document.getElementById('sel3'), all, initialIds[2]);
+  renderTable(initialIds.filter(Boolean));
+}
+
+init();
+</script>
+</body>
+</html>
