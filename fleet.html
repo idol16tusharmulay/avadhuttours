@@ -29,7 +29,7 @@
       <span>✅ 50+ Corporate Clients</span>
       <span>✅ GST Registered</span>
       <span>✅ GPS Tracked Fleet</span>
-      <span>✅ Since 2008</span>
+      <span>✅ Since 2015</span>
       <span>✅ 24×7 Support</span>
     </div>
   </div>
@@ -166,16 +166,15 @@
         <a href="https://wa.me/918390922322?text=Hi%2C%20I%20want%20to%20discuss%20corporate%20fleet%20solutions%20for%20my%20company." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer" style="margin-top:16px">💬 WhatsApp for Quick Discussion</a>
         <div class="fleet-b2b-trust" style="margin-top:24px">
           <p>✅ GST Registered Business</p>
-          <p>✅ Experienced since 2008</p>
+          <p>✅ Experienced since 2015</p>
           <p>✅ 50+ corporate clients served</p>
           <p>✅ Trial run / demo available</p>
         </div>
       </div>
       <div class="enq-right">
-        <form id="enquiry-form" action="https://formsubmit.co/ajax/avadhuttours365@gmail.com" method="POST" class="enq-form">
-          <input type="hidden" name="_subject" value="Corporate Fleet Enquiry — Avadhut Tours">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
+        <form id="enquiry-form" action="https://script.google.com/macros/s/AKfycbz4XiO28ICdJyHuAfvqgdXd1F6r2u7JsGYpNQtHYAbrTN1e5fDxhMKpavGVqBnvbusG/exec" method="POST" class="enq-form">
+          <input type="hidden" name="_form_type" value="Corporate Fleet">
+          <input type="hidden" name="_referrer" value="fleet.html">
           <div class="form-row">
             <div class="form-group">
               <label>Company Name *</label>
@@ -260,15 +259,15 @@
     const btn = form.querySelector('button[type="submit"]');
     const orig = btn.textContent;
     btn.disabled = true; btn.textContent = 'Sending…';
-    fetch(form.action, {method:'POST', headers:{Accept:'application/json'}, body:new FormData(form)})
-      .then(r=>r.json()).then(d=>{
-        if(d.success === 'true' || d.success === true){
-          document.getElementById('ty-card').style.display = 'block';
-          document.getElementById('fleet-enquiry').style.display = 'none';
-          window.scrollTo({top:0, behavior:'smooth'});
-          form.reset();
-        } else throw new Error(d.message || 'fail');
-      }).catch(()=>{
+    const body = new URLSearchParams(new FormData(form));
+    fetch(form.action, { method:'POST', mode:'no-cors', body })
+      .then(() => {
+        document.getElementById('ty-card').style.display = 'block';
+        document.getElementById('fleet-enquiry').style.display = 'none';
+        window.scrollTo({top:0, behavior:'smooth'});
+        form.reset();
+      })
+      .catch(() => {
         alert('Sorry — please WhatsApp us at +91 83909 22322.');
         btn.disabled = false; btn.textContent = orig;
       });

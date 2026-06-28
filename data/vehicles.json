@@ -10,8 +10,18 @@
     "pricePerKm": 12,
     "minKm": 250,
     "badge": null,
-    "features": ["AC", "Music system", "USB charging", "Comfortable seats"],
-    "bestFor": ["Airport transfer", "Local city rides", "Outstation couple trip", "Small family"],
+    "features": [
+      "AC",
+      "Music system",
+      "USB charging",
+      "Comfortable seats"
+    ],
+    "bestFor": [
+      "Airport transfer",
+      "Local city rides",
+      "Outstation couple trip",
+      "Small family"
+    ],
     "fleetAvailable": true,
     "fleetNote": "Ideal for executive cab service & airport pickups"
   },
@@ -23,11 +33,20 @@
     "capacity": 6,
     "luggage": "3 medium bags",
     "ac": true,
-    "pricePerKm": 14,
+    "pricePerKm": 16,
     "minKm": 250,
     "badge": null,
-    "features": ["AC", "Music system", "USB charging", "Extra legroom"],
-    "bestFor": ["Small family outstation", "6-person group", "Wedding transfer"],
+    "features": [
+      "AC",
+      "Music system",
+      "USB charging",
+      "Extra legroom"
+    ],
+    "bestFor": [
+      "Small family outstation",
+      "6-person group",
+      "Wedding transfer"
+    ],
     "fleetAvailable": true,
     "fleetNote": "Popular for employee daily pick & drop"
   },
@@ -39,11 +58,21 @@
     "capacity": 7,
     "luggage": "3 large bags",
     "ac": true,
-    "pricePerKm": 16,
+    "pricePerKm": 19,
     "minKm": 250,
     "badge": "Premium MPV",
-    "features": ["Dual-zone AC", "Sunroof", "Wireless charging", "6 airbags", "360° camera"],
-    "bestFor": ["Premium family trips", "Corporate outstation", "Honeymoon transfers"],
+    "features": [
+      "Dual-zone AC",
+      "Sunroof",
+      "Wireless charging",
+      "6 airbags",
+      "360° camera"
+    ],
+    "bestFor": [
+      "Premium family trips",
+      "Corporate outstation",
+      "Honeymoon transfers"
+    ],
     "fleetAvailable": true,
     "fleetNote": "Premium executive travel option"
   },
@@ -55,11 +84,21 @@
     "capacity": 7,
     "luggage": "4 large bags",
     "ac": true,
-    "pricePerKm": 18,
+    "pricePerKm": 21,
     "minKm": 250,
     "badge": "Most Popular",
-    "features": ["Powerful AC", "Captain seats", "High ground clearance", "Ideal for hilly terrain", "Spacious boot"],
-    "bestFor": ["Hill station trips (Manali, Ladakh, Coorg)", "Long-distance outstation", "Corporate SUV hire"],
+    "features": [
+      "Powerful AC",
+      "Captain seats",
+      "High ground clearance",
+      "Ideal for hilly terrain",
+      "Spacious boot"
+    ],
+    "bestFor": [
+      "Hill station trips (Manali, Ladakh, Coorg)",
+      "Long-distance outstation",
+      "Corporate SUV hire"
+    ],
     "fleetAvailable": true,
     "fleetNote": "Best for CXO-level executive travel & long routes"
   },
@@ -71,11 +110,21 @@
     "capacity": 12,
     "luggage": "6 bags",
     "ac": true,
-    "pricePerKm": 22,
+    "pricePerKm": 24,
     "minKm": 300,
     "badge": null,
-    "features": ["AC with roof vents", "Push-back seats", "Music system", "Storage under seats"],
-    "bestFor": ["Small group tours", "Family reunion travel", "Office team outing", "Pilgrimage groups"],
+    "features": [
+      "AC with roof vents",
+      "Push-back seats",
+      "Music system",
+      "Storage under seats"
+    ],
+    "bestFor": [
+      "Small group tours",
+      "Family reunion travel",
+      "Office team outing",
+      "Pilgrimage groups"
+    ],
     "fleetAvailable": true,
     "fleetNote": "Flexible for shift-wise factory transport"
   },
@@ -90,10 +139,45 @@
     "pricePerKm": 26,
     "minKm": 300,
     "badge": "Group Favourite",
-    "features": ["AC", "Push-back seats", "PA system", "Driver cabin partition"],
-    "bestFor": ["School / college picnic", "Medium group tour", "Corporate team outings"],
+    "features": [
+      "AC",
+      "Push-back seats",
+      "PA system",
+      "Driver cabin partition"
+    ],
+    "bestFor": [
+      "School / college picnic",
+      "Medium group tour",
+      "Corporate team outings"
+    ],
     "fleetAvailable": true,
     "fleetNote": "Best for regular employee shuttle service"
+  },
+  {
+    "id": "bus20",
+    "name": "Mini Coach — 20 Seater",
+    "subname": "20 Seater AC Bus",
+    "img": "assets/vehicles/bus20.jpg",
+    "capacity": 20,
+    "luggage": "Overhead racks + boot",
+    "ac": true,
+    "pricePerKm": 29,
+    "minKm": 300,
+    "badge": null,
+    "features": [
+      "AC throughout",
+      "Push-back seats",
+      "Music system",
+      "Spacious aisle"
+    ],
+    "bestFor": [
+      "Mid-size group tours (15-20 pax)",
+      "Wedding baraat",
+      "Corporate offsites",
+      "Pilgrimage groups"
+    ],
+    "fleetAvailable": true,
+    "fleetNote": "Great for company outings & weekend trips"
   },
   {
     "id": "minibus",
@@ -103,11 +187,21 @@
     "capacity": 26,
     "luggage": "Under-seat storage",
     "ac": true,
-    "pricePerKm": 35,
+    "pricePerKm": 0,
     "minKm": 300,
-    "badge": null,
-    "features": ["Rear AC + front AC", "Overhead luggage racks", "PA system", "Emergency exit"],
-    "bestFor": ["Large group tours", "School trips", "Corporate events", "Wedding baraat"],
+    "badge": "On Request",
+    "features": [
+      "Rear AC + front AC",
+      "Overhead luggage racks",
+      "PA system",
+      "Emergency exit"
+    ],
+    "bestFor": [
+      "Large group tours",
+      "School trips",
+      "Corporate events",
+      "Wedding baraat"
+    ],
     "fleetAvailable": true,
     "fleetNote": "Ideal for factory shift buses & event transport"
   },
@@ -122,8 +216,20 @@
     "pricePerKm": 0,
     "minKm": 0,
     "badge": "On Request",
-    "features": ["Multi-axle AC", "Reclining seats", "Onboard entertainment", "Under-carriage luggage hold", "Emergency exits", "PA system"],
-    "bestFor": ["Group tours (40–55 pax)", "Industrial plant transport", "Conference / event transport", "Long-distance pilgrimage groups"],
+    "features": [
+      "Multi-axle AC",
+      "Reclining seats",
+      "Onboard entertainment",
+      "Under-carriage luggage hold",
+      "Emergency exits",
+      "PA system"
+    ],
+    "bestFor": [
+      "Group tours (40–55 pax)",
+      "Industrial plant transport",
+      "Conference / event transport",
+      "Long-distance pilgrimage groups"
+    ],
     "fleetAvailable": true,
     "fleetNote": "Monthly contracts available for industrial & corporate fleets"
   }

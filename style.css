@@ -30,13 +30,9 @@ site-header,site-footer{display:contents}
 
 /* ── NAV ─────────────────────────────── */
 .site-nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-subtle)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem);display:flex;align-items:center;height:72px;gap:14px}
-.nav-logo{display:flex;align-items:center;flex:0 0 auto;text-decoration:none;gap:10px;min-width:0}
-.nav-logo img{display:block;width:auto;object-fit:contain;max-width:100%}
-.nav-logo .nav-logo-desktop{height:52px;max-height:52px;max-width:260px}
-.nav-logo .nav-logo-emblem{display:none;height:46px;max-height:46px;width:auto;flex-shrink:0}
-.nav-logo .nav-logo-brand{display:none;font-family:var(--font-display);font-weight:800;font-size:17px;color:var(--at-saffron-600);line-height:1.1;letter-spacing:.01em;white-space:nowrap}
-.nav-logo .nav-logo-brand small{display:block;font-size:10.5px;font-weight:600;color:var(--text-muted);letter-spacing:.04em;text-transform:uppercase;margin-top:2px}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem);display:flex;align-items:center;height:78px;gap:14px}
+.nav-logo{display:flex;align-items:center;flex:0 0 auto;text-decoration:none}
+.nav-logo img{display:block;height:62px;max-height:62px;width:auto;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.04))}
 .nav-links{display:flex;gap:2px;margin-left:18px}
 .nav-link{padding:8px 12px;font-family:var(--font-display);font-size:13.5px;font-weight:600;color:var(--text-strong);background:none;border:none;border-radius:8px;cursor:pointer;transition:background .14s,color .14s;text-decoration:none;display:inline-flex;align-items:center;gap:5px;line-height:1.2}
 .nav-link:hover,.nav-link.active{background:var(--at-saffron-50);color:var(--at-saffron-600)}
@@ -54,6 +50,8 @@ site-header,site-footer{display:contents}
 .nav-dd-item em{display:block;font-style:normal;font-size:11.5px;color:var(--text-muted);line-height:1.4;margin-top:2px}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:8px;flex-shrink:0}
 .nav-call-mobile{display:none;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--at-green-500);color:#fff;flex-shrink:0}
+.nav-enquire-mobile{display:none;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--at-saffron-500);color:#fff;flex-shrink:0;text-decoration:none;transition:background .14s}
+.nav-enquire-mobile:hover{background:var(--at-saffron-600)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:14px 11px;z-index:1100}
 .nav-hamburger span{display:block;width:22px;height:2px;background:var(--at-ink);border-radius:2px;transition:all .22s}
 .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -82,10 +80,6 @@ site-header,site-footer{display:contents}
 .mob-btns .btn{width:100%;justify-content:center;min-height:48px;font-size:15px}
 
 /* ── ANNOUNCE BAR ───────────────────── */
-.announce{background:#2E3192;padding:9px 16px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:600;color:#fff;position:relative}
-.announce a{color:#FAD466;text-decoration:underline;padding:3px 4px}
-.announce-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:16px;cursor:pointer;line-height:1;padding:4px 6px;margin-left:8px;flex-shrink:0;min-width:28px;min-height:28px;display:flex;align-items:center;justify-content:center;border-radius:4px}
-.announce-close:hover{color:#fff;background:rgba(255,255,255,.15)}
 
 /* ── HERO ───────────────────────────── */
 .hero{position:relative;height:58vh;min-height:420px;max-height:620px;display:flex;align-items:flex-end;overflow:hidden}
@@ -94,7 +88,7 @@ site-header,site-footer{display:contents}
 .hero-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,17,10,.9) 0%,rgba(26,17,10,.45) 40%,rgba(26,17,10,.12) 72%)}
 .hero-content{position:relative;width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem) 52px;color:#fff}
 .hero-eyebrow{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FAD466;margin-bottom:10px}
-.hero-title{font-family:var(--font-display);font-size:clamp(2.2rem,1.4rem + 3.6vw,4rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;color:#fff;margin:0 0 14px;max-width:13ch}
+.hero-title{font-family:var(--font-display);font-size:clamp(2.2rem,1.4rem + 3.6vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;margin:0 0 14px;max-width:18ch;min-height:2.2em;text-wrap:balance}
 .hero-trust{display:flex;flex-wrap:wrap;gap:8px 16px;margin-bottom:20px}
 .hero-trust span{font-size:13px;color:rgba(255,255,255,.88);display:flex;align-items:center;gap:5px}
 .hero-trust span::before{content:'✓';color:#F15A23;font-weight:800}
@@ -404,6 +398,7 @@ footer{background:#2A1B12;padding:40px 0 20px}
   .nav-hamburger{display:flex}
   .nav-right .btn-outline{display:none}
   .nav-call-mobile{display:flex}
+  .nav-enquire-mobile{display:flex}
   .grid-3{grid-template-columns:repeat(2,1fr)}
   .why-grid{grid-template-columns:repeat(2,1fr)}
   .incl-grid{grid-template-columns:repeat(3,1fr)}
@@ -424,22 +419,18 @@ footer{background:#2A1B12;padding:40px 0 20px}
   .trust-div{display:none}
 }
 @media(max-width:600px){
-  /* Mobile single-row nav: emblem + brand text on left, icons on right */
-  .nav-inner{height:64px!important;min-height:64px;max-height:64px;gap:10px;padding:0 14px;flex-wrap:nowrap}
-  .nav-logo{gap:8px;overflow:hidden;flex:1 1 auto;min-width:0}
-  .nav-logo .nav-logo-desktop{display:none!important}
-  .nav-logo .nav-logo-emblem{display:block!important;height:42px;max-height:42px;width:auto;flex-shrink:0}
-  .nav-logo .nav-logo-brand{display:block!important;font-size:16px;overflow:hidden;text-overflow:ellipsis;min-width:0}
-  .nav-logo .nav-logo-brand small{font-size:9.5px;margin-top:1px}
-  .nav-enquire{display:none!important}  /* Enquire CTA is in hamburger drawer footer */
-  .nav-right{flex:0 0 auto}
+  /* Mobile: same horizontal logo, enhanced sizing */
+  .nav-inner{height:68px;gap:8px;padding:0 12px}
+  .nav-logo img{height:50px;max-height:50px;max-width:230px}
+  .nav-enquire{display:none}  /* Enquire CTA is in hamburger drawer footer */
+  .nav-right{flex:0 0 auto;gap:6px}
   .nav-right .btn-primary{padding:8px 14px;font-size:12.5px}
   .hero{display:block;height:auto}
   .hero-bg{display:block;position:relative;inset:auto;height:56vw;min-height:200px;max-height:340px;overflow:hidden}
   .hero-bg img{display:block;position:static;width:100%;height:100%;object-fit:cover}
   .hero-scrim{display:none}
   .hero-content{position:relative;padding:18px 14px 22px;background:var(--at-brown-800)}
-  .hero-title{font-size:clamp(1.8rem,7vw,2.4rem);margin-bottom:10px}
+  .hero-title{font-size:clamp(1.7rem,6.5vw,2.2rem);margin-bottom:10px;max-width:none;min-height:2.4em}
   .hero-eyebrow{margin-bottom:6px}
   .hero-trust{gap:6px 14px;margin-bottom:14px}
   .hero-eyebrow{font-size:10px;color:var(--at-marigold-300)}
@@ -726,9 +717,8 @@ footer{background:#2A1B12;padding:40px 0 20px}
 .hero-dots button.active{background:#FAD466;width:24px;border-radius:999px}
 @media(max-width:600px){.hero-dots{bottom:auto;top:calc(min(56vw, 318px) - 22px)}}
 @media(max-width:380px){
-  .nav-logo .nav-logo-brand small{display:none}
-  .nav-logo .nav-logo-emblem{height:38px;width:38px}
-  .nav-logo .nav-logo-brand{font-size:15px}
+  .nav-logo img{height:44px;max-height:44px;max-width:190px}
+  .nav-inner{height:62px;padding:0 10px}
 }
 
 /* ── RECENTLY VIEWED STRIP ── */

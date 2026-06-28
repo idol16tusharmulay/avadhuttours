@@ -70,12 +70,10 @@
 </style>
 <script src="components.js"></script>
 <script src="data/packages-data.js"></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TravelAgency","name":"Avadhut Tours","url":"https://www.avadhuttours.com","telephone":"+918390922322","email":"avadhuttours365@gmail.com","address":{"@type":"PostalAddress","streetAddress":"P-191, Sukh Vaibhav, Sector-4","addressLocality":"Airoli, Navi Mumbai","addressRegion":"Maharashtra","postalCode":"400708","addressCountry":"IN"},"openingHours":"Mo-Sa 09:00-20:00","priceRange":"₹₹"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TravelAgency","name":"Avadhut Tours","url":"https://www.avadhuttours.com","telephone":"+918390922322","email":"avadhuttours365@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Navi Mumbai","addressRegion":"Maharashtra","addressCountry":"IN"},"areaServed":["Navi Mumbai","Pune","Satara"],"openingHours":"Mo-Sa 09:00-20:00","priceRange":"₹₹"}</script>
 </head>
 <body>
 
-<!-- 1. ANNOUNCEMENT -->
-<div class="announce" id="announce-bar">🌿 100% customised itineraries — your dates, your group, your pace. &nbsp;<a href="about.html#contact">Get a free quote →</a><button class="announce-close" onclick="dismissAnnounce()" aria-label="Dismiss announcement">✕</button></div>
 
 <!-- 2. HERO -->
 <site-header active="home"></site-header>
@@ -113,8 +111,8 @@
 (function(){
   const slides = [
     {img:'assets/groups/amritsar-golden-temple-night.jpg', eyebrow:'All-India Tours · International · Vehicle Rental', title:'Discover India,<br>Your Way'},
-    {img:'assets/destinations/kashmir-dal-lake.jpg', eyebrow:'Custom Family &amp; Honeymoon Trips', title:'No Fixed Dates.<br>Your Pace, Your Plan.'},
-    {img:'assets/destinations/manali.jpg', eyebrow:'15 Years · 5,000+ Trips · Family-Run', title:'Built Around<br>Your Group.'},
+    {img:'assets/destinations/kashmir-dal-lake.jpg', eyebrow:'Custom Family &amp; Honeymoon Trips', title:'Your Dates.<br>Your Pace.'},
+    {img:'assets/destinations/manali.jpg', eyebrow:'10 Years · 5,000+ Trips · Family-Run', title:'Built Around<br>Your Group.'},
     {img:'assets/destinations/kerala-houseboat.jpg', eyebrow:'2-Hour Quote · Free Consultation', title:'Talk to a Real<br>Travel Consultant.'}
   ];
   const root = document.getElementById('hero-rotator');
@@ -145,18 +143,6 @@
   show(0); start();
 })();
 </script>
-
-<!-- 3. TRUST STRIP -->
-<div class="trust-strip">
-  <div class="trust-inner">
-    <div class="trust-item">5000+ Happy Travellers</div><div class="trust-div"></div>
-    <div class="trust-item">32+ Destinations</div><div class="trust-div"></div>
-    <div class="trust-item">15+ Years · Family-Run</div><div class="trust-div"></div>
-    <div class="trust-item">GST-Registered &amp; Invoiced</div><div class="trust-div"></div>
-    <div class="trust-item">Police-Verified Drivers</div><div class="trust-div"></div>
-    <div class="trust-item">24×7 Tour Support</div>
-  </div>
-</div>
 
 <!-- 4. SEARCH + SEGMENT CHIPS -->
 <div class="search-wrap">
@@ -213,7 +199,7 @@
   <div class="diff-inner">
     <div class="diff-item"><span class="diff-ico">🛠️</span><div><strong>100% Customised</strong><br><span>No fixed departures</span></div></div>
     <div class="diff-item"><span class="diff-ico">⏱️</span><div><strong>2-Hour Quote</strong><br><span>Real consultant — no bots</span></div></div>
-    <div class="diff-item"><span class="diff-ico">👨‍👩‍👧</span><div><strong>Same Family. Same Drivers.</strong><br><span>15 years, owner-run</span></div></div>
+    <div class="diff-item"><span class="diff-ico">👨‍👩‍👧</span><div><strong>Same Family. Same Drivers.</strong><br><span>10 years, owner-run</span></div></div>
     <div class="diff-item"><span class="diff-ico">📞</span><div><strong>Talk to Avadhut Directly</strong><br><span>Owner-led — every trip</span></div></div>
   </div>
 </div>
@@ -480,7 +466,7 @@
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">How do I book a custom tour? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">WhatsApp us at +91 83909 22322 or fill the enquiry form on our <a href="about.html#contact" style="color:var(--at-saffron-600)">Contact page</a>. Share your destination, dates, group size and budget — we'll send a customised itinerary and quote within 2 hours.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">What's included in a standard package? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Standard packages include AC transport, hotel stay (twin sharing), breakfast &amp; dinner, all sightseeing as per itinerary, and a dedicated tour manager. Airfare, personal expenses, travel insurance and camera fees are extra unless specified.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">Do you offer EMI / instalment payment? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes! We offer flexible payment plans — typically 3 to 12 monthly instalments depending on the tour value. Call us at +91 83909 22322 to discuss a plan that suits your budget.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">What is your cancellation &amp; refund policy? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">30+ days before departure: full refund minus ₹500 admin fee. 15–30 days: 50% refund. Less than 15 days: no refund. No-show: no refund. Travel insurance is strongly recommended. See our full <a onclick="openModal('cancel');return false" href="#" style="color:var(--at-saffron-600)">Cancellation Policy</a>.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">What is your cancellation &amp; refund policy? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">30+ days before departure: full refund minus ₹500 admin fee. 15–30 days: 50% refund. Less than 15 days: <strong>25% refund OR full credit-note valid 12 months</strong>. Travel insurance is strongly recommended. See our full <a onclick="openModal('cancel');return false" href="#" style="color:var(--at-saffron-600)">Cancellation Policy</a>.</div></div></div>
     </div>
   </div>
 </section>
@@ -501,17 +487,6 @@
 </main>
 <site-footer></site-footer>
 <script>
-// Announce bar dismiss
-(function(){
-  const bar = document.getElementById('announce-bar');
-  if (bar && localStorage.getItem('at-ann-dismissed') === '1') bar.style.display = 'none';
-})();
-function dismissAnnounce() {
-  const bar = document.getElementById('announce-bar');
-  if (bar) bar.style.display = 'none';
-  try { localStorage.setItem('at-ann-dismissed', '1'); } catch(e) {}
-}
-
 function doSearch(){
   var dest=document.getElementById('s-dest').value;
   var type=document.getElementById('s-type').value;

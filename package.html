@@ -126,7 +126,7 @@
 @media(max-width:600px){.pkg-actions-toolbar .btn{flex:1 1 calc(50% - 4px);font-size:12.5px;justify-content:center}}
 
 @media print{
-  site-header,site-footer,.wa-float,.announce,.pkg-actions-toolbar,.pkg-side,.pkg-cta-band,.pkg-detail-hero::after{display:none!important}
+  site-header,site-footer,.wa-float,.pkg-actions-toolbar,.pkg-side,.pkg-cta-band,.pkg-detail-hero::after{display:none!important}
   .pkg-detail-hero{height:auto;background:none!important;color:#000;padding:0;margin-bottom:20px}
   .pkg-detail-hero-inner{position:static;padding:0;color:#000}
   .pdh-content{color:#000;max-width:none}
@@ -265,7 +265,7 @@ const COMMON_FAQS = [
   {q:"Where will you pick us up from?",a:"Pickup is flexible. Share your home city or preferred starting point and we'll arrange transport from there — Mumbai, Pune, anywhere."},
   {q:"Is airfare included?",a:"No — domestic packages exclude airfare/train tickets so you can book your preferred carrier/timing. We're happy to suggest the best flights and book them separately if needed."},
   {q:"How do I lock in the booking?",a:"A 25% advance confirms the booking; balance is due 15 days before departure. We accept UPI, bank transfer and cards. Full GST invoice provided."},
-  {q:"What if I need to cancel or postpone?",a:"Full refund (minus ₹500 admin) for cancellations 30+ days before departure. 50% refund 15–30 days out. See the full <a href='about.html#contact' style='color:var(--at-saffron-600)'>cancellation policy</a>."}
+  {q:"What if I need to cancel or postpone?",a:"Full refund (minus ₹500 admin) for cancellations 30+ days before departure. 50% refund 15–30 days out. Less than 15 days: 25% refund OR full credit-note valid 12 months. See the full <a href='about.html#contact' style='color:var(--at-saffron-600)'>cancellation policy</a>."}
 ];
 
 function render(t){
@@ -292,7 +292,7 @@ function render(t){
       const nightsLabel = h.nights === 1 ? '1 night' : `${h.nights||1} nights`;
       const nameHtml = h.name && h.name.trim()
         ? `<div class="hr-city-sub" data-nights="${nightsLabel}">${h.name}</div>`
-        : `<div class="hr-city-sub" data-nights="${nightsLabel}"></div>`;
+        : '';
       return `<div class="hotel-row">
         <span class="hr-num">${i+1}</span>
         <div><div class="hr-city">📍 ${h.city}</div>${nameHtml}</div>

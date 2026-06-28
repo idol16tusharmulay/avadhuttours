@@ -18,10 +18,7 @@ class SiteHeader extends HTMLElement {
 <nav class="site-nav">
   <div class="nav-inner">
     <a class="nav-logo" href="/index.html" aria-label="Avadhut Tours — Home">
-      <img class="nav-logo-desktop" src="/assets/logo/avadhut-logo-horizontal.png" alt="Avadhut Tours"
-           onerror="this.style.display='none';this.parentElement.classList.add('logo-fallback')">
-      <img class="nav-logo-emblem" src="/assets/logo/avadhut-emblem.png" alt="" aria-hidden="true">
-      <span class="nav-logo-brand">Avadhut Tours<small>Customised since 2008</small></span>
+      <img src="/assets/logo/avadhut-logo-horizontal.png" alt="Avadhut Tours — Customised tours since 2015">
     </a>
     <div class="nav-links">
       ${lnk('home','/index.html','Home')}
@@ -45,7 +42,7 @@ class SiteHeader extends HTMLElement {
       <div class="nav-dropdown">
         <button class="nav-link nav-dd-btn${isCompanyActive}" aria-haspopup="true">About Us <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="nav-dd-menu">
-          <a href="/about.html" class="nav-dd-item"><span class="dd-ico">ℹ️</span><span><strong>Our Story</strong><em>15+ years · 5,000+ travellers</em></span></a>
+          <a href="/about.html" class="nav-dd-item"><span class="dd-ico">ℹ️</span><span><strong>Our Story</strong><em>10+ years · 5,000+ travellers</em></span></a>
           <a href="/reviews.html" class="nav-dd-item"><span class="dd-ico">⭐</span><span><strong>Customer Reviews</strong><em>500+ Google reviews · 4.7★</em></span></a>
           <a href="/gallery.html" class="nav-dd-item"><span class="dd-ico">📷</span><span><strong>Photo Gallery</strong><em>Trip moments from across India</em></span></a>
           <a href="/blog.html" class="nav-dd-item"><span class="dd-ico">✍️</span><span><strong>Travel Blog</strong><em>Tips, guides &amp; destination stories</em></span></a>
@@ -58,6 +55,11 @@ class SiteHeader extends HTMLElement {
       <a href="tel:+918390922322" class="nav-call-mobile" aria-label="Call">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="20" height="20">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.59 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.13-1.13a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </a>
+      <a href="/about.html#contact" class="nav-enquire-mobile" aria-label="Get a free quote">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="20" height="20">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
         </svg>
       </a>
       <a href="/about.html#contact" class="btn btn-primary btn-sm nav-enquire">Enquire Now</a>
@@ -93,7 +95,7 @@ class SiteHeader extends HTMLElement {
     ${mob('fleet','/fleet.html','🏢','Corporate Fleet','Employee shuttle · Monthly contract','var(--at-navy-50)')}
 
     <div class="mob-group-label">About Us</div>
-    ${mob('about','/about.html','ℹ️','Our Story','15+ years · 5000+ travellers','var(--at-green-100)')}
+    ${mob('about','/about.html','ℹ️','Our Story','10+ years · 5000+ travellers','var(--at-green-100)')}
     ${mob('reviews','/reviews.html','⭐','Customer Reviews','500+ Google reviews · 4.7★','var(--at-saffron-50)')}
     ${mob('gallery','/gallery.html','📷','Photo Gallery','Trip moments from across India','var(--at-saffron-50)')}
     ${mob('blog','/blog.html','✍️','Travel Blog','Tips, guides &amp; destination stories','var(--at-green-100)')}
@@ -120,11 +122,10 @@ class SiteFooter extends HTMLElement {
     <div class="footer-grid">
       <div class="ft-brand-col ft-contact">
         <div class="ft-logo-wrap"><img class="ft-logo" src="/assets/logo/avadhut-logo-horizontal.png" alt="Avadhut Tours" onerror="this.parentElement.style.display='none'"></div>
-        <p class="ft-desc">Customised tour packages &amp; vehicle rental across all India. Family-run, trusted by 5000+ travellers since 2008.</p>
+        <p class="ft-desc">Customised tour packages &amp; vehicle rental across all India. Family-run, trusted by 5000+ travellers since 2015.</p>
 
         <div class="ft-contact-info">
-          <div class="ft-contact-row"><span class="ft-ci">📍</span><span style="color:rgba(255,255,255,.68)">P-191, Sukh Vaibhav, Sector-4,<br>Airoli, Navi Mumbai 400 708</span></div>
-          <div class="ft-contact-row" style="margin-left:26px;font-size:12px;color:rgba(255,255,255,.5);margin-top:-4px;margin-bottom:8px">🏢 Offices in Pune &amp; Satara</div>
+          <div class="ft-contact-row"><span class="ft-ci">📍</span><span style="color:rgba(255,255,255,.68)">Offices in <strong style="color:#fff;font-weight:600">Navi Mumbai · Pune · Satara</strong></span></div>
           <div class="ft-contact-row"><span class="ft-ci">📞</span><a href="tel:+918390922322" style="color:rgba(255,255,255,.68)">+91 83909 22322</a></div>
           <div class="ft-contact-row"><span class="ft-ci">✉</span><a href="mailto:avadhuttours365@gmail.com" style="color:rgba(255,255,255,.68);word-break:break-all">avadhuttours365@gmail.com</a></div>
           <div class="ft-contact-row"><span class="ft-ci">🕐</span><span style="color:rgba(255,255,255,.68)">Mon–Sat 9 AM–8 PM</span></div>
@@ -142,10 +143,9 @@ class SiteFooter extends HTMLElement {
           </a>
         </div>
 
-        <form id="newsletter-form" action="https://formsubmit.co/ajax/avadhuttours365@gmail.com" method="POST" class="ft-newsletter">
-          <input type="hidden" name="_subject" value="New newsletter subscriber">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
+        <form id="newsletter-form" action="https://script.google.com/macros/s/AKfycbz4XiO28ICdJyHuAfvqgdXd1F6r2u7JsGYpNQtHYAbrTN1e5fDxhMKpavGVqBnvbusG/exec" method="POST" class="ft-newsletter">
+          <input type="hidden" name="_form_type" value="Newsletter Subscription">
+          <input type="hidden" name="_referrer" value="footer">
           <label>📧 Monthly travel inspiration</label>
           <div class="ft-newsletter-row">
             <input type="email" name="email" required placeholder="your@email.com">
@@ -199,9 +199,9 @@ class SiteFooter extends HTMLElement {
     <div class="modal-body">
       <p>We understand plans can change. Here is our refund schedule:</p>
       <h4>Domestic Tours</h4>
-      <ul><li><strong>30+ days before departure:</strong> Full refund minus ₹500 admin fee</li><li><strong>15–30 days:</strong> 50% refund</li><li><strong>Less than 15 days:</strong> No refund</li><li><strong>No-show:</strong> No refund</li></ul>
+      <ul><li><strong>30+ days before departure:</strong> Full refund minus ₹500 admin fee</li><li><strong>15–30 days:</strong> 50% refund</li><li><strong>Less than 15 days:</strong> 25% refund <em>or</em> full credit-note valid 12 months</li><li><strong>No-show:</strong> Credit-note may be considered case-by-case</li></ul>
       <h4>International Tours</h4>
-      <ul><li><strong>45+ days before departure:</strong> Full refund minus ₹1,000 admin fee</li><li><strong>30–45 days:</strong> 50% refund</li><li><strong>Less than 30 days:</strong> No refund</li></ul>
+      <ul><li><strong>45+ days before departure:</strong> Full refund minus ₹1,000 admin fee</li><li><strong>30–45 days:</strong> 50% refund</li><li><strong>Less than 30 days:</strong> 25% refund <em>or</em> credit-note (subject to airline / visa cancellation rules)</li></ul>
       <h4>One Day Picnics</h4>
       <p>7+ days before: full refund. Less than 7 days: no refund. Travel insurance is strongly recommended.</p>
     </div>
@@ -252,24 +252,19 @@ class SiteFooter extends HTMLElement {
         btn.disabled = true;
         btn.textContent = 'Sending…';
         if (msg) { msg.textContent = ''; msg.className = 'ft-newsletter-msg'; }
-        fetch(nl.action, {
-          method: 'POST',
-          headers: { Accept: 'application/json' },
-          body: new FormData(nl)
-        }).then(r => r.json()).then(d => {
-          if (d.success === 'true' || d.success === true) {
+        const body = new URLSearchParams(new FormData(nl));
+        fetch(nl.action, { method: 'POST', mode: 'no-cors', body })
+          .then(() => {
             btn.textContent = '✓ Subscribed';
             input.value = '';
             if (msg) { msg.textContent = "Thanks! We'll be in touch monthly."; msg.className = 'ft-newsletter-msg success'; }
             setTimeout(() => { btn.textContent = origText; btn.disabled = false; }, 4000);
-          } else {
-            throw new Error(d.message || 'Submit failed');
-          }
-        }).catch(() => {
-          btn.textContent = origText;
-          btn.disabled = false;
-          if (msg) { msg.textContent = "Couldn't subscribe — try again or WhatsApp us."; msg.className = 'ft-newsletter-msg error'; }
-        });
+          })
+          .catch(() => {
+            btn.textContent = origText;
+            btn.disabled = false;
+            if (msg) { msg.textContent = "Couldn't subscribe — try again or WhatsApp us."; msg.className = 'ft-newsletter-msg error'; }
+          });
       });
     }
   }
