@@ -30,9 +30,13 @@ site-header,site-footer{display:contents}
 
 /* ── NAV ─────────────────────────────── */
 .site-nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-subtle)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem);display:flex;align-items:center;height:62px}
-.nav-logo{display:flex;align-items:center;flex:0 0 auto}
-.nav-logo img{height:40px}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem);display:flex;align-items:center;height:72px;gap:14px}
+.nav-logo{display:flex;align-items:center;flex:0 0 auto;text-decoration:none;gap:10px;min-width:0}
+.nav-logo img{display:block;width:auto;object-fit:contain;max-width:100%}
+.nav-logo .nav-logo-desktop{height:52px;max-height:52px;max-width:260px}
+.nav-logo .nav-logo-emblem{display:none;height:46px;max-height:46px;width:auto;flex-shrink:0}
+.nav-logo .nav-logo-brand{display:none;font-family:var(--font-display);font-weight:800;font-size:17px;color:var(--at-saffron-600);line-height:1.1;letter-spacing:.01em;white-space:nowrap}
+.nav-logo .nav-logo-brand small{display:block;font-size:10.5px;font-weight:600;color:var(--text-muted);letter-spacing:.04em;text-transform:uppercase;margin-top:2px}
 .nav-links{display:flex;gap:2px;margin-left:18px}
 .nav-link{padding:8px 12px;font-family:var(--font-display);font-size:13.5px;font-weight:600;color:var(--text-strong);background:none;border:none;border-radius:8px;cursor:pointer;transition:background .14s,color .14s;text-decoration:none;display:inline-flex;align-items:center;gap:5px;line-height:1.2}
 .nav-link:hover,.nav-link.active{background:var(--at-saffron-50);color:var(--at-saffron-600)}
@@ -420,8 +424,15 @@ footer{background:#2A1B12;padding:40px 0 20px}
   .trust-div{display:none}
 }
 @media(max-width:600px){
-  .nav-inner{height:56px}
-  .nav-logo img{height:34px;max-width:130px;object-fit:contain}
+  /* Mobile single-row nav: emblem + brand text on left, icons on right */
+  .nav-inner{height:64px!important;min-height:64px;max-height:64px;gap:10px;padding:0 14px;flex-wrap:nowrap}
+  .nav-logo{gap:8px;overflow:hidden;flex:1 1 auto;min-width:0}
+  .nav-logo .nav-logo-desktop{display:none!important}
+  .nav-logo .nav-logo-emblem{display:block!important;height:42px;max-height:42px;width:auto;flex-shrink:0}
+  .nav-logo .nav-logo-brand{display:block!important;font-size:16px;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .nav-logo .nav-logo-brand small{font-size:9.5px;margin-top:1px}
+  .nav-enquire{display:none!important}  /* Enquire CTA is in hamburger drawer footer */
+  .nav-right{flex:0 0 auto}
   .nav-right .btn-primary{padding:8px 14px;font-size:12.5px}
   .hero{display:block;height:auto}
   .hero-bg{display:block;position:relative;inset:auto;height:56vw;min-height:200px;max-height:340px;overflow:hidden}
@@ -489,8 +500,6 @@ footer{background:#2A1B12;padding:40px 0 20px}
 
 /* ── NAV ALIASES (multi-page) ──────────── */
 .nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-subtle)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem);display:flex;align-items:center;height:62px;gap:8px}
-.nav-logo img{height:40px}
 .nav-logo-text{font-family:var(--font-display);font-weight:800;font-size:17px;color:var(--at-navy-700)}
 .nav-actions{margin-left:auto;display:flex;align-items:center;gap:8px;flex-shrink:0}
 .btn-outline-sm{padding:7px 14px;font-family:var(--font-display);font-size:13px;font-weight:700;border-radius:999px;border:1.5px solid var(--at-saffron-500);background:transparent;color:var(--at-saffron-600);text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:background .14s}
@@ -716,6 +725,11 @@ footer{background:#2A1B12;padding:40px 0 20px}
 .hero-dots button{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);border:none;padding:0;cursor:pointer;transition:width .25s,background .25s}
 .hero-dots button.active{background:#FAD466;width:24px;border-radius:999px}
 @media(max-width:600px){.hero-dots{bottom:auto;top:calc(min(56vw, 318px) - 22px)}}
+@media(max-width:380px){
+  .nav-logo .nav-logo-brand small{display:none}
+  .nav-logo .nav-logo-emblem{height:38px;width:38px}
+  .nav-logo .nav-logo-brand{font-size:15px}
+}
 
 /* ── RECENTLY VIEWED STRIP ── */
 .recent-strip{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}

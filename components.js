@@ -17,10 +17,11 @@ class SiteHeader extends HTMLElement {
     this.innerHTML = `
 <nav class="site-nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="/index.html">
-      <img src="/assets/logo/avadhut-logo-horizontal.png" alt="Avadhut Tours"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="nav-logo-text" style="display:none">Avadhut Tours</span>
+    <a class="nav-logo" href="/index.html" aria-label="Avadhut Tours — Home">
+      <img class="nav-logo-desktop" src="/assets/logo/avadhut-logo-horizontal.png" alt="Avadhut Tours"
+           onerror="this.style.display='none';this.parentElement.classList.add('logo-fallback')">
+      <img class="nav-logo-emblem" src="/assets/logo/avadhut-emblem.png" alt="" aria-hidden="true">
+      <span class="nav-logo-brand">Avadhut Tours<small>Customised since 2008</small></span>
     </a>
     <div class="nav-links">
       ${lnk('home','/index.html','Home')}
