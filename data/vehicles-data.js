@@ -8,7 +8,7 @@ window.AT_VEHICLES = [
     "capacity": 4,
     "luggage": "2 medium bags",
     "ac": true,
-    "pricePerKm": 12,
+    "pricePerKm": 14,
     "minKm": 250,
     "badge": null,
     "features": ["AC", "Music system", "USB charging", "Comfortable seats"],
